@@ -1,4 +1,6 @@
-﻿nav#page-navigation #page-navigation-links
+﻿@import "inc/_variables.scss";
+
+nav#page-navigation #page-navigation-links
 {
     text-align: left;
 
@@ -24,6 +26,27 @@
     {
         margin-right: 0;
         margin-left: 1em;
+    }
+
+    .group-input-button
+    {
+        button
+        {
+            border-right-width: 0;
+            border-left-width: $border-size;
+            border-top-left-radius: $border-size;
+            border-top-right-radius: 0;
+            border-bottom-left-radius: $border-size;
+            border-bottom-right-radius: 0;
+        }
+
+        select
+        {
+            border-top-left-radius: 0;
+            border-top-right-radius: $border-size;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: $border-size;
+        }
     }
 }
 

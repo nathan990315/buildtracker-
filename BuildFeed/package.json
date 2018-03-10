@@ -3,14 +3,18 @@
   "name": "buildfeed",
   "private": true,
   "devDependencies": {
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^4.1.0",
-    "gulp-clean-css": "^3.9.2",
-    "gulp-sass": "^3.1.0",
-    "gulp-sourcemaps": "^2.6.4",
-    "gulp-typescript": "^3.2.4",
-    "gulp-uglify-es": "^1.0.0",
-    "typescript": "^2.7.1",
-    "node-sass": "^4.7.2"
+    "@types/google.analytics": "0.0.38",
+    "@types/jquery": "^3.3.1",
+    "@types/jsrender": "0.0.29",
+    "gulp": "3.9.1",
+    "gulp-autoprefixer": "5.0.0",
+    "gulp-clean-css": "3.9.3",
+    "gulp-sass": "3.1.0",
+    "gulp-sourcemaps": "2.6.4",
+    "gulp-typescript": "4.0.1",
+    "gulp-uglify-es": "1.0.1",
+    "multipipe": "2.0.3",
+    "node-sass": "4.7.2",
+    "typescript": "2.7.2"
   }
 }

@@ -6,31 +6,45 @@ var sourceMaps = require("gulp-sourcemaps");
 var ts = require("gulp-typescript");
 var uglify = require("gulp-uglify-es").default;
 var autoprefixer = require("gulp-autoprefixer");
+var pipe = require("multipipe");
+
+function catchError(err)
+{
+    if (typeof (err) !== "undefined" && typeof (err.hasOwnProperty("messageFormatted")) !== "undefined")
+    {
+        console.log(err.messageFormatted);
+    }
+    else
+    {
+        console.log("Error in processing task...");
+    }
+}
 
 gulp.task("sass-compile",
     function()
     {
-        gulp.src("./res/css/*.scss")
-            .pipe(sourceMaps.init())
-            .pipe(sass())
-            .pipe(autoprefixer({
+        var pipes = pipe(sourceMaps.init(),
+            sass(),
+            autoprefixer({
                 browsers: ["> 1%", "IE 10-11", "last 5 versions"],
                 cascade: false
-            }))
-            .pipe(cleanCss())
-            .pipe(sourceMaps.write("./"))
-            .pipe(gulp.dest("./res/css/"));
+            }),
+            cleanCss(),
+            sourceMaps.write("./"),
+            gulp.dest("./res/css/"));
+
+        gulp.src("./res/css/*.scss")
+            .pipe(pipes);
     });
 
+
+var tsProject = ts.createProject("tsconfig.json");
 gulp.task("typescript",
     function()
     {
         return gulp.src("./res/ts/*.ts")
             .pipe(sourceMaps.init())
-            .pipe(ts({
-                target: "es6",
-                sourceMap: false
-            }))
+            .pipe(tsProject())
             .js
             .pipe(uglify())
             .pipe(sourceMaps.write("./"))

@@ -159,6 +159,9 @@
   <data name="Common_Admin" xml:space="preserve">
     <value>Admin</value>
   </data>
+  <data name="Common_Blog" xml:space="preserve">
+    <value>Blog</value>
+  </data>
   <data name="Common_ChangePassword" xml:space="preserve">
     <value>Changer le mot de passe</value>
   </data>
@@ -200,6 +203,9 @@
   </data>
   <data name="Common_ThemeLight" xml:space="preserve">
     <value>Clair</value>
+  </data>
+  <data name="Common_ThemeWinter" xml:space="preserve">
+    <value>Hiver</value>
   </data>
   <data name="Common_TitlePage" xml:space="preserve">
     <value>| Page {0}</value>
@@ -422,6 +428,9 @@ L'équipe {0}.</value>
   <data name="Search_Year" xml:space="preserve">
     <value>Année</value>
   </data>
+  <data name="Support_AccountValidation" xml:space="preserve">
+    <value>Chaque compte est validé par un administrateur, donc soyez patient et reverifiez plus tard</value>
+  </data>
   <data name="Support_AdditionsToBuildFeed" xml:space="preserve">
     <value>Ajouts dans BuildFeed</value>
   </data>
@@ -497,6 +506,9 @@ L'équipe {0}.</value>
   <data name="Support_RememberMe" xml:space="preserve">
     <value>Se souvenir de moi</value>
   </data>
+  <data name="Support_ThanksRegister" xml:space="preserve">
+    <value>Merci d'avoir créé un compte</value>
+  </data>
   <data name="Support_UserName" xml:space="preserve">
     <value>Nom de compte utilisateur</value>
   </data>
@@ -516,10 +528,4 @@ L'équipe {0}.</value>
     <value>Semaine</value>
   </data>
 
-<data name="Support_AccountValidation" xml:space="preserve">
-    <value>Chaque compte est validé par un administrateur, donc soyez patient et reverifiez plus tard</value>
-  </data>
-<data name="Support_ThanksRegister" xml:space="preserve">
-    <value>Merci d'avoir créé un compte</value>
-  </data>
 </root>

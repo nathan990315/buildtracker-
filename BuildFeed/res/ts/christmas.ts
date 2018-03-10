@@ -1,4 +1,4 @@
-﻿"use script";
+﻿"use strict";
 
 module BuildFeed.Christmas
 {
@@ -7,7 +7,6 @@ module BuildFeed.Christmas
     let snowContainer: HTMLDivElement;
     let snow: Array<Snowflake> = [];
     let counter: number = 0;
-    let tick: number = 0;
 
     class Snowflake
     {

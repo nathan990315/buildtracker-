@@ -159,6 +159,9 @@
   <data name="Common_Admin" xml:space="preserve">
     <value>Administrator</value>
   </data>
+  <data name="Common_Blog" xml:space="preserve">
+    <value>Blog</value>
+  </data>
   <data name="Common_ChangePassword" xml:space="preserve">
     <value>Zmień hasło</value>
   </data>
@@ -200,6 +203,9 @@
   </data>
   <data name="Common_ThemeLight" xml:space="preserve">
     <value>Jasny</value>
+  </data>
+  <data name="Common_ThemeWinter" xml:space="preserve">
+    <value>Zima</value>
   </data>
   <data name="Common_TitlePage" xml:space="preserve">
     <value>| Strona {0}</value>
@@ -422,6 +428,9 @@ Zespół {0}.</value>
   <data name="Search_Year" xml:space="preserve">
     <value>rok</value>
   </data>
+  <data name="Support_AccountValidation" xml:space="preserve">
+    <value>Każde konto jest sprawdzane przez Administratora, więc proszę uzbroić się w cierpliwość i sprawdzić ponownie później.</value>
+  </data>
   <data name="Support_AdditionsToBuildFeed" xml:space="preserve">
     <value>Dodatki do BuildFeed</value>
   </data>
@@ -497,6 +506,9 @@ Zespół {0}.</value>
   <data name="Support_RememberMe" xml:space="preserve">
     <value>Zapamiętaj mnie</value>
   </data>
+  <data name="Support_ThanksRegister" xml:space="preserve">
+    <value>Dziękujemy za rejestrację</value>
+  </data>
   <data name="Support_UserName" xml:space="preserve">
     <value>Nazwa użytkownika</value>
   </data>
@@ -516,10 +528,4 @@ Zespół {0}.</value>
     <value>Tydzień</value>
   </data>
 
-<data name="Support_AccountValidation" xml:space="preserve">
-    <value>Każde konto jest sprawdzane przez Administratora, więc proszę uzbroić się w cierpliwość i sprawdzić ponownie później.</value>
-  </data>
-<data name="Support_ThanksRegister" xml:space="preserve">
-    <value>Dziękujemy za rejestrację</value>
-  </data>
 </root>

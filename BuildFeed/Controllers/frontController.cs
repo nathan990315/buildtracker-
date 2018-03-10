@@ -453,11 +453,7 @@ namespace BuildFeed.Controllers
                 Type = MetaType.Version,
                 Value = valueString
             });
-            ViewBag.Item = new
-            {
-                major,
-                minor
-            };
+            ViewBag.Item = new BuildVersion(major, minor);
             ViewBag.ItemId = valueString;
 
             var builds = await _bModel.SelectVersion(major, minor, PAGE_SIZE, (page - 1) * PAGE_SIZE);
