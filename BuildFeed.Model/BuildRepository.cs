@@ -12,7 +12,7 @@ namespace BuildFeed.Model
     public partial class BuildRepository
     {
         public const int CURRENT_LONG_TERM = (int)ProjectFamily.Redstone;
-        public const int CURRENT_RELEASE = (int)ProjectFamily.Feature2;
+        public const int CURRENT_RELEASE = (int)ProjectFamily.Redstone3;
         public const int CURRENT_XBOX = (int)ProjectFamily.Redstone3;
 
         private const string BUILD_COLLECTION_NAME = "builds";
