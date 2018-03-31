@@ -101,7 +101,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BuildFeed.Local\BuildFeed.Local.csproj">
-      <Project>{3485b33a-6c3a-4535-9d85-4696914ad504}</Project>
+      <Project>{9ebd4db1-1d37-456b-ad90-357aa89dd1b7}</Project>
       <Name>BuildFeed.Local</Name>
     </ProjectReference>
   </ItemGroup>

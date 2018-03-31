@@ -10,6 +10,7 @@
 
 namespace BuildFeed.Local {
     using System;
+    using System.Reflection;
     
     
     /// <summary>
@@ -39,7 +40,7 @@ namespace BuildFeed.Local {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BuildFeed.Local.VariantTerms", typeof(VariantTerms).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("BuildFeed.Local.VariantTerms", typeof(VariantTerms).GetTypeInfo().Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

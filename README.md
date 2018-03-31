@@ -9,7 +9,7 @@ BuildFeed is a website for tracking Windows build numbers. The canonical version
 Current versions of BuildFeed require the following:
 * IIS 7.0 or greater
 * IIS URL Rewriting module
-* .NET Framework 4.7
+* .NET Framework 4.7.1
 * MongoDB v2.4 or newer
 
 There are a few configuration files missing from the Git repository. You will need to add these to your local copy.
@@ -53,8 +53,9 @@ This file contains sensitive configuration data:
 
 The following will be required to develop BuildFeed:
 * Visual Studio 2017 (Community will be sufficient)
-* .NET Framework 4.7 (inc. Targeting Pack via VS 2017 installer)
+* .NET Framework 4.7.1 (inc. Targeting Pack via VS 2017 installer)
 * MongoDB 2.4 or newer
+* Node - BuildFeed is developed using the current branch, mileage may vary with older releases.
 * Node support within Visual Studio 2017.
 
 You will need to follow the instructions under hosting for restoring the files missing from the repository.
@@ -79,7 +80,7 @@ Other files of note include:
 * `manifest.json` - contains the configuration data for BuildFeed as a Progressive Web Application.
 * `gulpfile.js` - contains the gulp tasks and configuration/
 * `package.json` - contains the Node packages used within the gulp system.
-* `tsconfig.json` - contains the configuration data for TypeScript. Used here to exclude typings from producing syntax warnings.
+* `tsconfig.json` - contains the configuration data for the TypeScript compiler.
 * `browserconfig.xml` - contains the Internet Explorer web application description.
 * `Controllers/apiController.cs` - contains the controller for the BuildFeed API.
 
