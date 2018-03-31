@@ -159,6 +159,9 @@
   <data name="Common_Admin" xml:space="preserve">
     <value>Administratorius</value>
   </data>
+  <data name="Common_Blog" xml:space="preserve">
+    <value>Tinklaraštis</value>
+  </data>
   <data name="Common_ChangePassword" xml:space="preserve">
     <value>Pakeisti slaptažodį</value>
   </data>
@@ -200,6 +203,9 @@
   </data>
   <data name="Common_ThemeLight" xml:space="preserve">
     <value>Šviesi</value>
+  </data>
+  <data name="Common_ThemeWinter" xml:space="preserve">
+    <value>Žiema</value>
   </data>
   <data name="Common_TitlePage" xml:space="preserve">
     <value>| {0} puslapis</value>
@@ -422,6 +428,9 @@ Ačiū,
   <data name="Search_Year" xml:space="preserve">
     <value>Metai</value>
   </data>
+  <data name="Support_AccountValidation" xml:space="preserve">
+    <value>Kiekvienas vartotojas yra patvirtinamas administratoriaus, tad būkite kantrus ir patikrinkite vėliau</value>
+  </data>
   <data name="Support_AdditionsToBuildFeed" xml:space="preserve">
     <value>BuildFeed priedai</value>
   </data>
@@ -440,12 +449,9 @@ Ačiū,
   <data name="Support_EmailAddress" xml:space="preserve">
     <value>El. pašto adresas</value>
   </data>
-  
-<!--
-<data name="Support_EmailValidationContent" xml:space="preserve">
-    <value>[!!! Âñ Ʋáℓïδáƭïôñ ℓïñƙ λáƨ βèèñ ƨèñƭ ƭô ¥ôúř è₥áïℓ áδδřèƨƨ. Þℓèáƨè çℓïçƙ ƭλè ℓïñƙ ïñ ƭλè è₥áïℓ ƭô Ʋèřïƒ¥ ƭλè áççôúñƭ. ℓôřè₥ ïƥƨú₥ δôℓô !!!]</value>
+  <data name="Support_EmailValidationContent" xml:space="preserve">
+    <value>Patvirtinimo nuoroda nusiųsta į Jūsų el. paštą. Prašome paspausti ant nuorodos, kad patvirtintumėte savo profilį.</value>
   </data>
--->
   <data name="Support_EmailValidationTitle" xml:space="preserve">
     <value>Prašome patvirtinti el. pašto adresą</value>
   </data>
@@ -500,6 +506,9 @@ Ačiū,
   <data name="Support_RememberMe" xml:space="preserve">
     <value>Prisiminti mane</value>
   </data>
+  <data name="Support_ThanksRegister" xml:space="preserve">
+    <value>Ačiū, kad užsiregistravote</value>
+  </data>
   <data name="Support_UserName" xml:space="preserve">
     <value>Vartotojo vardas</value>
   </data>
@@ -519,10 +528,4 @@ Ačiū,
     <value>Savaitė</value>
   </data>
 
-<data name="Support_AccountValidation" xml:space="preserve">
-    <value>Kiekvienas vartotojas yra patvirtinamas administratoriaus, tad būkite kantrus ir patikrinkite vėliau</value>
-  </data>
-<data name="Support_ThanksRegister" xml:space="preserve">
-    <value>Ačiū, kad užsiregistravote</value>
-  </data>
 </root>
