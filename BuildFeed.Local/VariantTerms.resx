@@ -242,6 +242,9 @@ The {0} Team.</value>
   <data name="Front_Comments" xml:space="preserve">
     <value>Comments</value>
   </data>
+  <data name="Front_CurrentAnalog" xml:space="preserve">
+    <value>Current HoloLens</value>
+  </data>
   <data name="Front_CurrentCanary" xml:space="preserve">
     <value>Current Canary</value>
   </data>

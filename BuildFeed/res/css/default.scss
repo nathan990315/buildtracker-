@@ -659,6 +659,16 @@ article
             }
         }
 
+        &.latest-flex-purple
+        {
+            border-color: $strong-purple;
+
+            h4.latest-flex-title
+            {
+                background: $strong-purple;
+            }
+        }
+
         .latest-flex-detail
         {
             text-align: center;

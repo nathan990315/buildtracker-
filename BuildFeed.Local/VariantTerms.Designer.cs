@@ -421,6 +421,15 @@ namespace BuildFeed.Local {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Current HoloLens.
+        /// </summary>
+        public static string Front_CurrentAnalog {
+            get {
+                return ResourceManager.GetString("Front_CurrentAnalog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Current Canary.
         /// </summary>
         public static string Front_CurrentCanary {

@@ -1,0 +1,26 @@
+﻿@using BuildFeed.Model.View
+@helper LatestBuild(string title, FrontPageBuild build)
+{
+    <h4 class="latest-flex-title">@title</h4>
+    <div class="latest-flex-detail">
+        <p class="latest-flex-build">
+            @if (build.Revision.HasValue)
+            {
+                @($"{build.Number}.{build.Revision}")
+            }
+            else
+            {
+                @build.Number
+            }
+        </p>
+        <p class="latest-flex-lab">
+            @build.Lab
+        </p>
+        @if (build.BuildTime.HasValue)
+        {
+            <p class="latest-flex-time">
+                @build.BuildTime.Value.ToString("HH:mm, dddd dd MMMM yyyy")
+            </p>
+        }
+    </div>
+}

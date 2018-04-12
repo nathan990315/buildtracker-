@@ -142,10 +142,10 @@
     <value>Compilações</value>
   </data>
   <data name="Bulk_Instructions" xml:space="preserve">
-    <value>Adicione múltiplas compilações em baixo escrevendo a string completa da compilação, cada um em cada linha. Todas as compilações adicionadas por esta página serão consideradas do tipo de fonte "Vazamento Privado".</value>
+    <value>Adicione múltiplas compilações em baixo escrevendo a string completa da compilação, cada uma em cada linha. Todas as compilações adicionadas por esta página serão consideradas do tipo de fonte "Vazamento Privado".</value>
   </data>
   <data name="Bulk_SendNotifications" xml:space="preserve">
-    <value>Enviar Notificações</value>
+    <value>Enviar notificações</value>
   </data>
   <data name="Bulk_Success" xml:space="preserve">
     <value>Estas compilações foram adicionadas com sucesso.</value>
@@ -154,10 +154,13 @@
     <value>Adicionar compilação</value>
   </data>
   <data name="Common_AddBulk" xml:space="preserve">
-    <value>Adicionar em Massa</value>
+    <value>Adicionar em massa</value>
   </data>
   <data name="Common_Admin" xml:space="preserve">
     <value>Administrador</value>
+  </data>
+  <data name="Common_Blog" xml:space="preserve">
+    <value>Blog</value>
   </data>
   <data name="Common_ChangePassword" xml:space="preserve">
     <value>Alterar palavra-passe</value>
@@ -201,6 +204,9 @@
   <data name="Common_ThemeLight" xml:space="preserve">
     <value>Claro</value>
   </data>
+  <data name="Common_ThemeWinter" xml:space="preserve">
+    <value>Inverno</value>
+  </data>
   <data name="Common_TitlePage" xml:space="preserve">
     <value>|Página {0}</value>
   </data>
@@ -227,7 +233,7 @@ A equipa do {0}.
     <value>{0}: Por favor verifique o seu endereço de correio eletrónico.</value>
   </data>
   <data name="Front_About" xml:space="preserve">
-    <value>Acerca do</value>
+    <value>Acerca</value>
   </data>
   <data name="Front_AboutSite" xml:space="preserve">
     <value>Acerca do {0}</value>
@@ -238,6 +244,12 @@ A equipa do {0}.
   <data name="Front_Comments" xml:space="preserve">
     <value>Comentários</value>
   </data>
+  
+<!--
+<data name="Front_CurrentAnalog" xml:space="preserve">
+    <value>[!!! Çúřřèñƭ Hôℓô£èñƨ ℓ !!!]</value>
+  </data>
+-->
   <data name="Front_CurrentCanary" xml:space="preserve">
     <value>Atualmente no Canário</value>
   </data>
@@ -356,7 +368,7 @@ A equipa do {0}.
     <value>Tempo de modificação</value>
   </data>
   <data name="Model_Revision" xml:space="preserve">
-    <value>Resvisão de Compilação</value>
+    <value>Revisão da Compilação</value>
   </data>
   <data name="Model_SourceDetails" xml:space="preserve">
     <value>Detalhes da fonte</value>
@@ -407,7 +419,7 @@ A equipa do {0}.
     <value>Laboratório</value>
   </data>
   <data name="Search_Query" xml:space="preserve">
-    <value>Termos da procura</value>
+    <value>Termos da pesquisa</value>
   </data>
   <data name="Search_Source" xml:space="preserve">
     <value>Fonte</value>
@@ -423,6 +435,9 @@ A equipa do {0}.
   </data>
   <data name="Search_Year" xml:space="preserve">
     <value>Ano</value>
+  </data>
+  <data name="Support_AccountValidation" xml:space="preserve">
+    <value>Todas as contas são validadas por um Administrador, por isso seja paciente e verifique mais tarde</value>
   </data>
   <data name="Support_AdditionsToBuildFeed" xml:space="preserve">
     <value>Adições para o BuildFeed</value>
@@ -445,7 +460,7 @@ A equipa do {0}.
   
 <!--
 <data name="Support_EmailValidationContent" xml:space="preserve">
-    <value>[!!! Âñ Ʋáℓïδáƭïôñ ℓïñƙ λáƨ βèèñ ƨèñƭ ƭô ¥ôúř è₥áïℓ áδδřèƨƨ. Þℓèáƨè çℓïçƙ ƭλè ℓïñƙ ïñ ƭλè è₥áïℓ ƭô Ʋèřïƒ¥ ƭλè áççôúñƭ. ℓôřè₥ ïƥƨú₥ δôℓô !!!]</value>
+    <value>[!!! Â Ʋáℓïδáƭïôñ ℓïñƙ λáƨ βèèñ ƨèñƭ ƭô ¥ôúř è₥áïℓ áδδřèƨƨ. Þℓèáƨè çℓïçƙ ƭλè ℓïñƙ ïñ ƭλè è₥áïℓ ƭô Ʋèřïƒ¥ ƭλè áççôúñƭ. ℓôřè₥ ïƥƨú₥ δôℓô !!!]</value>
   </data>
 -->
   <data name="Support_EmailValidationTitle" xml:space="preserve">
@@ -497,10 +512,13 @@ A equipa do {0}.
     <value>Vazado Recentemente</value>
   </data>
   <data name="Support_Register" xml:space="preserve">
-    <value>Registrar</value>
+    <value>Registar</value>
   </data>
   <data name="Support_RememberMe" xml:space="preserve">
-    <value>Lembrar-se de mim</value>
+    <value>Memorizar-me</value>
+  </data>
+  <data name="Support_ThanksRegister" xml:space="preserve">
+    <value>Obrigado por se registar</value>
   </data>
   <data name="Support_UserName" xml:space="preserve">
     <value>Nome de Utilizador</value>
@@ -521,10 +539,4 @@ A equipa do {0}.
     <value>Semana</value>
   </data>
 
-<data name="Support_AccountValidation" xml:space="preserve">
-    <value>Todas as contas são validadas por um Administrador, por isso seja paciente e verifique mais tarde</value>
-  </data>
-<data name="Support_ThanksRegister" xml:space="preserve">
-    <value>Obrigado por se regristar</value>
-  </data>
 </root>

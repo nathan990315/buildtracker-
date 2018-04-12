@@ -37,12 +37,7 @@
                                  {
                                      family.CurrentCanary.Id
                                  })" class="latest-flex-item latest-flex-red">
-                            <h4 class="latest-flex-title">@VariantTerms.Front_CurrentCanary</h4>
-                            <div class="latest-flex-detail">
-                                <p class="latest-flex-build">@(family.CurrentCanary.Number).@(family.CurrentCanary.Revision)</p>
-                                <p class="latest-flex-lab">@family.CurrentCanary.Lab</p>
-                                <p class="latest-flex-time">@(family.CurrentCanary.BuildTime?.ToString("HH:mm, dddd dd MMMM yyyy"))</p>
-                            </div>
+                            @BuildHelpers.LatestBuild(VariantTerms.Front_CurrentCanary, family.CurrentCanary)
                         </a>
                     }
                     @if (family.CurrentInsider != null && family.CurrentInsider.Id != family.CurrentRelease?.Id)
@@ -51,12 +46,7 @@
                                  {
                                      family.CurrentInsider.Id
                                  })" class="latest-flex-item latest-flex-yellow">
-                            <h4 class="latest-flex-title">@VariantTerms.Front_CurrentInsider</h4>
-                            <div class="latest-flex-detail">
-                                <p class="latest-flex-build">@(family.CurrentInsider.Number).@(family.CurrentInsider.Revision)</p>
-                                <p class="latest-flex-lab">@family.CurrentInsider.Lab</p>
-                                <p class="latest-flex-time">@(family.CurrentInsider.BuildTime?.ToString("HH:mm, dddd dd MMMM yyyy"))</p>
-                            </div>
+                            @BuildHelpers.LatestBuild(VariantTerms.Front_CurrentInsider, family.CurrentInsider)
                         </a>
                     }
                     @if (family.CurrentRelease != null)
@@ -65,12 +55,16 @@
                                  {
                                      family.CurrentRelease.Id
                                  })" class="latest-flex-item latest-flex-blue">
-                            <h4 class="latest-flex-title">@VariantTerms.Front_CurrentRelease</h4>
-                            <div class="latest-flex-detail">
-                                <p class="latest-flex-build">@(family.CurrentRelease.Number).@(family.CurrentRelease.Revision)</p>
-                                <p class="latest-flex-lab">@family.CurrentRelease.Lab</p>
-                                <p class="latest-flex-time">@(family.CurrentRelease.BuildTime?.ToString("HH:mm, dddd dd MMMM yyyy"))</p>
-                            </div>
+                            @BuildHelpers.LatestBuild(VariantTerms.Front_CurrentRelease, family.CurrentRelease)
+                        </a>
+                    }
+                    @if (family.CurrentAnalog != null)
+                    {
+                        <a href="@Url.Action(nameof(FrontController.ViewBuild), new
+                                 {
+                                     family.CurrentAnalog.Id
+                                 })" class="latest-flex-item latest-flex-purple">
+                            @BuildHelpers.LatestBuild(VariantTerms.Front_CurrentAnalog, family.CurrentAnalog)
                         </a>
                     }
                     @if (family.CurrentXbox != null)
@@ -79,12 +73,7 @@
                                  {
                                      family.CurrentXbox.Id
                                  })" class="latest-flex-item latest-flex-green">
-                            <h4 class="latest-flex-title">@VariantTerms.Front_CurrentXbox</h4>
-                            <div class="latest-flex-detail">
-                                <p class="latest-flex-build">@(family.CurrentXbox.Number).@(family.CurrentXbox.Revision)</p>
-                                <p class="latest-flex-lab">@family.CurrentXbox.Lab</p>
-                                <p class="latest-flex-time">@(family.CurrentXbox.BuildTime?.ToString("HH:mm, dddd dd MMMM yyyy"))</p>
-                            </div>
+                            @BuildHelpers.LatestBuild(VariantTerms.Front_CurrentXbox, family.CurrentXbox)
                         </a>
                     }
                 </div>

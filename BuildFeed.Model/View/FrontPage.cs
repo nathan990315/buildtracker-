@@ -11,6 +11,7 @@ namespace BuildFeed.Model.View
         public FrontPageBuild CurrentInsider { get; set; }
         public FrontPageBuild CurrentRelease { get; set; }
         public FrontPageBuild CurrentXbox { get; set; }
+        public FrontPageBuild CurrentAnalog { get; set; }
     }
 
     public class FrontPageBuild

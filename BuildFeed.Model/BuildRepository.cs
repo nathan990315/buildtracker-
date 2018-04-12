@@ -249,33 +249,45 @@ namespace BuildFeed.Model
             {
                 var fp = new FrontPage
                 {
-                    CurrentCanary = results.Where(g => g.Key.Family == family && !g.Key.LabUrl.Contains("xbox"))
+                    CurrentCanary = results.Where(g => (g.Key.Family == family)
+                            && !g.Key.LabUrl.Contains("xbox")
+                            && !g.Key.LabUrl.Contains("analog"))
                         .SelectMany(g => g.Items)
                         .OrderByDescending(b => b.BuildTime)
                         .FirstOrDefault(),
                     CurrentInsider = results
-                        .Where(g => g.Key.Family == family
+                        .Where(g => (g.Key.Family == family)
                             && !g.Key.LabUrl.Contains("xbox")
-                            && (g.Key.SourceType == TypeOfSource.PublicRelease
-                                || g.Key.SourceType == TypeOfSource.UpdateGDR))
+                            && !g.Key.LabUrl.Contains("analog")
+                            && ((g.Key.SourceType == TypeOfSource.PublicRelease)
+                                || (g.Key.SourceType == TypeOfSource.UpdateGDR)))
                         .SelectMany(g => g.Items)
                         .OrderByDescending(b => b.BuildTime)
                         .FirstOrDefault(),
                     CurrentRelease = results
-                        .Where(g => (int)g.Key.Family <= CURRENT_RELEASE
-                            && g.Key.Family == family
+                        .Where(g => ((int)g.Key.Family <= CURRENT_RELEASE)
+                            && (g.Key.Family == family)
                             && g.Key.LabUrl.Contains("_release")
                             && !g.Key.LabUrl.Contains("xbox")
-                            && (g.Key.SourceType == TypeOfSource.PublicRelease
-                                || g.Key.SourceType == TypeOfSource.UpdateGDR))
+                            && !g.Key.LabUrl.Contains("analog")
+                            && ((g.Key.SourceType == TypeOfSource.PublicRelease)
+                                || (g.Key.SourceType == TypeOfSource.UpdateGDR)))
                         .SelectMany(g => g.Items)
                         .OrderByDescending(b => b.BuildTime)
                         .FirstOrDefault(),
                     CurrentXbox =
                         results.Where(g
-                                => (int)g.Key.Family >= CURRENT_XBOX
-                                    && g.Key.Family == family
+                                => ((int)g.Key.Family >= CURRENT_XBOX)
+                                    && (g.Key.Family == family)
                                     && g.Key.LabUrl.Contains("xbox"))
+                            .SelectMany(g => g.Items)
+                            .OrderByDescending(b => b.BuildTime)
+                            .FirstOrDefault(),
+                    CurrentAnalog =
+                        results.Where(g
+                                => ((int)g.Key.Family >= CURRENT_RELEASE)
+                                    && (g.Key.Family == family)
+                                    && g.Key.LabUrl.Contains("analog"))
                             .SelectMany(g => g.Items)
                             .OrderByDescending(b => b.BuildTime)
                             .FirstOrDefault()
