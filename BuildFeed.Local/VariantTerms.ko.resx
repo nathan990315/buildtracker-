@@ -243,7 +243,7 @@
     <value>댓글</value>
   </data>
   <data name="Front_CurrentAnalog" xml:space="preserve">
-    <value현재 HoloLens 빌드</value>
+    <value>현재 HoloLens 빌드</value>
   </data>
   <data name="Front_CurrentCanary" xml:space="preserve">
     <value>현재 내부 개발 빌드</value>
