@@ -14,7 +14,7 @@
     "gulp-typescript": "4.0.2",
     "gulp-uglify-es": "1.0.1",
     "multipipe": "2.0.3",
-    "node-sass": "4.8.3",
-    "typescript": "2.8.1"
+    "node-sass": "4.9.0",
+    "typescript": "2.8.3"
   }
 }

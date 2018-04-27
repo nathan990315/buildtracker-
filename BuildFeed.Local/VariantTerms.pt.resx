@@ -244,12 +244,9 @@ A equipa do {0}.
   <data name="Front_Comments" xml:space="preserve">
     <value>Comentários</value>
   </data>
-  
-<!--
-<data name="Front_CurrentAnalog" xml:space="preserve">
-    <value>[!!! Çúřřèñƭ Hôℓô£èñƨ ℓ !!!]</value>
+  <data name="Front_CurrentAnalog" xml:space="preserve">
+    <value>Atualmente no HoloLens</value>
   </data>
--->
   <data name="Front_CurrentCanary" xml:space="preserve">
     <value>Atualmente no Canário</value>
   </data>

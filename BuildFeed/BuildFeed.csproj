@@ -68,7 +68,7 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="6.2.2" />
-    <PackageReference Include="HtmlAgilityPack" Version="1.8.0" />
+    <PackageReference Include="HtmlAgilityPack" Version="1.8.1" />
     <PackageReference Include="Humanizer">
       <Version>2.2.0</Version>
     </PackageReference>

@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="About_A1" xml:space="preserve">
-    <value>BuildFeed bir meraklılar topluluğu tarafından işletilir ve bakılır. Microsoft'un bu site ile hiçbir şekilde ilgisi yoktur. Onların bu sitenin farkında olduğundan emin olsak da, site hakkında Microsoft'tan kesinlikle hiçbir resmi şikayete sahip değiliz. Bunlar söylenmişken, Microsoft açıkça özel bilgileri özel tutmayı istiyor, ve geçmişte onlar tarafından kapatılan kaynaklara sahiplik ettik, ve gelecekte yapacaklarından da eminim.</value>
+    <value>BuildFeed bir meraklılar topluluğu tarafından işletilir ve bakılır. Microsoft'un bu siteyle hiçbir şekilde ilgisi yoktur. Onların bu sitenin farkında olduğundan emin olsak da, site hakkında Microsoft'tan kesinlikle hiçbir resmi şikayete sahip değiliz. Bunlar söylenmişken, Microsoft açıkça özel bilgileri özel tutmayı istiyor, ve geçmişte onlar tarafından kapatılan kaynaklara sahiplik ettik, ve gelecekte yapacaklarından da eminim.</value>
   </data>
   <data name="About_A2" xml:space="preserve">
     <value>İyi denemeydi Dona, ama bu seferkine düşmüyorum. Şunu söyleyebilirim. BuildFeed, bu sitede gönderilen yapıların doğru ve geçerli olmasını mümkün olduğu kadar kesin hale getirir. Birkaç farklı kaynağımız var, doğrulamayı daha güvenilir yapmak ve Microsoft kaynaklarımızdan birini kaldırırsa diye biraz fazlalık sağlaması için.</value>
@@ -158,6 +158,9 @@
   </data>
   <data name="Common_Admin" xml:space="preserve">
     <value>Yönetici</value>
+  </data>
+  <data name="Common_Blog" xml:space="preserve">
+    <value>Ağ günlüğü</value>
   </data>
   <data name="Common_ChangePassword" xml:space="preserve">
     <value>Şifreyi değiştir</value>
@@ -201,6 +204,9 @@
   <data name="Common_ThemeLight" xml:space="preserve">
     <value>Beyaz</value>
   </data>
+  <data name="Common_ThemeWinter" xml:space="preserve">
+    <value>Kış</value>
+  </data>
   <data name="Common_TitlePage" xml:space="preserve">
     <value>Sayfa {0}</value>
   </data>
@@ -236,6 +242,9 @@ Teşekkürler,
   <data name="Front_Comments" xml:space="preserve">
     <value>Yorumlar</value>
   </data>
+  <data name="Front_CurrentAnalog" xml:space="preserve">
+    <value>Şimdiki HoloLens</value>
+  </data>
   <data name="Front_CurrentCanary" xml:space="preserve">
     <value>Şimdiki Kanarya</value>
   </data>
@@ -261,7 +270,7 @@ Teşekkürler,
     <value>Yapıyı düzenle</value>
   </data>
   <data name="Front_EditorActions" xml:space="preserve">
-    <value>Editör eylemleri</value>
+    <value>Düzenleyici eylemleri</value>
   </data>
   <data name="Front_FullBuildListing" xml:space="preserve">
     <value>Bütün Windows yapıları listesini gör...</value>
@@ -422,6 +431,9 @@ Teşekkürler,
   <data name="Search_Year" xml:space="preserve">
     <value>Yıl</value>
   </data>
+  <data name="Support_AccountValidation" xml:space="preserve">
+    <value>Her hesap bir yönetici tarafından doğrulanır, bu yüzden sabırlı ol ve daha sonra tekrar kontrol et.</value>
+  </data>
   <data name="Support_AdditionsToBuildFeed" xml:space="preserve">
     <value>BuildFeed'e eklemeler</value>
   </data>
@@ -497,6 +509,9 @@ Teşekkürler,
   <data name="Support_RememberMe" xml:space="preserve">
     <value>Beni hatırla</value>
   </data>
+  <data name="Support_ThanksRegister" xml:space="preserve">
+    <value>Kaydolduğunuz için teşekkür ederiz!</value>
+  </data>
   <data name="Support_UserName" xml:space="preserve">
     <value>Kullanıcı adı</value>
   </data>
@@ -516,10 +531,4 @@ Teşekkürler,
     <value>Hafta</value>
   </data>
 
-<data name="Support_AccountValidation" xml:space="preserve">
-    <value>Her hesap bir yönetici tarafından doğrulanır, bu yüzden sabırlı ol ve daha sonra tekrar kontrol et.</value>
-  </data>
-<data name="Support_ThanksRegister" xml:space="preserve">
-    <value>Kaydolduğunuz için teşekkür ederiz!</value>
-  </data>
 </root>

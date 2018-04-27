@@ -451,18 +451,12 @@ Nhóm phát triển {0}.</value>
   <data name="Support_EmailAddress" xml:space="preserve">
     <value>Địa chỉ Email</value>
   </data>
-  
-<!--
-<data name="Support_EmailValidationContent" xml:space="preserve">
-    <value>[!!! Â Ʋáℓïδáƭïôñ ℓïñƙ λáƨ βèèñ ƨèñƭ ƭô ¥ôúř è₥áïℓ áδδřèƨƨ. Þℓèáƨè çℓïçƙ ƭλè ℓïñƙ ïñ ƭλè è₥áïℓ ƭô Ʋèřïƒ¥ ƭλè áççôúñƭ. ℓôřè₥ ïƥƨú₥ δôℓô !!!]</value>
+  <data name="Support_EmailValidationContent" xml:space="preserve">
+    <value>Đường dẫn xác nhận đã được gửi đến Email của bạn. Mời bạn nhấn vào đường dẫn trong Email của bạn để xác nhận tài khoản.</value>
   </data>
--->
-  
-<!--
-<data name="Support_EmailValidationTitle" xml:space="preserve">
-    <value>[!!! Þℓèáƨè Ʋèřïƒ¥ ¥ôúř è₥áïℓ áδδřèƨƨ ℓôřè !!!]</value>
+  <data name="Support_EmailValidationTitle" xml:space="preserve">
+    <value>Xin bạn hãy xác nhận địa chỉ Email của bạn</value>
   </data>
--->
   <data name="Support_EnterCurrentPassword" xml:space="preserve">
     <value>Nhập mật khẩu hiện tại</value>
   </data>
@@ -472,36 +466,21 @@ Nhóm phát triển {0}.</value>
   <data name="Support_EnterPassword" xml:space="preserve">
     <value>Nhập mật khẩu</value>
   </data>
-  
-<!--
-<data name="Support_Error_ChangingPasswordFail" xml:space="preserve">
-    <value>[!!! Âñ èřřôř ôççúřřèδ ωλèñ áƭƭè₥ƥƭïñϱ ƭô çλáñϱè ¥ôúř ƥáƨƨωôřδ. ℓôřè₥ ïƥ !!!]</value>
+  <data name="Support_Error_ChangingPasswordFail" xml:space="preserve">
+    <value>Có lỗi đã xảy ra trong quá trình thay đổi mật khẩu của bạn</value>
   </data>
--->
-  
-<!--
-<data name="Support_Error_DuplicateEmail" xml:space="preserve">
-    <value>[!!! Â úƨèř áççôúñƭ ωïƭλ ƭλïƨ è₥áïℓ áδδřèƨƨ áℓřèáδ¥ èжïƨƭƨ. ℓôřè₥ ï !!!]</value>
+  <data name="Support_Error_DuplicateEmail" xml:space="preserve">
+    <value>Tài khoản người dùng (User account) với địa chỉ Email này đã tồn tại</value>
   </data>
--->
-  
-<!--
-<data name="Support_Error_DuplicateUserName" xml:space="preserve">
-    <value>[!!! Â úƨèř áççôúñƭ ωïƭλ ƭλïƨ úƨèř ñá₥è áℓřèáδ¥ èжïƨƭƨ. ℓôřè₥ ï !!!]</value>
+  <data name="Support_Error_DuplicateUserName" xml:space="preserve">
+    <value>Tài khoản người dùng (User account) với Tên người dùng (User name) đã tồn tại</value>
   </data>
--->
-  
-<!--
-<data name="Support_Error_InvalidPassword" xml:space="preserve">
-    <value>[!!! Tλè ƥáƨƨωôřδ ¥ôú λáƲè èñƭèřèδ ïƨ ïñƲáℓïδ. ℓôřè₥ !!!]</value>
+  <data name="Support_Error_InvalidPassword" xml:space="preserve">
+    <value>Mật khẩu bạn đã nhập không hợp lệ</value>
   </data>
--->
-  
-<!--
-<data name="Support_Error_UnknownError" xml:space="preserve">
-    <value>[!!! Âñ úñƙñôωñ èřřôř λáƨ ôççúřřèδ. ℓôřè !!!]</value>
+  <data name="Support_Error_UnknownError" xml:space="preserve">
+    <value>Lỗi không xác định đã xảy ra</value>
   </data>
--->
   <data name="Support_HighestVersion" xml:space="preserve">
     <value>Phiên bản mới nhất</value>
   </data>
@@ -541,24 +520,15 @@ Nhóm phát triển {0}.</value>
     <value>[!!! Þℓèáƨè çλèçƙ ƭλè Ʋáℓïδáƭïôñ ℓïñƙ ïñ ¥ôúř è₥áïℓ áñδ ƭř¥ áϱáïñ. ℓôřè₥ ïƥ !!!]</value>
   </data>
 -->
-  
-<!--
-<data name="Support_ValidationFailureTitle" xml:space="preserve">
-    <value>[!!! Wè ωèřè úñáβℓè ƭô Ʋáℓïδáƭè ¥ôúř áççôúñƭ. ℓôřè₥ !!!]</value>
+  <data name="Support_ValidationFailureTitle" xml:space="preserve">
+    <value>Chúng tôi không thể xác nhận tài khoản của bạn</value>
   </data>
--->
-  
-<!--
-<data name="Support_ValidationSuccessContent" xml:space="preserve">
-    <value>[!!! Ýôú ωïℓℓ ñôω βè áβℓè ƭô ℓôϱ ïñ úƨïñϱ ¥ôúř úƨèřñá₥è áñδ ƥáƨƨωôřδ. ℓôřè₥ ïƥƨ !!!]</value>
+  <data name="Support_ValidationSuccessContent" xml:space="preserve">
+    <value>Bây giờ bạn có thể đăng nhập vào Tên người dùng và Mật khẩu</value>
   </data>
--->
-  
-<!--
-<data name="Support_ValidationSuccessTitle" xml:space="preserve">
-    <value>[!!! Ýôú λáƲè ƨúççèƨƨƒúℓℓ¥ Ʋáℓïδáƭèδ ¥ôúř áççôúñƭ. ℓôřè₥  !!!]</value>
+  <data name="Support_ValidationSuccessTitle" xml:space="preserve">
+    <value>Bạn đã xác nhận tài khoản thành công</value>
   </data>
--->
   <data name="Support_Week" xml:space="preserve">
     <value>Tuần</value>
   </data>
