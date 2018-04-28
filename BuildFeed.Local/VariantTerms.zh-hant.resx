@@ -159,6 +159,9 @@
   <data name="Common_Admin" xml:space="preserve">
     <value>管理員</value>
   </data>
+  <data name="Common_Blog" xml:space="preserve">
+    <value>博客</value>
+  </data>
   <data name="Common_ChangePassword" xml:space="preserve">
     <value>變更密碼</value>
   </data>
@@ -201,6 +204,9 @@
   <data name="Common_ThemeLight" xml:space="preserve">
     <value>淺色</value>
   </data>
+  <data name="Common_ThemeWinter" xml:space="preserve">
+    <value>冬季</value>
+  </data>
   <data name="Common_TitlePage" xml:space="preserve">
     <value>|第 {0} 頁</value>
   </data>
@@ -235,6 +241,9 @@
   </data>
   <data name="Front_Comments" xml:space="preserve">
     <value>留言</value>
+  </data>
+  <data name="Front_CurrentAnalog" xml:space="preserve">
+    <value>目前 HoloLens 版本</value>
   </data>
   <data name="Front_CurrentCanary" xml:space="preserve">
     <value>目前內部開發版本</value>
