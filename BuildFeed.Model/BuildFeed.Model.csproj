@@ -1,118 +1,19 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7E2B4F61-1C11-4471-AF80-5480E94C0664}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BuildFeed.Model</RootNamespace>
-    <AssemblyName>BuildFeed.Model</AssemblyName>
-    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
+    <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
+
   <ItemGroup>
-    <PackageReference Include="AutoMapper">
-      <Version>6.2.2</Version>
-    </PackageReference>
-    <PackageReference Include="HtmlAgilityPack">
-      <Version>1.8.1</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.AspNet.Mvc">
-      <Version>5.2.4</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.AspNet.Razor">
-      <Version>3.2.4</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.AspNet.WebPages">
-      <Version>3.2.4</Version>
-    </PackageReference>
-    <PackageReference Include="MongoDB.Driver">
-      <Version>2.6.0</Version>
-    </PackageReference>
+    <PackageReference Include="AutoMapper" Version="6.2.2" />
+    <PackageReference Include="HtmlAgilityPack" Version="1.8.1" />
+    <PackageReference Include="MongoDB.Driver" Version="2.6.0" />
+    <PackageReference Include="System.ComponentModel.Annotations" Version="4.4.1" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.4.1" />
   </ItemGroup>
+
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Configuration" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Web" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
+    <ProjectReference Include="..\BuildFeed.Local\BuildFeed.Local.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Api\ApiBuild.cs" />
-    <Compile Include="Api\FamilyOverview.cs" />
-    <Compile Include="Api\NewBuild.cs" />
-    <Compile Include="Api\SearchResult.cs" />
-    <Compile Include="BuildDetails.cs" />
-    <Compile Include="BuildRepository-Group.cs" />
-    <Compile Include="BuildRepository-Lab.cs" />
-    <Compile Include="BuildRepository-Family.cs" />
-    <Compile Include="BuildRepository-Source.cs" />
-    <Compile Include="BuildRepository-Version.cs" />
-    <Compile Include="BuildRepository-Year.cs" />
-    <Compile Include="BuildRepository.cs" />
-    <Compile Include="BuildGroup.cs" />
-    <Compile Include="Build.cs" />
-    <Compile Include="BuildVersion.cs" />
-    <Compile Include="ItemHistory.cs" />
-    <Compile Include="ItemHistoryType.cs" />
-    <Compile Include="MetaItem.cs" />
-    <Compile Include="ModelMappings.cs" />
-    <Compile Include="MongoConfig.cs" />
-    <Compile Include="ProjectFamily.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TypeOfSource.cs" />
-    <Compile Include="View\AddBulk.cs" />
-    <Compile Include="View\ChangePassword.cs" />
-    <Compile Include="View\FrontBuildGroup.cs" />
-    <Compile Include="View\FrontPage.cs" />
-    <Compile Include="View\LoginUser.cs" />
-    <Compile Include="View\RegistrationUser.cs" />
-    <Compile Include="View\SitemapData.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BuildFeed.Local\BuildFeed.Local.csproj">
-      <Project>{9ebd4db1-1d37-456b-ad90-357aa89dd1b7}</Project>
-      <Name>BuildFeed.Local</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+
 </Project>

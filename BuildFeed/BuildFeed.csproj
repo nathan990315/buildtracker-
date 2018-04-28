@@ -96,6 +96,9 @@
     <PackageReference Include="MSBuildGitHash">
       <Version>0.3.0</Version>
     </PackageReference>
+    <PackageReference Include="NETStandard.Library">
+      <Version>2.0.2</Version>
+    </PackageReference>
     <PackageReference Include="OneSignal.RestAPIv3.Client">
       <Version>1.0.3</Version>
     </PackageReference>
@@ -104,6 +107,9 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="netstandard">
+      <Private>true</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Data" />
@@ -371,8 +377,12 @@
       <Name>BuildFeed.Local</Name>
     </ProjectReference>
     <ProjectReference Include="..\BuildFeed.Model\BuildFeed.Model.csproj">
-      <Project>{7e2b4f61-1c11-4471-af80-5480e94c0664}</Project>
+      <Project>{294e58eb-a6c6-4cad-b9f8-b70fc004037f}</Project>
       <Name>BuildFeed.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BuildFeed.ViewModel\BuildFeed.ViewModel.csproj">
+      <Project>{f70f4167-db65-4ddb-94ed-1b9419d520a3}</Project>
+      <Name>BuildFeed.ViewModel</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

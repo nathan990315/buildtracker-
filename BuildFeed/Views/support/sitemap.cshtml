@@ -1,5 +1,5 @@
 ﻿@using BuildFeed.Controllers
-@using BuildFeed.Model.View
+@using BuildFeed.ViewModel
 @model SitemapData
 @{
     ViewBag.Title = $"{VariantTerms.Common_Sitemap} | {InvariantTerms.SiteName}";
@@ -52,7 +52,7 @@
                                 <li>@Html.ActionLink("Page 1", action.Action, action.UrlParams)</li>
                                 for (int i = 2; i <= action.Pages; i++)
                                 {
-                                    RouteValueDictionary urlParams = action.UrlParams;
+                                    var urlParams = action.UrlParams;
                                     urlParams["page"] = i;
                                     <li>@Html.ActionLink($"Page {i}", action.Action + "Page", urlParams)</li>
                                 }
@@ -65,7 +65,7 @@
                                         <li>@Html.ActionLink("Page 1", action.Action, action.UrlParams)</li>
                                         @for (int i = 2; i <= action.Pages; i++)
                                         {
-                                            RouteValueDictionary urlParams = action.UrlParams;
+                                            var urlParams = action.UrlParams;
                                             urlParams["page"] = i;
                                             <li>@Html.ActionLink($"Page {i}", action.Action + "Page", urlParams)</li>
                                         }

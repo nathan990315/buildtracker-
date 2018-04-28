@@ -8,7 +8,7 @@ using System.Xml.Linq;
 using BuildFeed.Code;
 using BuildFeed.Local;
 using BuildFeed.Model;
-using BuildFeed.Model.View;
+using BuildFeed.ViewModel;
 
 namespace BuildFeed.Controllers
 {
@@ -42,12 +42,12 @@ namespace BuildFeed.Controllers
                     {
                         new SitemapPagedAction
                         {
-                            UrlParams = new RouteValueDictionary(new
+                            UrlParams = new Dictionary<string, object>
                             {
-                                controller = "Front",
-                                action = "Index",
-                                page = 1
-                            }),
+                                { "controller", "Front" },
+                                { "action", nameof(FrontController.Index) },
+                                { "page", 1 }
+                            },
                             Pages = (builds.Count + (FrontController.PAGE_SIZE - 1)) / FrontController.PAGE_SIZE
                         }
                     }
@@ -64,14 +64,14 @@ namespace BuildFeed.Controllers
                         select new SitemapPagedAction
                         {
                             Name = $"{InvariantTerms.ProductName} {bv.Key.Major}.{bv.Key.Minor}",
-                            UrlParams = new RouteValueDictionary(new
+                            UrlParams = new Dictionary<string, object>
                             {
-                                controller = "Front",
-                                action = "ViewVersion",
-                                major = bv.Key.Major,
-                                minor = bv.Key.Minor,
-                                page = 1
-                            }),
+                                { "controller", "Front" },
+                                { "action", nameof(FrontController.ViewVersion) },
+                                { "major", bv.Key.Major },
+                                { "minor", bv.Key.Minor },
+                                { "page", 1 }
+                            },
                             Pages = (bv.Count() + (FrontController.PAGE_SIZE - 1)) / FrontController.PAGE_SIZE
                         }).ToArray()
                 },
@@ -84,13 +84,13 @@ namespace BuildFeed.Controllers
                         select new SitemapPagedAction
                         {
                             Name = bv.Key,
-                            UrlParams = new RouteValueDictionary(new
+                            UrlParams = new Dictionary<string, object>
                             {
-                                controller = "Front",
-                                action = "ViewLab",
-                                lab = bv.Key,
-                                page = 1
-                            }),
+                                { "controller", "Front" },
+                                { "action", nameof(FrontController.ViewLab) },
+                                { "lab", bv.Key },
+                                { "page", 1 }
+                            },
                             Pages = (bv.Count() + (FrontController.PAGE_SIZE - 1)) / FrontController.PAGE_SIZE
                         }).ToArray()
                 },
@@ -103,13 +103,13 @@ namespace BuildFeed.Controllers
                         select new SitemapPagedAction
                         {
                             Name = bv.Key.ToString(),
-                            UrlParams = new RouteValueDictionary(new
+                            UrlParams = new Dictionary<string, object>
                             {
-                                controller = "Front",
-                                action = "ViewYear",
-                                year = bv.Key,
-                                page = 1
-                            }),
+                                {"controller", "Front"},
+                                {"action", nameof(FrontController.ViewYear)},
+                                {"year", bv.Key},
+                                {"page", 1}
+                            },
                             Pages = (bv.Count() + (FrontController.PAGE_SIZE - 1)) / FrontController.PAGE_SIZE
                         }).ToArray()
                 },
@@ -121,13 +121,13 @@ namespace BuildFeed.Controllers
                         select new SitemapPagedAction
                         {
                             Name = MvcExtensions.GetDisplayTextForEnum(bv.Key),
-                            UrlParams = new RouteValueDictionary(new
+                            UrlParams = new Dictionary<string, object>
                             {
-                                controller = "Front",
-                                action = "ViewSource",
-                                source = bv.Key,
-                                page = 1
-                            }),
+                                { "controller", "Front" },
+                                { "action", nameof(FrontController.ViewSource)},
+                                { "source", bv.Key },
+                                { "page", 1 }
+                            },
                             Pages = (bv.Count() + (FrontController.PAGE_SIZE - 1)) / FrontController.PAGE_SIZE
                         }).ToArray()
                 }

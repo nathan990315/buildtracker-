@@ -5,7 +5,7 @@ using System.Web.Mvc;
 using System.Web.Security;
 using BuildFeed.Code;
 using BuildFeed.Local;
-using BuildFeed.Model.View;
+using BuildFeed.ViewModel;
 using MongoAuth;
 
 namespace BuildFeed.Controllers

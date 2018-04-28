@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using System.Web.Mvc;
 using BuildFeed.Local;
 using MongoDB.Bson.Serialization.Attributes;
 
@@ -42,7 +41,7 @@ namespace BuildFeed.Model
         public TypeOfSource SourceType { get; set; }
 
         [Display(ResourceType = typeof(VariantTerms), Name = nameof(VariantTerms.Model_SourceDetails))]
-        [AllowHtml]
+        //[AllowHtml]
         public string SourceDetails { get; set; }
 
         [Display(ResourceType = typeof(VariantTerms), Name = nameof(VariantTerms.Model_LeakDate))]

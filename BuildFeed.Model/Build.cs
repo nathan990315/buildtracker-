@@ -11,7 +11,6 @@ using Required = System.ComponentModel.DataAnnotations.RequiredAttribute;
 
 namespace BuildFeed.Model
 {
-    [DataObject]
     [BsonIgnoreExtraElements]
     public class Build : BuildDetails
     {
@@ -155,27 +154,27 @@ namespace BuildFeed.Model
         private void GenerateFamily()
         {
             // start with lab-based overrides
-            if (Lab?.StartsWith("rs4", StringComparison.InvariantCultureIgnoreCase) ?? false)
+            if (Lab?.StartsWith("rs4", StringComparison.OrdinalIgnoreCase) ?? false)
             {
                 Family = ProjectFamily.Redstone4;
             }
-            else if (Lab?.StartsWith("rs3", StringComparison.InvariantCultureIgnoreCase) ?? false)
+            else if (Lab?.StartsWith("rs3", StringComparison.OrdinalIgnoreCase) ?? false)
             {
                 Family = ProjectFamily.Redstone3;
             }
-            else if (Lab?.StartsWith("feature2", StringComparison.InvariantCultureIgnoreCase) ?? false)
+            else if (Lab?.StartsWith("feature2", StringComparison.OrdinalIgnoreCase) ?? false)
             {
                 Family = ProjectFamily.Feature2;
             }
-            else if (Lab?.StartsWith("rs2", StringComparison.InvariantCultureIgnoreCase) ?? false)
+            else if (Lab?.StartsWith("rs2", StringComparison.OrdinalIgnoreCase) ?? false)
             {
                 Family = ProjectFamily.Redstone2;
             }
-            else if (Lab?.StartsWith("rs1", StringComparison.InvariantCultureIgnoreCase) ?? false)
+            else if (Lab?.StartsWith("rs1", StringComparison.OrdinalIgnoreCase) ?? false)
             {
                 Family = ProjectFamily.Redstone;
             }
-            else if (Lab?.StartsWith("th2", StringComparison.InvariantCultureIgnoreCase) ?? false)
+            else if (Lab?.StartsWith("th2", StringComparison.OrdinalIgnoreCase) ?? false)
             {
                 Family = ProjectFamily.Threshold2;
             }

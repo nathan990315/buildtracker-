@@ -1,23 +1,12 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using BuildFeed.Local;
-using MongoDB.Bson.Serialization.Attributes;
 
-namespace BuildFeed.Model.View
+namespace BuildFeed.ViewModel
 {
-    public class FrontPage
-    {
-        public FrontPageBuild CurrentCanary { get; set; }
-        public FrontPageBuild CurrentInsider { get; set; }
-        public FrontPageBuild CurrentRelease { get; set; }
-        public FrontPageBuild CurrentXbox { get; set; }
-        public FrontPageBuild CurrentAnalog { get; set; }
-    }
-
     public class FrontPageBuild
     {
         [Key]
-        [BsonId]
         public Guid Id { get; set; }
 
         [Required]

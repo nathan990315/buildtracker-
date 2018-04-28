@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using BuildFeed.Local;
 
-namespace BuildFeed.Model.View
+namespace BuildFeed.ViewModel
 {
     public class RegistrationUser
     {

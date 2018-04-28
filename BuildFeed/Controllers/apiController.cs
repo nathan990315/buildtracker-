@@ -10,7 +10,7 @@ using BuildFeed.Code;
 using BuildFeed.Local;
 using BuildFeed.Model;
 using BuildFeed.Model.Api;
-using BuildFeed.Model.View;
+using BuildFeed.ViewModel;
 using OneSignal.RestAPIv3.Client;
 
 #pragma warning disable SG0016 // Controller method is vulnerable to CSRF - Not relevant for API
