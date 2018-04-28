@@ -43,9 +43,6 @@
   <ItemGroup>
     <Compile Include="AddBulk.cs" />
     <Compile Include="ChangePassword.cs" />
-    <Compile Include="FrontBuildGroup.cs" />
-    <Compile Include="FrontPage.cs" />
-    <Compile Include="FrontPageBuild.cs" />
     <Compile Include="LoginUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegistrationUser.cs" />

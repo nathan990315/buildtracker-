@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BuildFeed.Model.View;
 using MongoDB.Bson;
 using MongoDB.Driver;
 

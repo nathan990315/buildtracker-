@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using BuildFeed.Local;
 
-namespace BuildFeed.ViewModel
+namespace BuildFeed.Model
 {
     public class FrontPageBuild
     {
