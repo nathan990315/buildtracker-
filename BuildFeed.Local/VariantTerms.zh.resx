@@ -242,6 +242,9 @@
   <data name="Front_Comments" xml:space="preserve">
     <value>评论</value>
   </data>
+  <data name="Front_CurrentAnalog" xml:space="preserve">
+    <value>当前 HoloLens 版本</value>
+  </data>
   <data name="Front_CurrentCanary" xml:space="preserve">
     <value>当前内部版本</value>
   </data>
