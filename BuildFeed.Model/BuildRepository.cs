@@ -12,8 +12,8 @@ namespace BuildFeed.Model
     public partial class BuildRepository
     {
         public const int CURRENT_LONG_TERM = (int)ProjectFamily.Redstone;
-        public const int CURRENT_RELEASE = (int)ProjectFamily.Redstone3;
-        public const int CURRENT_XBOX = (int)ProjectFamily.Redstone3;
+        public const int CURRENT_RELEASE = (int)ProjectFamily.Redstone4;
+        public const int CURRENT_XBOX = (int)ProjectFamily.Redstone4;
 
         private const string BUILD_COLLECTION_NAME = "builds";
         private static readonly BsonDocument sortByAddedDate = new BsonDocument(nameof(Build.Added), -1);
