@@ -14,6 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BuildFeed.Local\BuildFeed.Local.csproj" />
+    <ProjectReference Include="..\BuildFeed.ViewModel\BuildFeed.ViewModel.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,4 +1,4 @@
-﻿namespace BuildFeed.ViewModel
+﻿namespace BuildFeed.ActionModel
 {
     public class BulkAddition
     {

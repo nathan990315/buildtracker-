@@ -372,6 +372,10 @@
       <Project>{7c67bfb9-1b3b-4676-a58d-10573da82cfe}</Project>
       <Name>MongoAuth</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BuildFeed.ActionModel\BuildFeed.ActionModel.csproj">
+      <Project>{00d37c84-32a3-4ad7-829e-d56b5461f1d1}</Project>
+      <Name>BuildFeed.ActionModel</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BuildFeed.Local\BuildFeed.Local.csproj">
       <Project>{9ebd4db1-1d37-456b-ad90-357aa89dd1b7}</Project>
       <Name>BuildFeed.Local</Name>
@@ -381,7 +385,7 @@
       <Name>BuildFeed.Model</Name>
     </ProjectReference>
     <ProjectReference Include="..\BuildFeed.ViewModel\BuildFeed.ViewModel.csproj">
-      <Project>{f70f4167-db65-4ddb-94ed-1b9419d520a3}</Project>
+      <Project>{d2cf221e-59fc-43e2-81a0-ef7f202bcaf8}</Project>
       <Name>BuildFeed.ViewModel</Name>
     </ProjectReference>
   </ItemGroup>

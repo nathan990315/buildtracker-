@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using BuildFeed.ActionModel;
 using BuildFeed.Code;
 using BuildFeed.Model;
 using BuildFeed.ViewModel;

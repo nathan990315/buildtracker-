@@ -1,6 +1,4 @@
-﻿using BuildFeed.Model;
-
-namespace BuildFeed.ViewModel
+﻿namespace BuildFeed.ViewModel
 {
     public class SitemapDataBuildGroup
     {

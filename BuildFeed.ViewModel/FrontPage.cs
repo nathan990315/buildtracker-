@@ -1,4 +1,4 @@
-﻿namespace BuildFeed.Model
+﻿namespace BuildFeed.ViewModel
 {
     public class FrontPage
     {
