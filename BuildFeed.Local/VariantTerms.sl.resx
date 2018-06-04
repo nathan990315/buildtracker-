@@ -124,7 +124,7 @@
     <value>Lep poskus, Dona, ampak ne bo šlo. Rečem lahko le tole. BuildFeed se prepriča kolikor je mogoče, da so vse gradnje, objavljene na strani, pravilne in legitimne. Imamo več različnih virov, da je preverjanje bolj zanesljivo, poleg tega pa imamo v primeru izpada vira vseeno zagotovljene informacije.</value>
   </data>
   <data name="About_A3" xml:space="preserve">
-    <value>Obstaja več načinov. Lahko razpravljate o gradnjah v komentarjih na strani vsake gradnje. Lahko prispevate k razvoju strani tako, da javljate napake ali naredite pull zahtevo na našem GitHubu. Lahko tudi pomagate prevesti BuildFeed v svoj materni jezik preko našega portala za prevajanje.</value>
+    <value>Obstaja več načinov. Lahko razpravljate o gradnjah v komentarjih na strani vsake gradnje. Lahko prispevate k razvoju strani tako, da javljate napake ali naredite pull zahtevo na našem GitLabu. Lahko tudi pomagate prevesti BuildFeed v svoj materni jezik preko našega portala za prevajanje.</value>
   </data>
   <data name="About_Q1" xml:space="preserve">
     <value>Kdo upravlja BuildFeed? Je to uradna Microsoftova stran?</value>

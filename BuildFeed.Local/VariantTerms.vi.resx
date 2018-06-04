@@ -124,7 +124,7 @@
     <value>Cố gắng tốt lắm, Dona, nhưng chúng tôi sẽ không tin đâu. Chúng tôi có thể nói gì về điều này. BuildFeed chắc chắn sẽ làm hết sức có thể để tất cả những bản dựng đều được đưa lên trang Web một cách đúng đắn và hợp pháp. Chúng tôi có rất nhiều nguồn tin để xác thực độ tin cậy hơn cũng như cung cấp cho chúng tôi một vài sự đề phòng khi mà Microsoft đóng cửa một trong số những nguồn tin của chúng tôi.</value>
   </data>
   <data name="About_A3" xml:space="preserve">
-    <value>Có rất nhiều cách. Bạn có thể thảo luận về các bản dựng trong hệ thống bình luận Disqus trên mỗi trang bản dựng. Bạn cũng có thể đóng góp vào sự phát triển của trang web bằng cách góp ý về các lỗi cũng như sai sót, đặt ra những yêu cầu hay câu hỏi cho chúng tôi trên GitHub. Cuối cùng, bạn có thể giúp dịch BuildFeed sang ngôn ngữ bản địa của bạn thông qua cổng Dịch của chúng tôi.</value>
+    <value>Có rất nhiều cách. Bạn có thể thảo luận về các bản dựng trong hệ thống bình luận Disqus trên mỗi trang bản dựng. Bạn cũng có thể đóng góp vào sự phát triển của trang web bằng cách góp ý về các lỗi cũng như sai sót, đặt ra những yêu cầu hay câu hỏi cho chúng tôi trên GitLab. Cuối cùng, bạn có thể giúp dịch BuildFeed sang ngôn ngữ bản địa của bạn thông qua cổng Dịch của chúng tôi.</value>
   </data>
   <data name="About_Q1" xml:space="preserve">
     <value>Ai là người điều hành và chịu trách nhiệm cho BuildFeed? Đây có phải là trang chính thức của Microsoft hay không?</value>

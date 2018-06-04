@@ -124,7 +124,7 @@
     <value>İyi denemeydi Dona, ama bu seferkine düşmüyorum. Şunu söyleyebilirim. BuildFeed, bu sitede gönderilen yapıların doğru ve geçerli olmasını mümkün olduğu kadar kesin hale getirir. Birkaç farklı kaynağımız var, doğrulamayı daha güvenilir yapmak ve Microsoft kaynaklarımızdan birini kaldırırsa diye biraz fazlalık sağlaması için.</value>
   </data>
   <data name="About_A3" xml:space="preserve">
-    <value>Birkaç yolu var. Her yapı sayfasında, Disqus yorum sisteminde yapılar hakkında tartışabilirsin. Sitenin gelişimine hata bildirerek veya GitHub sayfamızdan çekme isteğinde bulunarak katkıda bulunabilirsin. Son olarak, BuildFeed'i Çeviri portalımız üzerinden kendi anadiline çevirmek için yardım edebilirsin.</value>
+    <value>Birkaç yolu var. Her yapı sayfasında, Disqus yorum sisteminde yapılar hakkında tartışabilirsin. Sitenin gelişimine hata bildirerek veya GitLab sayfamızdan çekme isteğinde bulunarak katkıda bulunabilirsin. Son olarak, BuildFeed'i Çeviri portalımız üzerinden kendi anadiline çevirmek için yardım edebilirsin.</value>
   </data>
   <data name="About_Q1" xml:space="preserve">
     <value>BuildFeed'i kimler çalıştırıyor? Bu resmi bir Microsoft sitesi mi?</value>

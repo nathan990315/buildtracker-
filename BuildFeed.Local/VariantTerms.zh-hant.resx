@@ -124,7 +124,7 @@
     <value>好的嘗試，Dona姐，但我不會上你的當的。我可以這麼說。BuildFeed 使本網站上張貼的所有版本都是正確無誤的。我們有許多不同的來源，以確保資料更可靠，同時防止微軟的封殺。</value>
   </data>
   <data name="About_A3" xml:space="preserve">
-    <value>有很多方法。您可以在每個組建頁面上的 Disqus 評論系統中進行討論。您也可以透過回報 Bug 或在我們的 GitHub 上提出 Pull Request 來為此貢獻您的一份心力。最後，您可以透過翻譯中心來協助我們將 BuildFeed 翻譯成你的母語。</value>
+    <value>有很多方法。您可以在每個組建頁面上的 Disqus 評論系統中進行討論。您也可以透過回報 Bug 或在我們的 GitLab 上提出 Pull Request 來為此貢獻您的一份心力。最後，您可以透過翻譯中心來協助我們將 BuildFeed 翻譯成你的母語。</value>
   </data>
   <data name="About_Q1" xml:space="preserve">
     <value>是誰在運作 BuildFeed？這是微軟的官方網站嗎？</value>

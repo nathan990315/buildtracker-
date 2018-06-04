@@ -124,7 +124,7 @@
     <value>Bună încercare, Dona, dar nu renunț pentru acesta. Pot spune că BuilFeed face cât mai sigur ca toate build-urile postate pe site să fie corecte și legitime. Avem mai multe surse diferite, pentru a face verificarea mai eficientă și pentru a ne da ceva redundanţă dacă Microsoft va închide una dintre sursele noastre.</value>
   </data>
   <data name="About_A3" xml:space="preserve">
-    <value>Există câteva posibilități. Puteți discuta aceste build-uri în sistemul de comentarii pe pagina fiecărui build. Puteți de asemenea contribui la construirea site-ului raportând problemele sau făcând trageri de solicitări pe GitHub. Mai puteți ajuta la traducerea BuildFeed în limba dumneavoastră natală prin Portalul de traducere.</value>
+    <value>Există câteva posibilități. Puteți discuta aceste build-uri în sistemul de comentarii pe pagina fiecărui build. Puteți de asemenea contribui la construirea site-ului raportând problemele sau făcând trageri de solicitări pe GitLab. Mai puteți ajuta la traducerea BuildFeed în limba dumneavoastră natală prin Portalul de traducere.</value>
   </data>
   <data name="About_Q1" xml:space="preserve">
     <value>Cine conduce BuildFeed? Este acesta un site official Microsoft?</value>

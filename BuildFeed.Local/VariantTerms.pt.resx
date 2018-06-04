@@ -124,7 +124,7 @@
     <value>Boa tentativa, Dona, mas eu não vou cair nessa. O que eu posso dizer é isto. O BuildFeed faz o possível para se certificar de que todas as compilações publicadas estão corretas e são legitimas. Nós temos um número de fontes diferentes, para fazer uma verificação mais confiável e para nos oferecer uma redundância caso a Microsoft decida fechar uma das nossas fontes.</value>
   </data>
   <data name="About_A3" xml:space="preserve">
-    <value>Existem várias maneiras. Tu podes discutir as compilações no sistema de comentários do Disqus em cada página das compilações. Também podes contribuir para o desenvolvimento do site reportando bugs ou fazendo sondagens no nosso GitHub. Por ultimo podes ajudar na tradução do BuildFeed através do nosso portal de tradução.</value>
+    <value>Existem várias maneiras. Tu podes discutir as compilações no sistema de comentários do Disqus em cada página das compilações. Também podes contribuir para o desenvolvimento do site reportando bugs ou fazendo sondagens no nosso GitLab. Por ultimo podes ajudar na tradução do BuildFeed através do nosso portal de tradução.</value>
   </data>
   <data name="About_Q1" xml:space="preserve">
     <value>Quem gere o BuildFeed? É um site oficial da Microsoft?</value>

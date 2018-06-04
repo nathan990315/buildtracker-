@@ -124,7 +124,7 @@
     <value>Bien essayé, Dona, mais je ne tomberai pas dans le panneau cette fois. Ce que je peux dire est ceci. BuildFeed fait en sorte d'être aussi certain que possible que toutes les versions publiées sur le site sont correctes et légitimes. Nous avons un certain nombre de sources différentes afin d'effectuer une vérification fiable et de nous donner une certaine redondance si Microsoft fermait une de nos sources.</value>
   </data>
   <data name="About_A3" xml:space="preserve">
-    <value>Il y a un certain nombre de façons. Vous pouvez discuter des builds au sein des commentaires Disqus sur chaque page de build. Vous pouvez également contribuer au développement du site en signalant des bugs ou faire des requêtes de tirage sur notre GitHub. Enfin, vous pouvez aider à traduire BuildFeed dans votre langue maternelle grâce à notre portail de traduction.</value>
+    <value>Il y a un certain nombre de façons. Vous pouvez discuter des builds au sein des commentaires Disqus sur chaque page de build. Vous pouvez également contribuer au développement du site en signalant des bugs ou faire des requêtes de tirage sur notre GitLab. Enfin, vous pouvez aider à traduire BuildFeed dans votre langue maternelle grâce à notre portail de traduction.</value>
   </data>
   <data name="About_Q1" xml:space="preserve">
     <value>Qui dirige BuildFeed ? Est-ce un site officiel Microsoft ?</value>

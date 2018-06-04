@@ -124,7 +124,7 @@
     <value>Dobar pokušaj, Dona, ali ja ne padam na tu foru. Ono što mogu reći je da informacije koje Buildfeed pruža su točne i legitimne. Imamo nekoliko različitih izvora koji omogućuju provjeru i pouzdanost, te nam omogućuje redudantnost u slučaju da Microsoft ugasi neki od naših izvora.</value>
   </data>
   <data name="About_A3" xml:space="preserve">
-    <value>Postoji nekoliko načina kako možete sudjelovati. Možete ostaviti komentar preko Disqus-a, ili možete dopridonijeti razvoju stranice prijavom greški (bugova) ili preuzimanjem repozitorija na GitHub-u. Isto tako možete pomoći u prijevodu na drugi jezik preko našeg portala za prijevod.</value>
+    <value>Postoji nekoliko načina kako možete sudjelovati. Možete ostaviti komentar preko Disqus-a, ili možete dopridonijeti razvoju stranice prijavom greški (bugova) ili preuzimanjem repozitorija na GitLab-u. Isto tako možete pomoći u prijevodu na drugi jezik preko našeg portala za prijevod.</value>
   </data>
   <data name="About_Q1" xml:space="preserve">
     <value>Tko vodi BuildFeed? Je li to službena Microsoftova stranica?</value>

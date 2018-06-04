@@ -124,7 +124,7 @@
     <value>Szép próbálkozás, Dona, de nem adok meg pontos információkat. Amit mondhatunk, a BuildFeed annyira biztos, amennyire lehet, hogy minden build listázva az oldalon helyes és nem hamis. Sok bizonyos forrásunk van, hogy az ellenőrzést biztosabbá tegyék.</value>
   </data>
   <data name="About_A3" xml:space="preserve">
-    <value>Sokféleképpen. Tudsz beszélni a buildekről a disqus kommentrendszerben minden build oldalon. Hozzájárulhatsz az oldal fejlesztéséhez, hibákat, bugokat jelezhetsz vagy pull requesteket küldhetsz a GitHubunkon. Végül, tudsz segíteni az oldal fordításában az anyanyelvedre a fordítás oldalunkon.</value>
+    <value>Sokféleképpen. Tudsz beszélni a buildekről a disqus kommentrendszerben minden build oldalon. Hozzájárulhatsz az oldal fejlesztéséhez, hibákat, bugokat jelezhetsz vagy pull requesteket küldhetsz a GitLabunkon. Végül, tudsz segíteni az oldal fordításában az anyanyelvedre a fordítás oldalunkon.</value>
   </data>
   <data name="About_Q1" xml:space="preserve">
     <value>Kié a BuildFeed? Ez egy hivatalos Microsoft oldal?</value>

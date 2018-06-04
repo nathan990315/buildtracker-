@@ -124,7 +124,7 @@
     <value>Boa tentativa, Dona, mas eu não cairei nessa. O que posso dizer é isso. BuildFeed checa se todas as compilações postadas no site são legítimas e totalmente corretas. Nós temos diferentes fontes, para tornar a verificação mais confiável e nos dar redundância caso uma de nossas fontes seja desativada.</value>
   </data>
   <data name="About_A3" xml:space="preserve">
-    <value>Há muitas maneiras. Você pode discutir as compilações através de suas páginas no sistema de comentários disqus. Você também pode contribuir com o desenvolvimento do site reportando bugs e fazendo 'pull requests' em nosso GitHub. Por último, você pode ajudar a traduzir o BuildFeed para sua língua no nosso portal de Tradução.</value>
+    <value>Há muitas maneiras. Você pode discutir as compilações através de suas páginas no sistema de comentários disqus. Você também pode contribuir com o desenvolvimento do site reportando bugs e fazendo 'pull requests' em nosso GitLab. Por último, você pode ajudar a traduzir o BuildFeed para sua língua no nosso portal de Tradução.</value>
   </data>
   <data name="About_Q1" xml:space="preserve">
     <value>Quem mantém o BuildFeed? É um site oficial da Microsoft?</value>

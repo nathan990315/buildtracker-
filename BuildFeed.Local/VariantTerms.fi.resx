@@ -124,7 +124,7 @@
     <value>Hyvä yritys, Dona, mutta en mene halpaan. Voin kuitenkin kertoa, että BuildFeed yrittää parhaansa mukaan pitää huolta siitä, että kaikki sivustolla esiintyvät koontiversiot ovat todenmukaisia. Meillä on monia eri lähteitä, joka tekee varmistamisesta helppoa ja antaa meille hieman ylimäärää siltä varalta, etta jokin lähteistämme katoaa Microsoftin toimesta.</value>
   </data>
   <data name="About_A3" xml:space="preserve">
-    <value>Monin keinoin. Voit keskustella koontiversioista Disqus-kommenttijärjestelmän avulla jokaisella koontiversiosivulla. Voit myös osallistua kehitykseen raportoimalla bugeja tai tekemällä pull requesteja GitHub-sivullamme. Lopuksi, voit kääntää BuildFeedin äidinkielellesi käännösportaalimme kautta.</value>
+    <value>Monin keinoin. Voit keskustella koontiversioista Disqus-kommenttijärjestelmän avulla jokaisella koontiversiosivulla. Voit myös osallistua kehitykseen raportoimalla bugeja tai tekemällä pull requesteja GitLab-sivullamme. Lopuksi, voit kääntää BuildFeedin äidinkielellesi käännösportaalimme kautta.</value>
   </data>
   <data name="About_Q1" xml:space="preserve">
     <value>Kuka ylläpitää BuildFeediä? Onko se virallinen Microsoft-sivusto?</value>

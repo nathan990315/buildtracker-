@@ -124,7 +124,7 @@
     <value>Dobrý pokus Dono, ale na to ti neskočíme. Můžeme říci jen následujíci. BuildFeed se ujišťuje co nejvíc, že všechny buildy zveřejněné na těchto stránkách jsou správné a odůvodněné. Máme několik různých zdrojů, abychom udělali ověřování více spolehlivé a abychom měli nadbytek zdrojů, kdyby Microsoft jeden z nich odstřihnul.</value>
   </data>
   <data name="About_A3" xml:space="preserve">
-    <value>Je zde mnoho způsobů. Můžete o buildech diskutovat v komentářích Disqus pod stránkou každého buildu. Můžete také pomoct při vývoji těchto stránek tím, že budete nahlašovat chyby nebo vytvářet pull requesty na našem GitHubu. A v neposlední řadě můžete pomoci s překladáním BuildFeedu do vašeho rodného jazyka přes náš překladový portál.</value>
+    <value>Je zde mnoho způsobů. Můžete o buildech diskutovat v komentářích Disqus pod stránkou každého buildu. Můžete také pomoct při vývoji těchto stránek tím, že budete nahlašovat chyby nebo vytvářet pull requesty na našem GitLabu. A v neposlední řadě můžete pomoci s překladáním BuildFeedu do vašeho rodného jazyka přes náš překladový portál.</value>
   </data>
   <data name="About_Q1" xml:space="preserve">
     <value>Kdo spravuje BuildFeed? Jsou toto oficiální stránky Microsoftu?</value>

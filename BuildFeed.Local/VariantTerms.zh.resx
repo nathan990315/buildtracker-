@@ -124,7 +124,7 @@
     <value>问得好，唐娜姐，但我不会上你的当的。我可以说的是 BuildFeed 尽力保证所有记录在本网站的版本信息都是正确且真实的。我们的数据来自许多不同的来源，以确保数据的可靠度，同时防止微软的封杀。</value>
   </data>
   <data name="About_A3" xml:space="preserve">
-    <value>有好几种方式。你可以在每个版本页下的 Disqus 讨论系统中进行讨论，也可以在我们的 Github 中提 Bug 或者发起 Pull Request 来贡献你的一份力。最后你还能通过我们的翻译中心来帮助我们将 BuildFeed 翻译到你的母语。</value>
+    <value>有好几种方式。你可以在每个版本页下的 Disqus 讨论系统中进行讨论，也可以在我们的 GitLab 中提 Bug 或者发起 Pull Request 来贡献你的一份力。最后你还能通过我们的翻译中心来帮助我们将 BuildFeed 翻译到你的母语。</value>
   </data>
   <data name="About_Q1" xml:space="preserve">
     <value>谁在运行 BuildFeed？这是微软官方的网站吗？</value>

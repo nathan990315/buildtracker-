@@ -80,7 +80,7 @@ namespace BuildFeed.Local {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to There&apos;s a number of ways. You can discuss the builds in the disqus comments system on each build page. You can also contribute to the site&apos;s development by reporting bugs or making pull requests on our GitHub. Lastly, you can help translate BuildFeed into your native language through our Translation portal..
+        ///   Looks up a localized string similar to There&apos;s a number of ways. You can discuss the builds in the disqus comments system on each build page. You can also contribute to the site&apos;s development by reporting bugs or making pull requests on our GitLab. Lastly, you can help translate BuildFeed into your native language through our Translation portal..
         /// </summary>
         public static string About_A3 {
             get {
