@@ -4,7 +4,7 @@
   "private": true,
   "devDependencies": {
     "@types/google.analytics": "0.0.39",
-    "@types/jquery": "3.3.2",
+    "@types/jquery": "3.3.4",
     "@types/jsrender": "0.0.29",
     "gulp": "3.9.1",
     "gulp-autoprefixer": "5.0.0",
@@ -14,7 +14,7 @@
     "gulp-typescript": "4.0.2",
     "gulp-uglify-es": "1.0.4",
     "multipipe": "2.0.3",
-    "node-sass": "4.9.0",
-    "typescript": "2.9.1"
+    "node-sass": "4.9.2",
+    "typescript": "2.9.2"
   }
 }
