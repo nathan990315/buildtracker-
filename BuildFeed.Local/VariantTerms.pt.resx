@@ -124,7 +124,7 @@
     <value>Boa tentativa, Dona, mas eu não vou cair nessa. O que eu posso dizer é isto. O BuildFeed faz o possível para se certificar de que todas as compilações publicadas estão corretas e são legitimas. Nós temos um número de fontes diferentes, para fazer uma verificação mais confiável e para nos oferecer uma redundância caso a Microsoft decida fechar uma das nossas fontes.</value>
   </data>
   <data name="About_A3" xml:space="preserve">
-    <value>Existem várias maneiras. Tu podes discutir as compilações no sistema de comentários do Disqus em cada página das compilações. Também podes contribuir para o desenvolvimento do site reportando bugs ou fazendo sondagens no nosso GitLab. Por ultimo podes ajudar na tradução do BuildFeed através do nosso portal de tradução.</value>
+    <value>Existem várias maneiras. Tu podes discutir as compilações no sistema de comentários do Disqus em cada página das compilações. Também podes contribuir para o desenvolvimento do site reportando bugs ou fazendo sondagens no nosso GitHub. Por ultimo podes ajudar na tradução do BuildFeed através do nosso portal de tradução.</value>
   </data>
   <data name="About_Q1" xml:space="preserve">
     <value>Quem gere o BuildFeed? É um site oficial da Microsoft?</value>
@@ -293,7 +293,7 @@ A equipa do {0}.
     <value>Veja mais compilações de {0}</value>
   </data>
   <data name="Front_MoreFromSource" xml:space="preserve">
-    <value>Veja mais compiliações originais de {0}</value>
+    <value>Veja mais compilações de {0}</value>
   </data>
   <data name="Front_MoreFromYear" xml:space="preserve">
     <value>Veja mais compilações compiladas em {0}</value>
@@ -386,7 +386,7 @@ A equipa do {0}.
     <value>Vazamento Público</value>
   </data>
   <data name="Model_Source_Logging" xml:space="preserve">
-    <value>Entrando</value>
+    <value>Registando</value>
   </data>
   <data name="Model_Source_PrivateLeak" xml:space="preserve">
     <value>Vazamento Privado</value>
@@ -454,12 +454,9 @@ A equipa do {0}.
   <data name="Support_EmailAddress" xml:space="preserve">
     <value>Endereço Email</value>
   </data>
-  
-<!--
-<data name="Support_EmailValidationContent" xml:space="preserve">
-    <value>[!!! Â Ʋáℓïδáƭïôñ ℓïñƙ λáƨ βèèñ ƨèñƭ ƭô ¥ôúř è₥áïℓ áδδřèƨƨ. Þℓèáƨè çℓïçƙ ƭλè ℓïñƙ ïñ ƭλè è₥áïℓ ƭô Ʋèřïƒ¥ ƭλè áççôúñƭ. ℓôřè₥ ïƥƨú₥ δôℓô !!!]</value>
+  <data name="Support_EmailValidationContent" xml:space="preserve">
+    <value>Um link foi enviado para o seu endereço de correio eletrónico. Por favor clique no link da mensagem de correio eletrónico para verificar a conta.</value>
   </data>
--->
   <data name="Support_EmailValidationTitle" xml:space="preserve">
     <value>Por favor verifique o seu endereço de correio eletrónico.</value>
   </data>

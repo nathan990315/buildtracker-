@@ -124,7 +124,7 @@
     <value>Hyvä yritys, Dona, mutta en mene halpaan. Voin kuitenkin kertoa, että BuildFeed yrittää parhaansa mukaan pitää huolta siitä, että kaikki sivustolla esiintyvät koontiversiot ovat todenmukaisia. Meillä on monia eri lähteitä, joka tekee varmistamisesta helppoa ja antaa meille hieman ylimäärää siltä varalta, etta jokin lähteistämme katoaa Microsoftin toimesta.</value>
   </data>
   <data name="About_A3" xml:space="preserve">
-    <value>Monin keinoin. Voit keskustella koontiversioista Disqus-kommenttijärjestelmän avulla jokaisella koontiversiosivulla. Voit myös osallistua kehitykseen raportoimalla bugeja tai tekemällä pull requesteja GitLab-sivullamme. Lopuksi, voit kääntää BuildFeedin äidinkielellesi käännösportaalimme kautta.</value>
+    <value>Monin keinoin. Voit keskustella koontiversioista Disqus-kommenttijärjestelmän avulla jokaisella koontiversiosivulla. Voit myös osallistua kehitykseen raportoimalla bugeja tai tekemällä pull requesteja GitHub-sivullamme. Lopuksi, voit kääntää BuildFeedin äidinkielellesi käännösportaalimme kautta.</value>
   </data>
   <data name="About_Q1" xml:space="preserve">
     <value>Kuka ylläpitää BuildFeediä? Onko se virallinen Microsoft-sivusto?</value>
@@ -135,11 +135,35 @@
   <data name="About_Q3" xml:space="preserve">
     <value>Miten voin osallistua?</value>
   </data>
+  <data name="Bulk_AddBuilds" xml:space="preserve">
+    <value>Lisää koontiversioita</value>
+  </data>
+  <data name="Bulk_Builds" xml:space="preserve">
+    <value>Koontiversiot</value>
+  </data>
+  <data name="Bulk_Instructions" xml:space="preserve">
+    <value>Lisää monta koontiversiota kirjoittamalla jokainen kokonainen koontiversioteksti yhdelle riville. Kaikki koontiversiot jotka on lisätty tämän sivun kautta merkitään automaattisesti yksityisesti vuotaneeksi.</value>
+  </data>
+  <data name="Bulk_SendNotifications" xml:space="preserve">
+    <value>Lähetä ilmoituksia</value>
+  </data>
+  <data name="Bulk_Success" xml:space="preserve">
+    <value>Koontiversiot lisättiin onnistuneesti.</value>
+  </data>
   <data name="Common_AddBuild" xml:space="preserve">
     <value>Lisää koontiversio</value>
   </data>
+  <data name="Common_AddBulk" xml:space="preserve">
+    <value>Lisää monta koontiversiota</value>
+  </data>
   <data name="Common_Admin" xml:space="preserve">
     <value>Admin</value>
+  </data>
+  <data name="Common_Blog" xml:space="preserve">
+    <value>Blogi</value>
+  </data>
+  <data name="Common_ChangePassword" xml:space="preserve">
+    <value>Vaihda salasana</value>
   </data>
   <data name="Common_ContributeOn" xml:space="preserve">
     <value>Osallistu kehitykseen: {0}</value>
@@ -180,6 +204,9 @@
   <data name="Common_ThemeLight" xml:space="preserve">
     <value>Vaalea</value>
   </data>
+  <data name="Common_ThemeWinter" xml:space="preserve">
+    <value>Talvi</value>
+  </data>
   <data name="Common_TitlePage" xml:space="preserve">
     <value>| Sivu {0}</value>
   </data>
@@ -188,6 +215,20 @@
   </data>
   <data name="Common_Twitter" xml:space="preserve">
     <value>Twitter</value>
+  </data>
+  <data name="Email_Registration_Body" xml:space="preserve">
+    <value>Kiitos {0}-sivustolle rekisteröitymisestä.
+
+Vahvista sähköpostiosoitteesi klikkaamalla allaolevaa linkkiä, tai kopioimalla ja liittämällä se selaimeesi. 
+{1} 
+
+Jos et rekisteröitynyt {0}-sivustolle, voi jättää tämän viestin huomioimatta.
+
+Kiitos,
+{0}-tiimi</value>
+  </data>
+  <data name="Email_Registration_Subject" xml:space="preserve">
+    <value>{0}: Vahvista sähköpostiosoitteesi</value>
   </data>
   <data name="Front_About" xml:space="preserve">
     <value>Tietoja</value>
@@ -201,6 +242,9 @@
   <data name="Front_Comments" xml:space="preserve">
     <value>Kommentit</value>
   </data>
+  <data name="Front_CurrentAnalog" xml:space="preserve">
+    <value>Nykyinen HoloLens</value>
+  </data>
   <data name="Front_CurrentCanary" xml:space="preserve">
     <value>Nykyinen Canary</value>
   </data>
@@ -209,6 +253,9 @@
   </data>
   <data name="Front_CurrentRelease" xml:space="preserve">
     <value>Nykyinen julkaisu</value>
+  </data>
+  <data name="Front_CurrentXbox" xml:space="preserve">
+    <value>Nykyinen Xbox</value>
   </data>
   <data name="Front_Delete" xml:space="preserve">
     <value>Poista</value>
@@ -363,6 +410,12 @@
   <data name="Model_Source_UpdateLDR" xml:space="preserve">
     <value>Päivitys (LDR)</value>
   </data>
+  
+<!--
+<data name="Notification_NewBuild" xml:space="preserve">
+    <value>[!!! Â ñèω βúïℓδ λáƨ βèèñ áδδèδ ƭô {0}! ℓôřè !!!]</value>
+  </data>
+-->
   <data name="Search_Build" xml:space="preserve">
     <value>Koontiversio</value>
   </data>
@@ -399,12 +452,9 @@
   <data name="Support_AdditionsToBuildFeed" xml:space="preserve">
     <value>Lisäykset BuildFeediin</value>
   </data>
-  
-<!--
-<data name="Support_BuildsCompiled" xml:space="preserve">
-    <value>[!!! ßúïℓδƨ Çô₥ƥïℓèδ ℓ !!!]</value>
+  <data name="Support_BuildsCompiled" xml:space="preserve">
+    <value>Käännetyt koontiversiot</value>
   </data>
--->
   <data name="Support_ChangePassword" xml:space="preserve">
     <value>Vaihda salasanasi</value>
   </data>
@@ -417,6 +467,12 @@
   <data name="Support_EmailAddress" xml:space="preserve">
     <value>Sähköpostiosoite</value>
   </data>
+  <data name="Support_EmailValidationContent" xml:space="preserve">
+    <value>Vahvistuslinkki on lähetetty antamaasi sähköpostiosoitteeseen. Klikkaa sähköpostissa olevaa linkkiä vahvistaaksesi tilin.</value>
+  </data>
+  <data name="Support_EmailValidationTitle" xml:space="preserve">
+    <value>Vahvista sähköpostiosoitteesi</value>
+  </data>
   <data name="Support_EnterCurrentPassword" xml:space="preserve">
     <value>Kirjoita nykyinen salasana</value>
   </data>
@@ -425,6 +481,21 @@
   </data>
   <data name="Support_EnterPassword" xml:space="preserve">
     <value>Kirjoita salasana</value>
+  </data>
+  <data name="Support_Error_ChangingPasswordFail" xml:space="preserve">
+    <value>Salasanaa vaihtaessa tapahtui virhe.</value>
+  </data>
+  <data name="Support_Error_DuplicateEmail" xml:space="preserve">
+    <value>Tämä sähköpostiosoite on jo käytössä.</value>
+  </data>
+  <data name="Support_Error_DuplicateUserName" xml:space="preserve">
+    <value>Tämä käyttäjänimi on jo olemassa.</value>
+  </data>
+  <data name="Support_Error_InvalidPassword" xml:space="preserve">
+    <value>Antamasi salasana ei kelpaa.</value>
+  </data>
+  <data name="Support_Error_UnknownError" xml:space="preserve">
+    <value>Tuntematon virhe on tapahtunut</value>
   </data>
   <data name="Support_HighestVersion" xml:space="preserve">
     <value>Korkein versio</value>
@@ -458,6 +529,18 @@
   </data>
   <data name="Support_UserName" xml:space="preserve">
     <value>Käyttäjänimi</value>
+  </data>
+  <data name="Support_ValidationFailureContent" xml:space="preserve">
+    <value>Tarkista sähköpostin vahvistuslinkki ja yritä uudelleen.</value>
+  </data>
+  <data name="Support_ValidationFailureTitle" xml:space="preserve">
+    <value>Emme voineet vahvistaa tiliäsi.</value>
+  </data>
+  <data name="Support_ValidationSuccessContent" xml:space="preserve">
+    <value>Voit nyt kirjautua sisään käyttäjänimelläsi ja salasanallasi.</value>
+  </data>
+  <data name="Support_ValidationSuccessTitle" xml:space="preserve">
+    <value>Olet vahvistanut tilisi onnistuneesti.</value>
   </data>
   <data name="Support_Week" xml:space="preserve">
     <value>Viikko</value>
