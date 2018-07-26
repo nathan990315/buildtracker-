@@ -164,7 +164,10 @@ namespace BuildFeed.Model
         {
             var families = new Dictionary<ProjectFamily, FrontPage>();
 
-            var query = _buildCollection.Aggregate()
+            var query = _buildCollection.Aggregate(new AggregateOptions
+                {
+                    AllowDiskUse = true
+                })
                 .Match(new BsonDocument
                 {
                     {

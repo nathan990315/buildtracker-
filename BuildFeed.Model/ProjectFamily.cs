@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+// ReSharper disable InconsistentNaming
 
 namespace BuildFeed.Model
 {
@@ -57,7 +58,7 @@ namespace BuildFeed.Model
         [Display(Name = "Redstone 5")]
         Redstone5 = 70,
 
-        [Display(Name = "Redstone 6 / 19H1")]
-        Redstone6 = 80
+        [Display(Name = "19H1")]
+        SAR_19H1 = 80 // SAR = Semi-Annual Release
     }
 }

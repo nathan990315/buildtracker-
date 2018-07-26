@@ -188,7 +188,7 @@ namespace BuildFeed.Model
             // move on to version number guesses
             else if (Number >= 18200)
             {
-                Family = ProjectFamily.Redstone6;
+                Family = ProjectFamily.SAR_19H1;
             }
             else if (Number >= 17600)
             {
