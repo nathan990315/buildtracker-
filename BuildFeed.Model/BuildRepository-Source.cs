@@ -28,6 +28,6 @@ namespace BuildFeed.Model
         }
 
         public async Task<long> SelectSourceCount(TypeOfSource source)
-            => await _buildCollection.CountAsync(new BsonDocument(nameof(Build.SourceType), source));
+            => await _buildCollection.CountDocumentsAsync(new BsonDocument(nameof(Build.SourceType), source));
     }
 }

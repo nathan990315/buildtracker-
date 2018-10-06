@@ -48,7 +48,7 @@ namespace BuildFeed.Model
         }
 
         public async Task<long> SelectFamilyCount(ProjectFamily family)
-            => await _buildCollection.CountAsync(new BsonDocument(nameof(Build.Family), family));
+            => await _buildCollection.CountDocumentsAsync(new BsonDocument(nameof(Build.Family), family));
 
         public async Task<List<FamilyOverview>> SelectFamilyOverviews()
         {

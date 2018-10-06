@@ -87,6 +87,6 @@ namespace BuildFeed.Model
         }
 
         public async Task<long> SelectLabCount(string lab)
-            => await _buildCollection.CountAsync(new BsonDocument(nameof(Build.LabUrl), lab));
+            => await _buildCollection.CountDocumentsAsync(new BsonDocument(nameof(Build.LabUrl), lab));
     }
 }

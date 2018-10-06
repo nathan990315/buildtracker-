@@ -97,7 +97,7 @@ namespace BuildFeed.Model
             return await query.ToListAsync();
         }
 
-        public async Task<long> SelectGroupCount(BuildGroup group) => await _buildCollection.CountAsync(new BsonDocument
+        public async Task<long> SelectGroupCount(BuildGroup group) => await _buildCollection.CountDocumentsAsync(new BsonDocument
         {
             new BsonElement(nameof(Build.MajorVersion), group.Major),
             new BsonElement(nameof(Build.MinorVersion), group.Minor),

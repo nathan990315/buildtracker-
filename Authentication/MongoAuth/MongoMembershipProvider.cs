@@ -94,24 +94,24 @@ namespace MongoAuth
 
             if (indexes.All(i => i["name"] != "_idx_username"))
             {
-                await _memberCollection.Indexes.CreateOneAsync(
+                await _memberCollection.Indexes.CreateOneAsync(new CreateIndexModel<MongoMember>(
                     Builders<MongoMember>.IndexKeys.Ascending(b => b.UserName),
                     new CreateIndexOptions
                     {
                         Name = "_idx_username",
                         Unique = true
-                    });
+                    }));
             }
 
             if (indexes.All(i => i["name"] != "_idx_email"))
             {
-                await _memberCollection.Indexes.CreateOneAsync(
+                await _memberCollection.Indexes.CreateOneAsync(new CreateIndexModel<MongoMember>(
                     Builders<MongoMember>.IndexKeys.Ascending(b => b.EmailAddress),
                     new CreateIndexOptions
                     {
                         Name = "_idx_email",
                         Unique = true
-                    });
+                    }));
             }
         }
 
@@ -161,8 +161,8 @@ namespace MongoAuth
 
             MembershipUser mu = null;
 
-            var dupeUsers = _memberCollection.Find(m => m.UserName.ToLower() == username.ToLower()).CountAsync();
-            var dupeEmails = _memberCollection.Find(m => m.EmailAddress.ToLower() == email.ToLower()).CountAsync();
+            var dupeUsers = _memberCollection.Find(m => m.UserName.ToLower() == username.ToLower()).CountDocumentsAsync();
+            var dupeEmails = _memberCollection.Find(m => m.EmailAddress.ToLower() == email.ToLower()).CountDocumentsAsync();
             dupeUsers.Wait();
             dupeEmails.Wait();
 
@@ -252,7 +252,7 @@ namespace MongoAuth
             var users = _memberCollection.Find(new BsonDocument())
                 .Sort(Builders<MongoMember>.Sort.Ascending(m => m.UserName));
 
-            var totalRecordsTask = users.CountAsync();
+            var totalRecordsTask = users.CountDocumentsAsync();
             totalRecordsTask.Wait();
             totalRecords = Convert.ToInt32(totalRecordsTask.Result);
 

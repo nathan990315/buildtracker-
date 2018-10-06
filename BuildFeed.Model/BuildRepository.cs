@@ -57,7 +57,7 @@ namespace BuildFeed.Model
             if (indexes.All(i => i["name"] != "_idx_group"))
             {
                 await
-                    _buildCollection.Indexes.CreateOneAsync(
+                    _buildCollection.Indexes.CreateOneAsync(new CreateIndexModel<Build>(
                         Builders<Build>.IndexKeys.Combine(Builders<Build>.IndexKeys.Descending(b => b.MajorVersion),
                             Builders<Build>.IndexKeys.Descending(b => b.MinorVersion),
                             Builders<Build>.IndexKeys.Descending(b => b.Number),
@@ -65,72 +65,77 @@ namespace BuildFeed.Model
                         new CreateIndexOptions
                         {
                             Name = "_idx_group"
-                        });
+                        }));
             }
 
             if (indexes.All(i => i["name"] != "_idx_legacy"))
             {
-                await _buildCollection.Indexes.CreateOneAsync(Builders<Build>.IndexKeys.Ascending(b => b.LegacyId),
+                await _buildCollection.Indexes.CreateOneAsync(new CreateIndexModel<Build>(
+                    Builders<Build>.IndexKeys.Ascending(b => b.LegacyId),
                     new CreateIndexOptions
                     {
                         Name = "_idx_legacy"
-                    });
+                    }));
             }
 
             if (indexes.All(i => i["name"] != "_idx_lab"))
             {
-                await _buildCollection.Indexes.CreateOneAsync(Builders<Build>.IndexKeys.Ascending(b => b.Lab),
+                await _buildCollection.Indexes.CreateOneAsync(new CreateIndexModel<Build>(
+                    Builders<Build>.IndexKeys.Ascending(b => b.Lab),
                     new CreateIndexOptions
                     {
                         Name = "_idx_lab"
-                    });
+                    }));
             }
 
             if (indexes.All(i => i["name"] != "_idx_date"))
             {
-                await _buildCollection.Indexes.CreateOneAsync(Builders<Build>.IndexKeys.Descending(b => b.BuildTime),
+                await _buildCollection.Indexes.CreateOneAsync(new CreateIndexModel<Build>(
+                    Builders<Build>.IndexKeys.Descending(b => b.BuildTime),
                     new CreateIndexOptions
                     {
                         Name = "_idx_date"
-                    });
+                    }));
             }
 
             if (indexes.All(i => i["name"] != "_idx_bstr"))
             {
-                await _buildCollection.Indexes.CreateOneAsync(
+                await _buildCollection.Indexes.CreateOneAsync(new CreateIndexModel<Build>(
                     Builders<Build>.IndexKeys.Ascending(b => b.FullBuildString),
                     new CreateIndexOptions
                     {
                         Name = "_idx_bstr"
-                    });
+                    }));
             }
 
             if (indexes.All(i => i["name"] != "_idx_alt_bstr"))
             {
-                await _buildCollection.Indexes.CreateOneAsync(
+                await _buildCollection.Indexes.CreateOneAsync(new CreateIndexModel<Build>(
                     Builders<Build>.IndexKeys.Ascending(b => b.AlternateBuildString),
                     new CreateIndexOptions
                     {
                         Name = "_idx_alt_bstr"
-                    });
+                    }));
             }
 
             if (indexes.All(i => i["name"] != "_idx_source"))
             {
-                await _buildCollection.Indexes.CreateOneAsync(Builders<Build>.IndexKeys.Ascending(b => b.SourceType),
+                await _buildCollection.Indexes.CreateOneAsync(new CreateIndexModel<Build>(
+                    Builders<Build>.IndexKeys.Ascending(b => b.SourceType),
                     new CreateIndexOptions
                     {
                         Name = "_idx_source"
-                    });
+                    }));
             }
 
             if (indexes.All(i => i["name"] != "_idx_family"))
             {
-                await _buildCollection.Indexes.CreateOneAsync(Builders<Build>.IndexKeys.Ascending(b => b.Family),
+                await _buildCollection.Indexes.CreateOneAsync(new CreateIndexModel<Build>(
+                    Builders<Build>.IndexKeys.Ascending(b => b.Family),
                     new CreateIndexOptions
                     {
                         Name = "_idx_family"
-                    });
+                    }));
             }
         }
 

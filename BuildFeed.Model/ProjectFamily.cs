@@ -55,7 +55,7 @@ namespace BuildFeed.Model
         [Display(Name = "Redstone 4", Description = "Windows 10 (April 2018 Update)")]
         Redstone4 = 60,
 
-        [Display(Name = "Redstone 5")]
+        [Display(Name = "Redstone 5", Description = "Windows 10 (October 2018 Update)")]
         Redstone5 = 70,
 
         [Display(Name = "19H1")]
