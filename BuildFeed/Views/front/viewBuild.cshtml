@@ -1,7 +1,4 @@
 ﻿@using System.Globalization
-@using BuildFeed.Code
-@using BuildFeed.Controllers
-@using BuildFeed.Model
 @model Build
 
 @{
@@ -11,17 +8,17 @@
 @section head
 {
     <meta property="og:title" content="@Model.FullBuildString" />
-    <meta property="og:image" content="@Request.Url.GetLeftPart(UriPartial.Authority)@Url.Action("twitterCard", new
-                                                                                     {
-                                                                                         id = Model.Id
-                                                                                     })">
+    <meta property="og:image" content="@Url.Action("twitterCard", new
+                                        {
+                                            id = Model.Id
+                                        })">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="@Model.FullBuildString | @InvariantTerms.SiteName">
-    <meta name="twitter:image" content="@Request.Url.GetLeftPart(UriPartial.Authority)@Url.Action("twitterCard", new
-                                                                                      {
-                                                                                          id = Model.Id
-                                                                                      })">
+    <meta name="twitter:image" content="@Url.Action("twitterCard", new
+                                        {
+                                            id = Model.Id
+                                        })">
     @{
         string metaDesc = Model.BuildTime.HasValue
             ? string.Format(VariantTerms.Meta_BuildDate, Model.Number, Model.Lab, Model.BuildTime.Value.ToLongDateWithoutDay())
@@ -178,7 +175,7 @@
 <div class="addthis_sharing_toolbox"></div>
 <br />
 
-@if (Roles.IsUserInRole("Editors") || Roles.IsUserInRole("Administrators"))
+@*if (Roles.IsUserInRole("Editors") || Roles.IsUserInRole("Administrators"))
 {
     <h3>@VariantTerms.Front_EditorActions</h3>
     <p class="build-details-flex-value">
@@ -201,7 +198,7 @@
             })
         }
     </p>
-}
+}*@
 <section class="build-details-comments">
     <h3>@VariantTerms.Front_Comments</h3>
     <div id="disqus_thread"></div>

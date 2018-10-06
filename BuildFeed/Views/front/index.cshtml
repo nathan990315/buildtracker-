@@ -1,25 +1,34 @@
-﻿@using BuildFeed.Code
-@using BuildFeed.Controllers
-@using BuildFeed.Model
-@using BuildFeed.Model.View
+﻿@using Microsoft.AspNetCore.Html
 @model Dictionary<ProjectFamily, FrontPage>
 @{
     ViewBag.Title = string.Format(VariantTerms.Front_HomeH1, InvariantTerms.SiteName);
+
+    HtmlString LatestBuild(string title, FrontPageBuild build)
+    {
+        string buildText = build.Revision.HasValue
+            ? $"{build.Number}.{build.Revision}"
+            : build.Number.ToString();
+        string dateText = build.BuildTime.HasValue
+            ? $@"<p class=""latest-flex-time"">{build.BuildTime.Value:HH:mm, dddd dd MMMM yyyy}</p>"
+            : "";
+        return new HtmlString($@"<h4 class=""latest-flex-title"">{title}</h4><div class=""latest-flex-detail""><p class=""latest-flex-build"">{buildText}</p><p class=""latest-flex-lab"">{build.Lab}</p>{dateText}</div>");
+    }
+
 }
 
 @section Head
-{
+    {
     <meta name="description" content="Learn what Dona Sarkar won&apos;t tell you. Keep up to date with the latest Microsoft Windows developments with BuildFeed, the comprehensive build tracker." />
-    <link rel="alternate" type="application/rss+xml" title="Latest additions - RSS" href="@Url.Action(nameof(RssController.Added), "Rss")" />
+    @*<link rel="alternate" type="application/rss+xml" title="Latest additions - RSS" href="@Url.Action(nameof(RssController.Added), "Rss")" />*@
 }
 
 <h1>@string.Format(VariantTerms.Front_HomeH1, InvariantTerms.SiteName)</h1>
 
 <h3>@VariantTerms.Front_LatestBuilds</h3>
 <a href="@Url.Action("IndexPage", new
-         {
-             Page = 1
-         })" class="latest-full">
+                 {
+                     Page = 1
+                 })" class="latest-full">
     @VariantTerms.Front_FullBuildListing
 </a>
 <div class="trim-wrapper">
@@ -34,46 +43,46 @@
                     @if (family.CurrentCanary != null && family.CurrentCanary.Id != family.CurrentInsider?.Id)
                     {
                         <a href="@Url.Action(nameof(FrontController.ViewBuild), new
-                                 {
-                                     family.CurrentCanary.Id
-                                 })" class="latest-flex-item latest-flex-red">
-                            @BuildHelpers.LatestBuild(VariantTerms.Front_CurrentCanary, family.CurrentCanary)
+                                         {
+                                             family.CurrentCanary.Id
+                                         })" class="latest-flex-item latest-flex-red">
+                            @LatestBuild(VariantTerms.Front_CurrentCanary, family.CurrentCanary)
                         </a>
                     }
                     @if (family.CurrentInsider != null && family.CurrentInsider.Id != family.CurrentRelease?.Id)
                     {
                         <a href="@Url.Action(nameof(FrontController.ViewBuild), new
-                                 {
-                                     family.CurrentInsider.Id
-                                 })" class="latest-flex-item latest-flex-yellow">
-                            @BuildHelpers.LatestBuild(VariantTerms.Front_CurrentInsider, family.CurrentInsider)
+                                         {
+                                             family.CurrentInsider.Id
+                                         })" class="latest-flex-item latest-flex-yellow">
+                            @LatestBuild(VariantTerms.Front_CurrentInsider, family.CurrentInsider)
                         </a>
                     }
                     @if (family.CurrentRelease != null)
                     {
                         <a href="@Url.Action(nameof(FrontController.ViewBuild), new
-                                 {
-                                     family.CurrentRelease.Id
-                                 })" class="latest-flex-item latest-flex-blue">
-                            @BuildHelpers.LatestBuild(VariantTerms.Front_CurrentRelease, family.CurrentRelease)
+                                         {
+                                             family.CurrentRelease.Id
+                                         })" class="latest-flex-item latest-flex-blue">
+                            @LatestBuild(VariantTerms.Front_CurrentRelease, family.CurrentRelease)
                         </a>
                     }
                     @if (family.CurrentAnalog != null)
                     {
                         <a href="@Url.Action(nameof(FrontController.ViewBuild), new
-                                 {
-                                     family.CurrentAnalog.Id
-                                 })" class="latest-flex-item latest-flex-purple">
-                            @BuildHelpers.LatestBuild(VariantTerms.Front_CurrentAnalog, family.CurrentAnalog)
+                                         {
+                                             family.CurrentAnalog.Id
+                                         })" class="latest-flex-item latest-flex-purple">
+                            @LatestBuild(VariantTerms.Front_CurrentAnalog, family.CurrentAnalog)
                         </a>
                     }
                     @if (family.CurrentXbox != null)
                     {
                         <a href="@Url.Action(nameof(FrontController.ViewBuild), new
-                                 {
-                                     family.CurrentXbox.Id
-                                 })" class="latest-flex-item latest-flex-green">
-                            @BuildHelpers.LatestBuild(VariantTerms.Front_CurrentXbox, family.CurrentXbox)
+                                         {
+                                             family.CurrentXbox.Id
+                                         })" class="latest-flex-item latest-flex-green">
+                            @LatestBuild(VariantTerms.Front_CurrentXbox, family.CurrentXbox)
                         </a>
                     }
                 </div>
@@ -95,9 +104,9 @@
                         foreach (ProjectFamily version in versions)
                         {
                             <option value="@Url.Action(nameof(FrontController.ViewFamily), "Front", new
-                                           {
-                                               family = version
-                                           })">
+                                                   {
+                                                       family = version
+                                                   })">
                                 @MvcExtensions.GetDisplayDescriptionForEnum(version)
                             </option>
                         }
@@ -121,9 +130,9 @@
                         foreach (int year in years)
                         {
                             <option value="@Url.Action(nameof(FrontController.ViewYear), "Front", new
-                                           {
-                                               year
-                                           })">
+                                                   {
+                                                       year
+                                                   })">
                                 @year
                             </option>
                         }
@@ -147,9 +156,9 @@
                         foreach (TypeOfSource source in sources)
                         {
                             <option value="@Url.Action(nameof(FrontController.ViewSource), "Front", new
-                                           {
-                                               source
-                                           })">
+                                                   {
+                                                       source
+                                                   })">
                                 @MvcExtensions.GetDisplayTextForEnum(source)
                             </option>
                         }
@@ -174,17 +183,17 @@
 <p>@VariantTerms.About_A3</p>
 
 @section Scripts
-{
+    {
     <script type="application/ld+json">
         {
-            "@("@")context": "http://schema.org",
-            "@("@")type": "Organization",
-            "name": "BuildFeed",
-            "url": "https://buildfeed.net/",
-            "logo": "https://buildfeed.net/res/ico/notify.png",
-            "sameAs": [
-                "https://twitter.com/buildfeed"
-            ]
+        "@("@")context": "http://schema.org",
+        "@("@")type": "Organization",
+        "name": "BuildFeed",
+        "url": "https://buildfeed.net/",
+        "logo": "https://buildfeed.net/res/ico/notify.png",
+        "sameAs": [
+        "https://twitter.com/buildfeed"
+        ]
         }
     </script>
 }

@@ -1,12 +1,8 @@
-﻿@using BuildFeed.Controllers
-@using BuildFeed.Model
-@model Build
+﻿@model Build
 @{
     ViewBag.Title = (string)ViewContext.RouteData.Values["action"] == nameof(FrontController.AddBuild)
         ? $"{VariantTerms.Common_AddBuild} | {InvariantTerms.SiteName}"
         : $"{VariantTerms.Front_EditBuild} {Model.FullBuildString} | {InvariantTerms.SiteName}";
-    Html.EnableClientValidation();
-    Html.EnableUnobtrusiveJavaScript();
 }
 
 @section head
@@ -86,7 +82,7 @@ else
     <div class="form-group">
         @Html.LabelFor(model => model.SourceType)
         <div>
-            @Html.DropDownListFor(model => model.SourceType, EnumHelper.GetSelectList(typeof(TypeOfSource)))
+            @Html.DropDownListFor(model => model.SourceType, Html.GetEnumSelectList<TypeOfSource>())
             @Html.ValidationMessageFor(model => model.SourceType)
         </div>
     </div>

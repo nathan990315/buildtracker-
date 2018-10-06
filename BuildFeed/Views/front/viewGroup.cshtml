@@ -1,7 +1,4 @@
-﻿@using BuildFeed.Code
-@using BuildFeed.Controllers
-@using BuildFeed.Model
-@using Humanizer
+﻿@using Humanizer
 @model Tuple<BuildGroup, List<Build>>
 @{
     ViewBag.Title = $"{Model.Item1} | {InvariantTerms.SiteName}";
@@ -49,7 +46,7 @@
                         <i class="fa fa-lock fa-fw"></i> @VariantTerms.Front_Private</span>
                 </p>
             }
-            @if (Roles.IsUserInRole("Editors") || Roles.IsUserInRole("Administrators"))
+            @*if (Roles.IsUserInRole("Editors") || Roles.IsUserInRole("Administrators"))
             {
                 <p>
                     <a href="@Url.Action(nameof(FrontController.EditBuild), new
@@ -69,7 +66,7 @@
                         </a>
                     }
                 </p>
-            }
+            }*@
         </div>
     }
     <div class="build-group-empty"></div>

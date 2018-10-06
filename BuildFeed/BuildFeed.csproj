@@ -1,430 +1,133 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>
-    </ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{CDDCF754-ECAA-4A66-ADAA-62957A57A51B}</ProjectGuid>
-    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BuildFeed</RootNamespace>
-    <AssemblyName>BuildFeed</AssemblyName>
-    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
-    <EnableUpdateable>false</EnableUpdateable>
-    <MvcBuildViews>true</MvcBuildViews>
-    <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort />
-    <IISExpressAnonymousAuthentication />
-    <IISExpressWindowsAuthentication />
-    <IISExpressUseClassicPipelineMode />
-    <ApplicationInsightsResourceId>/subscriptions/4af45631-0e5c-4253-9e38-d0c47f9c5b32/resourcegroups/Default-ApplicationInsights-CentralUS/providers/microsoft.insights/components/BuildFeed</ApplicationInsightsResourceId>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
-    <UseGlobalApplicationHostFile />
-    <TargetFrameworkProfile />
-    <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
-    <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
-    <Use64BitIISExpress />
-    <MSBuildGitHashValidate>False</MSBuildGitHashValidate>
-    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <UserSecretsId>aspnet-BuildFeed-794E2AE1-72C2-4F00-B783-1C78917251E7</UserSecretsId>
+    <TypeScriptToolsVersion>3.0</TypeScriptToolsVersion>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>ExtendedCorrectnessRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <TypeScriptTarget>ES6</TypeScriptTarget>
-    <TypeScriptJSXEmit>None</TypeScriptJSXEmit>
-    <TypeScriptCompileOnSaveEnabled>True</TypeScriptCompileOnSaveEnabled>
-    <TypeScriptNoImplicitAny>False</TypeScriptNoImplicitAny>
-    <TypeScriptModuleKind>ES6</TypeScriptModuleKind>
-    <TypeScriptRemoveComments>False</TypeScriptRemoveComments>
-    <TypeScriptOutFile />
-    <TypeScriptOutDir />
-    <TypeScriptGeneratesDeclarations>False</TypeScriptGeneratesDeclarations>
-    <TypeScriptNoEmitOnError>True</TypeScriptNoEmitOnError>
-    <TypeScriptSourceMap>True</TypeScriptSourceMap>
-    <TypeScriptMapRoot />
-    <TypeScriptSourceRoot />
-  </PropertyGroup>
+
   <ItemGroup>
-    <PackageReference Include="AutoMapper" Version="7.0.1" />
-    <PackageReference Include="HtmlAgilityPack" Version="1.8.9" />
-    <PackageReference Include="Humanizer">
-      <Version>2.5.1</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.AspNet.Mvc">
-      <Version>5.2.6</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.AspNet.Razor">
-      <Version>3.2.6</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.AspNet.WebApi">
-      <Version>5.2.6</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.AspNet.WebPages">
-      <Version>3.2.6</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
-      <Version>2.0.1</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.Net.Compilers">
-      <Version>2.9.0</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.Web.Infrastructure">
-      <Version>1.0.0</Version>
-    </PackageReference>
-    <PackageReference Include="MSBuildGitHash">
-      <Version>0.3.0</Version>
-    </PackageReference>
-    <PackageReference Include="OneSignal.RestAPIv3.Client">
-      <Version>1.0.3</Version>
-    </PackageReference>
-    <PackageReference Include="WilderMinds.RssSyndication">
-      <Version>1.3.0</Version>
-    </PackageReference>
+    <Content Remove="package.json" />
+    <Content Remove="tsconfig.json" />
   </ItemGroup>
+
   <ItemGroup>
-    <Reference Include="netstandard" />
-    <Reference Include="System" />
-    <Reference Include="System.ComponentModel.Composition" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.IO.Compression.FileSystem" />
-    <Reference Include="System.Net" />
-    <Reference Include="System.Numerics" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.ServiceModel" />
-    <Reference Include="System.Web.DynamicData" />
-    <Reference Include="System.Web.Entity" />
-    <Reference Include="System.Web.ApplicationServices" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Web" />
-    <Reference Include="System.Web.Abstractions" />
-    <Reference Include="System.Web.Routing" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Configuration" />
-    <Reference Include="System.Web.Services" />
-    <Reference Include="System.EnterpriseServices" />
-    <Reference Include="System.Net.Http.WebRequest" />
-    <Reference Include="System.Xml.Linq" />
+    <PackageReference Include="Humanizer" Version="2.5.1" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.5" PrivateAssets="All" />
+    <PackageReference Include="OneSignal.RestAPIv3.Client" Version="1.0.3" />
+    <PackageReference Include="System.Drawing.Common" Version="4.5.1" />
   </ItemGroup>
+
   <ItemGroup>
-    <Compile Include="Areas\Admin\Controllers\RootController.cs" />
-    <Compile Include="Areas\Admin\Controllers\MetaController.cs" />
-    <Compile Include="Areas\Admin\Models\ViewModel\MetaListing.cs" />
-    <Compile Include="Code\Base32Encoding.cs" />
-    <Compile Include="Code\CustomContentTypeAttribute.cs" />
-    <Compile Include="Code\DateTimeModelBinder.cs" />
-    <Compile Include="Code\DisplayHelpers.cs" />
-    <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Areas\Admin\adminAreaRegistration.cs" />
-    <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
-    <Compile Include="Code\EmailManager\EmailManager.cs" />
-    <Compile Include="Code\EmailManager\RegistrationEmail.cs" />
-    <Compile Include="Code\MvcIntrinsics.cs" />
-    <Compile Include="Code\OneSignalHelper.cs" />
-    <Compile Include="Code\Options\Locale.cs" />
-    <Compile Include="Code\Options\Theme.cs" />
-    <Compile Include="Code\OutputCachePushAttribute.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\ApiController.cs" />
-    <Compile Include="Controllers\BaseController.cs" />
-    <Compile Include="Controllers\FrontController.cs" />
-    <Compile Include="Controllers\RssController.cs" />
-    <Compile Include="Controllers\SupportController.cs" />
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Folder Include="Areas\" />
+    <Folder Include="wwwroot\res\css\" />
   </ItemGroup>
+
   <ItemGroup>
-    <Content Include="BingSiteAuth.xml" />
-    <Content Include="browserconfig.xml" />
-    <Content Include="App_Code\BuildHelpers.cshtml" />
-    <None Include="gulpfile.js" />
-    <None Include="res\css\inc\_christmas.scss" />
-    <None Include="package-lock.json">
-      <DependentUpon>package.json</DependentUpon>
-    </None>
-    <Content Include="res\card\Feature2.png" />
-    <Content Include="res\card\Redstone5.png" />
-    <Content Include="res\css\winter.css">
-      <DependentUpon>winter.scss</DependentUpon>
-    </Content>
-    <Content Include="res\css\winter.css.map">
-      <DependentUpon>winter.css</DependentUpon>
-    </Content>
-    <Content Include="res\ico\notify.png" />
-    <Content Include="OneSignalSDKUpdaterWorker.js" />
-    <Content Include="OneSignalSDKWorker.js" />
-    <Content Include="res\card\Longhorn.png" />
-    <Content Include="res\card\Redstone4.png" />
-    <Content Include="res\card\Redstone3.png" />
-    <Content Include="res\card\Redstone2.png" />
-    <Content Include="res\card\Redstone.png" />
-    <Content Include="res\card\Threshold2.png" />
-    <Content Include="res\card\Threshold.png" />
-    <Content Include="res\card\Windows7.png" />
-    <Content Include="res\card\Windows8.png" />
-    <Content Include="res\card\WindowsBlue.png" />
-    <Content Include="res\card\WindowsVista.png" />
-    <Content Include="res\ico\wide.png" />
-    <Content Include="res\ico\large.png" />
-    <Content Include="res\ico\square.png" />
-    <Content Include="res\ico\tiny.png" />
-    <Content Include="favicon.ico" />
-    <Content Include="Global.asax" />
-    <Content Include="Areas\Admin\Views\web.config" />
-    <Content Include="Areas\Admin\Views\Users\index.cshtml" />
-    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Admin\Views\Root\index.cshtml" />
-    <Content Include="Areas\Admin\Views\Users\admins.cshtml" />
-    <Content Include="Areas\Admin\Views\Meta\index.cshtml" />
-    <Content Include="Areas\Admin\Views\Meta\create.cshtml" />
-    <Content Include="res\card\WindowsXP.png" />
-    <Content Include="res\css\dark.css">
-      <DependentUpon>dark.scss</DependentUpon>
-    </Content>
-    <Content Include="res\css\dark.css.map">
-      <DependentUpon>dark.css</DependentUpon>
-    </Content>
-    <Content Include="res\css\default.css">
-      <DependentUpon>default.scss</DependentUpon>
-    </Content>
-    <Content Include="res\css\default.css.map">
-      <DependentUpon>default.css</DependentUpon>
-    </Content>
-    <Content Include="res\css\light.css">
-      <DependentUpon>light.scss</DependentUpon>
-    </Content>
-    <Content Include="res\css\light.css.map">
-      <DependentUpon>light.css</DependentUpon>
-    </Content>
-    <Content Include="res\css\rtl.css">
-      <DependentUpon>rtl.scss</DependentUpon>
-    </Content>
-    <Content Include="res\css\rtl.css.map">
-      <DependentUpon>rtl.css</DependentUpon>
-    </Content>
-    <Content Include="res\ts\bfs.js">
-      <DependentUpon>bfs.ts</DependentUpon>
-    </Content>
-    <Content Include="res\ts\bfs.js.map">
-      <DependentUpon>bfs.js</DependentUpon>
-    </Content>
-    <Content Include="res\ts\christmas.js">
-      <DependentUpon>christmas.ts</DependentUpon>
-    </Content>
-    <Content Include="res\ts\christmas.js.map">
-      <DependentUpon>christmas.js</DependentUpon>
-    </Content>
-    <Content Include="robots.txt" />
-    <Content Include="App_Code\PaginationHelpers.cshtml" />
-    <Content Include="res\css\default.scss" />
-    <Content Include="res\css\rtl.scss" />
-    <Content Include="res\css\dark.scss" />
-    <Content Include="manifest.json" />
     <None Include="package.json" />
-    <Content Include="res\Web.config" />
-    <Content Include="res\css\light.scss" />
-    <Content Include="res\css\inc\_variables.scss" />
-    <Content Include="res\css\inc\_nord.scss" />
-    <Content Include="res\css\winter.scss" />
-    <Content Include="Scripts\trumbowyg\langs\ar.min.js" />
-    <Content Include="Scripts\trumbowyg\langs\bg.min.js" />
-    <Content Include="Scripts\trumbowyg\langs\by.min.js" />
-    <Content Include="Scripts\trumbowyg\langs\ca.min.js" />
-    <Content Include="Scripts\trumbowyg\langs\cs.min.js" />
-    <Content Include="Scripts\trumbowyg\langs\da.min.js" />
-    <Content Include="Scripts\trumbowyg\langs\de.min.js" />
-    <Content Include="Scripts\trumbowyg\langs\el.min.js" />
-    <Content Include="Scripts\trumbowyg\langs\es.min.js" />
-    <Content Include="Scripts\trumbowyg\langs\es_ar.min.js" />
-    <Content Include="Scripts\trumbowyg\langs\fa.min.js" />
-    <Content Include="Scripts\trumbowyg\langs\fi.min.js" />
-    <Content Include="Scripts\trumbowyg\langs\fr.min.js" />
-    <Content Include="Scripts\trumbowyg\langs\he.min.js" />
-    <Content Include="Scripts\trumbowyg\langs\hr.min.js" />
-    <Content Include="Scripts\trumbowyg\langs\hu.min.js" />
-    <Content Include="Scripts\trumbowyg\langs\id.min.js" />
-    <Content Include="Scripts\trumbowyg\langs\it.min.js" />
-    <Content Include="Scripts\trumbowyg\langs\ja.min.js" />
-    <Content Include="Scripts\trumbowyg\langs\ko.min.js" />
-    <Content Include="Scripts\trumbowyg\langs\mn.min.js" />
-    <Content Include="Scripts\trumbowyg\langs\my.min.js" />
-    <Content Include="Scripts\trumbowyg\langs\nl.min.js" />
-    <Content Include="Scripts\trumbowyg\langs\no_nb.min.js" />
-    <Content Include="Scripts\trumbowyg\langs\ph.min.js" />
-    <Content Include="Scripts\trumbowyg\langs\pl.min.js" />
-    <Content Include="Scripts\trumbowyg\langs\pt.min.js" />
-    <Content Include="Scripts\trumbowyg\langs\pt_br.min.js" />
-    <Content Include="Scripts\trumbowyg\langs\ro.min.js" />
-    <Content Include="Scripts\trumbowyg\langs\rs.min.js" />
-    <Content Include="Scripts\trumbowyg\langs\rs_latin.min.js" />
-    <Content Include="Scripts\trumbowyg\langs\ru.min.js" />
-    <Content Include="Scripts\trumbowyg\langs\sk.min.js" />
-    <Content Include="Scripts\trumbowyg\langs\sv.min.js" />
-    <Content Include="Scripts\trumbowyg\langs\tr.min.js" />
-    <Content Include="Scripts\trumbowyg\langs\ua.min.js" />
-    <Content Include="Scripts\trumbowyg\langs\vi.min.js" />
-    <Content Include="Scripts\trumbowyg\langs\zh_cn.min.js" />
-    <Content Include="Scripts\trumbowyg\langs\zh_tw.min.js" />
-    <Content Include="Scripts\trumbowyg\plugins\base64\trumbowyg.base64.min.js" />
-    <Content Include="Scripts\trumbowyg\plugins\cleanpaste\trumbowyg.cleanpaste.min.js" />
-    <Content Include="Scripts\trumbowyg\plugins\colors\trumbowyg.colors.min.js" />
-    <Content Include="Scripts\trumbowyg\plugins\colors\ui\trumbowyg.colors.min.css" />
-    <Content Include="Scripts\trumbowyg\plugins\emoji\trumbowyg.emoji.min.js" />
-    <Content Include="Scripts\trumbowyg\plugins\emoji\ui\trumbowyg.emoji.min.css" />
-    <Content Include="Scripts\trumbowyg\plugins\insertaudio\trumbowyg.insertaudio.min.js" />
-    <Content Include="Scripts\trumbowyg\plugins\noembed\trumbowyg.noembed.min.js" />
-    <Content Include="Scripts\trumbowyg\plugins\pasteimage\trumbowyg.pasteimage.min.js" />
-    <Content Include="Scripts\trumbowyg\plugins\preformatted\trumbowyg.preformatted.min.js" />
-    <Content Include="Scripts\trumbowyg\plugins\table\trumbowyg.table.min.js" />
-    <Content Include="Scripts\trumbowyg\plugins\template\trumbowyg.template.min.js" />
-    <Content Include="Scripts\trumbowyg\plugins\upload\trumbowyg.upload.min.js" />
-    <Content Include="Scripts\trumbowyg\trumbowyg.min.js" />
-    <Content Include="Scripts\trumbowyg\ui\icons.svg" />
-    <Content Include="Scripts\trumbowyg\ui\trumbowyg.min.css" />
-    <Content Include="yandex_702baad42b020be7.html" />
-    <None Include="Properties\PublishProfiles\Local Folder.pubxml" />
-    <Content Include="googleacffc6da14c53e15.html" />
-    <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config">
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="Views\Web.config" />
-    <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\shared\_default.cshtml" />
-    <Content Include="Views\front\EditBuild.cshtml" />
-    <Content Include="Views\shared\DisplayTemplates\Enumeration.cshtml" />
-    <Content Include="Views\account\register.cshtml" />
-    <Content Include="Views\account\login.cshtml" />
-    <Content Include="Views\account\password.cshtml" />
-    <Content Include="Views\account\registerthanks.cshtml" />
-    <Content Include="Views\support\rss.cshtml" />
-    <Content Include="Views\support\sitemap.cshtml" />
-    <Content Include="smtp.config">
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="Views\front\Pages.cshtml" />
-    <Content Include="Views\front\ViewGroup.cshtml" />
-    <Content Include="Views\front\ViewBuild.cshtml" />
-    <Content Include="Views\front\ViewLab.cshtml" />
-    <Content Include="Views\front\ViewSource.cshtml" />
-    <Content Include="Views\front\ViewYear.cshtml" />
-    <Content Include="Views\front\ViewVersion.cshtml" />
-    <Content Include="Views\support\credits.cshtml" />
-    <Content Include="Views\shared\error.cshtml" />
-    <Content Include="Views\front\Index.cshtml" />
-    <Content Include="settings.config">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Views\front\AddBulk.cshtml" />
-    <Content Include="Views\account\validate-success.cshtml" />
-    <Content Include="Views\account\validate-failure.cshtml" />
     <None Include="tsconfig.json" />
-    <Content Include="Views\front\ViewFamily.cshtml" />
+    <None Include="wwwroot\res\js\trumbowyg\langs\ar.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\langs\bg.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\langs\by.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\langs\ca.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\langs\cs.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\langs\da.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\langs\de.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\langs\el.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\langs\es.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\langs\es_ar.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\langs\fa.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\langs\fi.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\langs\fr.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\langs\he.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\langs\hr.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\langs\hu.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\langs\id.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\langs\it.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\langs\ja.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\langs\ko.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\langs\lt.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\langs\mn.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\langs\my.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\langs\nl.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\langs\no_nb.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\langs\ph.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\langs\pl.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\langs\pt.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\langs\pt_br.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\langs\ro.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\langs\rs.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\langs\rs_latin.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\langs\ru.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\langs\sk.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\langs\sq.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\langs\sv.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\langs\th.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\langs\tr.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\langs\ua.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\langs\vi.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\langs\zh_cn.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\langs\zh_tw.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\plugins\allowtagsfrompaste\trumbowyg.allowtagsfrompaste.js" />
+    <None Include="wwwroot\res\js\trumbowyg\plugins\allowtagsfrompaste\trumbowyg.allowtagsfrompaste.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\plugins\base64\trumbowyg.base64.js" />
+    <None Include="wwwroot\res\js\trumbowyg\plugins\base64\trumbowyg.base64.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\plugins\cleanpaste\trumbowyg.cleanpaste.js" />
+    <None Include="wwwroot\res\js\trumbowyg\plugins\cleanpaste\trumbowyg.cleanpaste.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\plugins\colors\trumbowyg.colors.js" />
+    <None Include="wwwroot\res\js\trumbowyg\plugins\colors\trumbowyg.colors.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\plugins\colors\ui\sass\trumbowyg.colors.scss" />
+    <None Include="wwwroot\res\js\trumbowyg\plugins\emoji\trumbowyg.emoji.js" />
+    <None Include="wwwroot\res\js\trumbowyg\plugins\emoji\trumbowyg.emoji.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\plugins\emoji\ui\sass\trumbowyg.emoji.scss" />
+    <None Include="wwwroot\res\js\trumbowyg\plugins\fontfamily\trumbowyg.fontfamily.js" />
+    <None Include="wwwroot\res\js\trumbowyg\plugins\fontfamily\trumbowyg.fontfamily.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\plugins\fontsize\trumbowyg.fontsize.js" />
+    <None Include="wwwroot\res\js\trumbowyg\plugins\fontsize\trumbowyg.fontsize.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\plugins\highlight\trumbowyg.highlight.js" />
+    <None Include="wwwroot\res\js\trumbowyg\plugins\highlight\trumbowyg.highlight.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\plugins\highlight\ui\sass\trumbowyg.highlight.scss" />
+    <None Include="wwwroot\res\js\trumbowyg\plugins\history\trumbowyg.history.js" />
+    <None Include="wwwroot\res\js\trumbowyg\plugins\history\trumbowyg.history.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\plugins\insertaudio\trumbowyg.insertaudio.js" />
+    <None Include="wwwroot\res\js\trumbowyg\plugins\insertaudio\trumbowyg.insertaudio.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\plugins\lineheight\trumbowyg.lineheight.js" />
+    <None Include="wwwroot\res\js\trumbowyg\plugins\lineheight\trumbowyg.lineheight.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\plugins\mathml\trumbowyg.mathml.js" />
+    <None Include="wwwroot\res\js\trumbowyg\plugins\mathml\trumbowyg.mathml.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\plugins\mathml\ui\sass\trumbowyg.mathml.scss" />
+    <None Include="wwwroot\res\js\trumbowyg\plugins\mention\trumbowyg.mention.js" />
+    <None Include="wwwroot\res\js\trumbowyg\plugins\mention\trumbowyg.mention.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\plugins\mention\ui\sass\trumbowyg.mention.scss" />
+    <None Include="wwwroot\res\js\trumbowyg\plugins\noembed\trumbowyg.noembed.js" />
+    <None Include="wwwroot\res\js\trumbowyg\plugins\noembed\trumbowyg.noembed.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\plugins\pasteembed\trumbowyg.pasteembed.js" />
+    <None Include="wwwroot\res\js\trumbowyg\plugins\pasteembed\trumbowyg.pasteembed.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\plugins\pasteimage\trumbowyg.pasteimage.js" />
+    <None Include="wwwroot\res\js\trumbowyg\plugins\pasteimage\trumbowyg.pasteimage.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\plugins\preformatted\trumbowyg.preformatted.js" />
+    <None Include="wwwroot\res\js\trumbowyg\plugins\preformatted\trumbowyg.preformatted.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\plugins\resizimg\trumbowyg.resizimg.js" />
+    <None Include="wwwroot\res\js\trumbowyg\plugins\resizimg\trumbowyg.resizimg.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\plugins\ruby\trumbowyg.ruby.js" />
+    <None Include="wwwroot\res\js\trumbowyg\plugins\ruby\trumbowyg.ruby.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\plugins\table\trumbowyg.table.js" />
+    <None Include="wwwroot\res\js\trumbowyg\plugins\table\trumbowyg.table.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\plugins\table\ui\sass\trumbowyg.table.scss" />
+    <None Include="wwwroot\res\js\trumbowyg\plugins\template\trumbowyg.template.js" />
+    <None Include="wwwroot\res\js\trumbowyg\plugins\template\trumbowyg.template.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\plugins\upload\trumbowyg.upload.js" />
+    <None Include="wwwroot\res\js\trumbowyg\plugins\upload\trumbowyg.upload.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\trumbowyg.js" />
+    <None Include="wwwroot\res\js\trumbowyg\trumbowyg.min.js" />
+    <None Include="wwwroot\res\js\trumbowyg\ui\icons.svg" />
+    <None Include="wwwroot\res\js\trumbowyg\ui\sass\trumbowyg.scss" />
   </ItemGroup>
-  <ItemGroup />
+
   <ItemGroup>
-    <TypeScriptCompile Include="res\ts\bfs.ts" />
-    <TypeScriptCompile Include="res\ts\christmas.ts" />
+    <ProjectReference Include="..\BuildFeed.Local\BuildFeed.Local.csproj" />
+    <ProjectReference Include="..\BuildFeed.Model\BuildFeed.Model.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Authentication\MongoAuth\MongoAuth.csproj">
-      <Project>{7c67bfb9-1b3b-4676-a58d-10573da82cfe}</Project>
-      <Name>MongoAuth</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\BuildFeed.Local\BuildFeed.Local.csproj">
-      <Project>{9ebd4db1-1d37-456b-ad90-357aa89dd1b7}</Project>
-      <Name>BuildFeed.Local</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\BuildFeed.Model\BuildFeed.Model.csproj">
-      <Project>{7e2b4f61-1c11-4471-af80-5480e94c0664}</Project>
-      <Name>BuildFeed.Model</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <PropertyGroup>
-    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
-    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
-  </PropertyGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
-    <TypeScriptTarget>ES2015</TypeScriptTarget>
-    <TypeScriptJSXEmit>None</TypeScriptJSXEmit>
-    <TypeScriptCompileOnSaveEnabled>False</TypeScriptCompileOnSaveEnabled>
-    <TypeScriptNoImplicitAny>False</TypeScriptNoImplicitAny>
-    <TypeScriptModuleKind>None</TypeScriptModuleKind>
-    <TypeScriptRemoveComments>True</TypeScriptRemoveComments>
-    <TypeScriptOutFile />
-    <TypeScriptOutDir />
-    <TypeScriptGeneratesDeclarations>False</TypeScriptGeneratesDeclarations>
-    <TypeScriptNoEmitOnError>True</TypeScriptNoEmitOnError>
-    <TypeScriptSourceMap>False</TypeScriptSourceMap>
-    <TypeScriptMapRoot />
-    <TypeScriptSourceRoot />
-  </PropertyGroup>
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
-  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
-  <Target Name="AfterBuild">
-    <Copy SourceFiles="$(TargetDir)\$(AssemblyName).dll.config" DestinationFiles="Web.config" />
-  </Target>
-  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
-    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
-  </Target>
-  <ProjectExtensions>
-    <VisualStudio>
-      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
-        <WebProjectProperties>
-          <UseIIS>True</UseIIS>
-          <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>50468</DevelopmentServerPort>
-          <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:50505/</IISUrl>
-          <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
-          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
-        </WebProjectProperties>
-      </FlavorProperties>
-    </VisualStudio>
-  </ProjectExtensions>
-  <PropertyGroup>
-    <PreBuildEvent>attrib +H $(ProjectDir)node_modules /D
-attrib +H $(ProjectDir)obj /D</PreBuildEvent>
-  </PropertyGroup>
+
 </Project>

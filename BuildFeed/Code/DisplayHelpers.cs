@@ -3,14 +3,14 @@ using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 using System.Linq;
 using System.Text;
-using System.Web;
-using System.Web.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
 namespace BuildFeed.Code
 {
     public static class MvcExtensions
     {
-        public static IHtmlString CheckboxListForEnum<T>(this HtmlHelper html, string id, T currentItem)
+        public static string CheckboxListForEnum<T>(this HtmlHelper html, string id, T currentItem)
             where T : struct
         {
             var sb = new StringBuilder();
@@ -29,9 +29,15 @@ namespace BuildFeed.Code
                 var wrapper = new TagBuilder("div");
                 wrapper.Attributes.Add("class", "checkbox");
 
-                var label = new TagBuilder("label");
+                var label = new TagBuilder("label")
+                {
+                    TagRenderMode = TagRenderMode.Normal
+                };
 
-                var input = new TagBuilder("input");
+                var input = new TagBuilder("input")
+                {
+                    TagRenderMode = TagRenderMode.SelfClosing
+                };
                 if ((enumValue & currentValue) != 0)
                 {
                     input.MergeAttribute("checked", "checked");
@@ -41,15 +47,15 @@ namespace BuildFeed.Code
                 input.MergeAttribute("value", enumValue.ToString());
                 input.MergeAttribute("name", id);
 
-                label.InnerHtml = input.ToString(TagRenderMode.SelfClosing);
-                label.InnerHtml += GetDisplayTextForEnum(enumItem);
+                label.InnerHtml.AppendHtml(input.ToString());
+                label.InnerHtml.Append(GetDisplayTextForEnum(enumItem));
 
-                wrapper.InnerHtml = label.ToString(TagRenderMode.Normal);
+                wrapper.InnerHtml.AppendHtml(label.ToString());
 
-                sb.Append(wrapper.ToString(TagRenderMode.Normal));
+                sb.Append(wrapper);
             }
 
-            return new HtmlString(sb.ToString());
+            return sb.ToString();
         }
 
         public static string GetDisplayTextForEnum(object o)

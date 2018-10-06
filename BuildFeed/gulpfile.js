@@ -31,9 +31,9 @@ gulp.task("sass-compile",
             }),
             cleanCss(),
             sourceMaps.write("./"),
-            gulp.dest("./res/css/"));
+            gulp.dest("./wwwroot/res/css/"));
 
-        return gulp.src("./res/css/*.scss")
+        return gulp.src("./res/scss/*.scss")
             .pipe(pipes);
     });
 
@@ -48,12 +48,12 @@ gulp.task("typescript",
             .js
             .pipe(uglify())
             .pipe(sourceMaps.write("./"))
-            .pipe(gulp.dest("./res/ts/"));
+            .pipe(gulp.dest("./wwwroot/res/js/"));
     });
 
 gulp.task("watch-sass",
     function()
     {
-        gulp.watch("./res/css/**.scss", gulp.series("sass-compile"));
+        gulp.watch("./res/scss/**.scss", gulp.series("sass-compile"));
         gulp.watch("./res/ts/*.ts", gulp.series("typescript"));
     });

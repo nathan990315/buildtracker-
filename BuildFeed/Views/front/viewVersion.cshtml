@@ -1,7 +1,4 @@
-﻿@using BuildFeed.Code
-@using BuildFeed.Controllers
-@using BuildFeed.Model
-@using Humanizer
+﻿@using Humanizer
 @model IEnumerable<Build>
 @{
     ViewBag.Title = $"{InvariantTerms.ProductName} {ViewBag.ItemId} {(ViewBag.PageNumber == 1 ? "" : string.Format(VariantTerms.Common_TitlePage, ViewBag.PageNumber))} | {InvariantTerms.SiteName}";
@@ -99,7 +96,7 @@
                     </span>
                 </p>
             }
-            @if (Roles.IsUserInRole("Editors") || Roles.IsUserInRole("Administrators"))
+            @*if (Roles.IsUserInRole("Editors") || Roles.IsUserInRole("Administrators"))
             {
                 <p>
                     <a href="@Url.Action(nameof(FrontController.EditBuild), new
@@ -119,7 +116,7 @@
                         </a>
                     }
                 </p>
-            }
+            }*@
         </div>
     }
     <div class="build-group-empty"></div>
@@ -128,4 +125,4 @@
     <div class="build-group-empty"></div>
     <div class="build-group-empty"></div>
 </div>
-@PaginationHelpers.PaginationBlock((int)ViewBag.PageNumber, (int)ViewBag.PageCount, "viewVersion", ViewContext.RouteData.Values)
+@*PaginationHelpers.PaginationBlock((int)ViewBag.PageNumber, (int)ViewBag.PageCount, "viewVersion", ViewContext.RouteData.Values)*@

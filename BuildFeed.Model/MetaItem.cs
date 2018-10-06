@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Web.Mvc;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Driver;
@@ -24,7 +23,6 @@ namespace BuildFeed.Model
         public string MetaDescription { get; set; }
 
         [DisplayName("Page Content")]
-        [AllowHtml]
         public string PageContent { get; set; }
     }
 
@@ -35,24 +33,24 @@ namespace BuildFeed.Model
 
         private readonly IMongoCollection<MetaItemModel> _metaCollection;
 
-        public MetaItem()
+        public MetaItem(MongoConfig config)
         {
             var settings = new MongoClientSettings
             {
-                Server = new MongoServerAddress(MongoConfig.Host, MongoConfig.Port)
+                Server = new MongoServerAddress(config.Host, config.Port)
             };
 
-            if (!string.IsNullOrEmpty(MongoConfig.Username) && !string.IsNullOrEmpty(MongoConfig.Password))
+            if (!string.IsNullOrEmpty(config.Username) && !string.IsNullOrEmpty(config.Password))
             {
                 settings.Credential =
-                    MongoCredential.CreateCredential(MongoConfig.Database, MongoConfig.Username, MongoConfig.Password);
+                    MongoCredential.CreateCredential(config.Database, config.Username, config.Password);
             }
 
             var dbClient = new MongoClient(settings);
 
-            _metaCollection = dbClient.GetDatabase(MongoConfig.Database)
+            _metaCollection = dbClient.GetDatabase(config.Database)
                 .GetCollection<MetaItemModel>(META_COLLECTION_NAME);
-            _bModel = new BuildRepository();
+            _bModel = new BuildRepository(config);
         }
 
         [DataObjectMethod(DataObjectMethodType.Select, false)]

@@ -12,11 +12,11 @@ namespace BuildFeed.Code
 {
     public static class OneSignalHelper
     {
-        public static void PushNewBuild(this OneSignalClient osc, Build build, string url)
+        public static void PushNewBuild(this OneSignalClient osc, Guid appId, Build build, string url)
         {
             osc.Notifications.Create(new NotificationCreateOptions
             {
-                AppId = Guid.Parse(ConfigurationManager.AppSettings["push:AppId"]),
+                AppId = appId,
                 IncludedSegments = new List<string>
                 {
                     #if DEBUG

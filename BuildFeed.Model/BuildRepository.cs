@@ -31,22 +31,22 @@ namespace BuildFeed.Model
 
         private readonly IMongoCollection<Build> _buildCollection;
 
-        public BuildRepository()
+        public BuildRepository(MongoConfig config)
         {
             var settings = new MongoClientSettings
             {
-                Server = new MongoServerAddress(MongoConfig.Host, MongoConfig.Port)
+                Server = new MongoServerAddress(config.Host, config.Port)
             };
 
-            if (!string.IsNullOrEmpty(MongoConfig.Username) && !string.IsNullOrEmpty(MongoConfig.Password))
+            if (!string.IsNullOrEmpty(config.Username) && !string.IsNullOrEmpty(config.Password))
             {
                 settings.Credential =
-                    MongoCredential.CreateCredential(MongoConfig.Database, MongoConfig.Username, MongoConfig.Password);
+                    MongoCredential.CreateCredential(config.Database, config.Username, config.Password);
             }
 
             var dbClient = new MongoClient(settings);
 
-            IMongoDatabase buildDatabase = dbClient.GetDatabase(MongoConfig.Database);
+            IMongoDatabase buildDatabase = dbClient.GetDatabase(config.Database);
             _buildCollection = buildDatabase.GetCollection<Build>(BUILD_COLLECTION_NAME);
         }
 

@@ -8,27 +8,37 @@ using System.Drawing.Text;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Security.Policy;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using System.Web.Mvc;
 using BuildFeed.Code;
 using BuildFeed.Model;
 using BuildFeed.Model.View;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Protocols;
 using OneSignal.RestAPIv3.Client;
 
 namespace BuildFeed.Controllers
 {
-    public class FrontController : BaseController
+    public class FrontController : Controller
     {
         public const int PAGE_SIZE = 72;
 
         private readonly BuildRepository _bModel;
         private readonly MetaItem _mModel;
+        private readonly IHostingEnvironment _env;
+        private readonly IConfiguration _config;
 
-        public FrontController()
+        public FrontController(IHostingEnvironment env, IConfiguration config, BuildRepository bModel, MetaItem mModel)
         {
-            _bModel = new BuildRepository();
-            _mModel = new MetaItem();
+            _env = env;
+            _bModel = bModel;
+            _mModel = mModel;
+            _config = config;
         }
 
         [Route("", Order = 1)]
@@ -61,7 +71,7 @@ namespace BuildFeed.Controllers
 
             if (ViewBag.PageNumber > ViewBag.PageCount)
             {
-                return new HttpNotFoundResult();
+                return NotFound();
             }
 
             return View("Pages", buildGroups);
@@ -105,7 +115,7 @@ namespace BuildFeed.Controllers
             Build b = await _bModel.SelectById(id);
             if (b == null)
             {
-                return new HttpNotFoundResult();
+                return NotFound();
             }
 
             return View(b);
@@ -117,7 +127,7 @@ namespace BuildFeed.Controllers
             Build b = await _bModel.SelectByLegacyId(id);
             if (b == null)
             {
-                return new HttpNotFoundResult();
+                return NotFound();
             }
 
             return RedirectToAction(nameof(ViewBuild),
@@ -137,10 +147,10 @@ namespace BuildFeed.Controllers
             Build b = await _bModel.SelectById(id);
             if (b == null)
             {
-                return new HttpNotFoundResult();
+                return NotFound();
             }
 
-            string path = Path.Combine(Server.MapPath("~/res/card/"), $"{b.Family}.png");
+            string path = Path.Combine(_env.WebRootPath, "res/card", $"{b.Family}.png");
             bool backExists = System.IO.File.Exists(path);
 
             using (Bitmap bm = backExists
@@ -252,7 +262,7 @@ namespace BuildFeed.Controllers
                     }
 
                     Response.ContentType = "image/png";
-                    bm.Save(Response.OutputStream, ImageFormat.Png);
+                    bm.Save(Response.Body, ImageFormat.Png);
                 }
             }
 
@@ -265,7 +275,7 @@ namespace BuildFeed.Controllers
             Build b = await _bModel.SelectByLegacyId(id);
             if (b == null)
             {
-                return new HttpNotFoundResult();
+                return NotFound();
             }
 
             return RedirectToAction(nameof(TwitterCard),
@@ -308,7 +318,7 @@ namespace BuildFeed.Controllers
 
             if (ViewBag.PageNumber > ViewBag.PageCount)
             {
-                return new HttpNotFoundResult();
+                return NotFound();
             }
 
             return View("viewFamily", builds);
@@ -347,7 +357,7 @@ namespace BuildFeed.Controllers
 
             if (ViewBag.PageNumber > ViewBag.PageCount)
             {
-                return new HttpNotFoundResult();
+                return NotFound();
             }
 
             return View("viewLab", builds);
@@ -386,7 +396,7 @@ namespace BuildFeed.Controllers
 
             if (ViewBag.PageNumber > ViewBag.PageCount)
             {
-                return new HttpNotFoundResult();
+                return NotFound();
             }
 
             return View("viewSource", builds);
@@ -424,7 +434,7 @@ namespace BuildFeed.Controllers
 
             if (ViewBag.PageNumber > ViewBag.PageCount)
             {
-                return new HttpNotFoundResult();
+                return NotFound();
             }
 
             return View("viewYear", builds);
@@ -464,7 +474,7 @@ namespace BuildFeed.Controllers
 
             if (ViewBag.PageNumber > ViewBag.PageCount)
             {
-                return new HttpNotFoundResult();
+                return NotFound();
             }
 
             return View("viewVersion", builds);
@@ -538,8 +548,11 @@ namespace BuildFeed.Controllers
                     return View("EditBuild", build);
                 }
 
-                var osc = new OneSignalClient(ConfigurationManager.AppSettings["push:OneSignalApiKey"]);
-                osc.PushNewBuild(build,
+
+                var osc = new OneSignalClient(_config.GetValue<string>("push:OneSignalApiKey"));
+                osc.PushNewBuild(
+                    _config.GetValue<Guid>("push:AppId"),
+                    build,
                     $"https://buildfeed.net{Url.Action(nameof(ViewBuild), new { id = build.Id })}?utm_source=notification&utm_campaign=new_build");
 
                 return RedirectToAction(nameof(ViewBuild),
@@ -562,12 +575,12 @@ namespace BuildFeed.Controllers
         [HttpPost]
         public async Task<ActionResult> AddBulk(FormCollection values)
         {
-            var osc = new OneSignalClient(ConfigurationManager.AppSettings["push:OneSignalApiKey"]);
+            var osc = new OneSignalClient(_config.GetValue<string>("push:OneSignalApiKey"));
             var success = new List<Build>();
             var failed = new List<string>();
-            bool notify = bool.Parse(values[nameof(BulkAddition.SendNotifications)].Split(',')[0]);
+            bool notify = bool.Parse(values[nameof(BulkAddition.SendNotifications)][0]);
 
-            foreach (string line in values[nameof(BulkAddition.Builds)]
+            foreach (string line in values[nameof(BulkAddition.Builds)][0]
                 .Split(new[]
                     {
                         '\r',
@@ -636,7 +649,9 @@ namespace BuildFeed.Controllers
 
                             if (notify)
                             {
-                                osc.PushNewBuild(b,
+                                osc.PushNewBuild(
+                                    _config.GetValue<Guid>("push:AppId"),
+                                    b,
                                     $"https://buildfeed.net{Url.Action(nameof(ViewBuild), new { id = b.Id })}?utm_source=notification&utm_campaign=new_build");
                             }
 

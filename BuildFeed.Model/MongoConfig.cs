@@ -1,40 +1,37 @@
-﻿using System.Configuration;
-
-namespace BuildFeed.Model
+﻿namespace BuildFeed.Model
 {
-    public static class MongoConfig
+    public class MongoConfig
     {
-        public static string Host { get; }
-        public static int Port { get; }
-        public static string Database { get; }
-        public static string Username { get; }
-        public static string Password { get; }
+        public string Host { get; }
+        public int Port { get; }
+        public string Database { get; }
+        public string Username { get; }
+        public string Password { get; }
 
-        static MongoConfig()
+        public MongoConfig(string host, int? port, string database, string username, string password)
         {
-            Host = !string.IsNullOrEmpty(ConfigurationManager.AppSettings["data:MongoHost"])
-                ? ConfigurationManager.AppSettings["data:MongoHost"]
+            Host = !string.IsNullOrEmpty(host)
+                ? host
                 : "localhost";
 
-            bool success = int.TryParse(ConfigurationManager.AppSettings["data:MongoPort"], out int port);
-            if (!success)
+            if (!port.HasValue)
             {
                 port = 27017; // mongo default port
             }
 
-            Port = port;
+            Port = port.Value;
 
-            Database = !string.IsNullOrEmpty(ConfigurationManager.AppSettings["data:MongoDB"])
-                ? ConfigurationManager.AppSettings["data:MongoDB"]
+            Database = !string.IsNullOrEmpty(database)
+                ? database
                 : "MongoAuth";
 
-            Username = ConfigurationManager.AppSettings["data:MongoUser"] ?? "";
-            Password = ConfigurationManager.AppSettings["data:MongoPass"] ?? "";
+            Username = username ?? "";
+            Password = password ?? "";
         }
 
-        public static void SetupIndexes()
+        public void SetupIndexes()
         {
-            var b = new BuildRepository();
+            var b = new BuildRepository(this);
             #pragma warning disable 4014
             b.SetupIndexes();
             #pragma warning restore 4014
