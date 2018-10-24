@@ -6,12 +6,12 @@ using System.Text;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
-namespace BuildFeed.Code
+namespace BuildFeed
 {
     public static class MvcExtensions
     {
         public static string CheckboxListForEnum<T>(this HtmlHelper html, string id, T currentItem)
-            where T : struct
+            where T : Enum
         {
             var sb = new StringBuilder();
 
@@ -58,11 +58,12 @@ namespace BuildFeed.Code
             return sb.ToString();
         }
 
-        public static string GetDisplayTextForEnum(object o)
+        public static string GetDisplayTextForEnum<T>(T enumObj)
+            where T : Enum
         {
             string result = null;
-            DisplayAttribute display = o.GetType()
-                .GetMember(o.ToString())
+            DisplayAttribute display = enumObj.GetType()
+                .GetMember(enumObj.ToString())
                 .First()
                 .GetCustomAttributes(false)
                 .OfType<DisplayAttribute>()
@@ -73,14 +74,15 @@ namespace BuildFeed.Code
                 result = display.GetName();
             }
 
-            return result ?? o.ToString();
+            return result ?? enumObj.ToString();
         }
 
-        public static string GetDisplayDescriptionForEnum(object o)
+        public static string GetDisplayDescriptionForEnum<T>(T enumObj)
+            where T : Enum
         {
             string result = null;
-            DisplayAttribute display = o.GetType()
-                .GetMember(o.ToString())
+            DisplayAttribute display = enumObj.GetType()
+                .GetMember(enumObj.ToString())
                 .First()
                 .GetCustomAttributes(false)
                 .OfType<DisplayAttribute>()
@@ -91,7 +93,7 @@ namespace BuildFeed.Code
                 result = display.GetDescription() ?? display.GetName();
             }
 
-            return result ?? o.ToString();
+            return result ?? enumObj.ToString();
         }
 
         public static string ToLongDateWithoutDay(this DateTime dt)

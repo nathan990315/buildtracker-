@@ -1,7 +1,7 @@
-﻿using BuildFeed.Model;
+﻿using BuildFeed.Middleware;
+using BuildFeed.Model;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -10,7 +10,7 @@ namespace BuildFeed
 {
     public class Startup
     {
-        public IConfiguration Configuration { get; }
+        private IConfiguration Configuration { get; }
 
         public Startup(IConfiguration configuration)
         {
@@ -22,7 +22,7 @@ namespace BuildFeed
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            services.AddTransient(provider => Configuration);
+            services.AddSingleton(provider => Configuration);
 
             var config = new MongoConfig(
                 Configuration.GetValue<string>("data:MongoHost"),
@@ -55,12 +55,10 @@ namespace BuildFeed
 
             app.UseAuthentication();
 
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    "default",
-                    "{controller=Home}/{action=Index}/{id?}");
-            });
+            app.UseThemes();
+            app.UseLocalisation();
+            app.UseVersion();
+            app.UseMvc();
         }
     }
 }

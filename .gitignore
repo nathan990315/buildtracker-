@@ -232,3 +232,9 @@ $RECYCLE.BIN/
 *.msp
 *.pubxml
 BuildFeed/settings.config
+
+# JetBrains IDEA config
+.idea/
+
+# VSCode
+.vscode/

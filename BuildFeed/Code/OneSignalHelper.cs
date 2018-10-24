@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Globalization;
 using BuildFeed.Local;
 using BuildFeed.Model;
@@ -8,7 +7,7 @@ using OneSignal.RestAPIv3.Client;
 using OneSignal.RestAPIv3.Client.Resources;
 using OneSignal.RestAPIv3.Client.Resources.Notifications;
 
-namespace BuildFeed.Code
+namespace BuildFeed
 {
     public static class OneSignalHelper
     {
@@ -46,9 +45,7 @@ namespace BuildFeed.Code
                     { LanguageCodes.Lithuanian, GetNewBuildTitleForLanguage("lt") },
                     { LanguageCodes.Dutch, GetNewBuildTitleForLanguage("nl") },
                     { LanguageCodes.Polish, GetNewBuildTitleForLanguage("pl") },
-                    {
-                        LanguageCodes.Portuguese, GetNewBuildTitleForLanguage("pt")
-                    }, // Portuguese translation has notification translation ready, Brazil is used more, but not available right now.
+                    { LanguageCodes.Portuguese, GetNewBuildTitleForLanguage("pt") }, // Portuguese translation has notification translation ready, Brazil is used more, but not available right now.
                     { LanguageCodes.Romanian, GetNewBuildTitleForLanguage("ro") },
                     { LanguageCodes.Russian, GetNewBuildTitleForLanguage("ru") },
                     { LanguageCodes.Slovak, GetNewBuildTitleForLanguage("sk") },

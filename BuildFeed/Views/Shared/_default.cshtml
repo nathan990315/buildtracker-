@@ -1,6 +1,9 @@
-﻿@using System.Globalization
+﻿@using BuildFeed.Options
+@using System.Globalization
 @{
     bool isRtl = CultureInfo.CurrentUICulture.TextInfo.IsRightToLeft;
+    var theme = Context.Features.Get<Theme>();
+    string version = Context.Items["Version"] as string;
 }<!DOCTYPE html>
 <html dir="@(isRtl
                  ? "rtl"
@@ -12,7 +15,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>@ViewBag.Title</title>
     <link href="~/res/css/default.css" rel="stylesheet" type="text/css" />
-    <link href="~/res/css/dark.css" rel="stylesheet" type="text/css" />
+    <link href="@(Url.Content(theme.CssPath))" rel="stylesheet" type="text/css" />
     @if (isRtl)
     {
         <link href="~/res/css/rtl.css" rel="stylesheet" type="text/css" />
@@ -205,35 +208,35 @@
                     <ul class="dropdown-menu">
                         <li id="settings-theme-menu" class="dropdown-menu-block">
                             <h4>@VariantTerms.Common_NavigationTheme</h4>
-                            @*<ul>
-                                    @foreach (Theme item in Theme.AvailableThemes)
-                                    {
-                                        <li>
-                                            <a href="#" data-theme="@item.CookieValue">@item.DisplayName</a>
-                                        </li>
-                                    }
-                                </ul>*@
+                            <ul>
+                                @foreach (Theme item in Theme.AvailableThemes)
+                                {
+                                    <li>
+                                        <a href="#" data-theme="@item.CookieValue">@item.DisplayName</a>
+                                    </li>
+                                }
+                            </ul>
                         </li>
                         <li id="settings-lang-menu" class="dropdown-menu-block">
                             <h4>@VariantTerms.Common_NavigationLanguage</h4>
-                            @*<ul>
-                                    @foreach (Locale locale in Locale.AvailableLocales)
-                                    {
-                                        <li>
-                                            <a href="#" data-lang="@locale.LocaleId" dir="@(locale.Info.TextInfo.IsRightToLeft
-                                                                                                ? "rtl"
-                                                                                                : "ltr")">
-                                                @locale.DisplayName
-                                            </a>
-                                        </li>
-                                    }
-                                    <li></li>
-                                    <li></li>
-                                    <li></li>
-                                    <li></li>
-                                    <li></li>
-                                    <li></li>
-                                </ul>*@
+                            <ul>
+                                @foreach (Locale locale in Locale.AvailableLocales)
+                                {
+                                    <li>
+                                        <a href="#" data-lang="@locale.LocaleId" dir="@(locale.Info.TextInfo.IsRightToLeft
+                                                                                            ? "rtl"
+                                                                                            : "ltr")">
+                                            @locale.DisplayName
+                                        </a>
+                                    </li>
+                                }
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                            </ul>
                         </li>
                     </ul>
                 </li>
@@ -274,7 +277,7 @@
                 </div>
                 <div class="footer-flex-item">
                     <p>
-                        <span dir="ltr">@InvariantTerms.SiteName @($"v{ViewBag.Version}")</span>
+                        <span dir="ltr">@InvariantTerms.SiteName @($"v{version}")</span>
                     </p>
                     <p>
                         &copy; 2013 - @DateTime.Now.Year.ToString(), @Html.Raw(string.Format(VariantTerms.Common_DevelopedBy, $"<a href=\"https://twitter.com/buildfeed\" target=\"_blank\" dir=\"ltr\" rel=\"noopener\">{InvariantTerms.DeveloperName}</a>"))
@@ -302,11 +305,11 @@
     <div id="menu-open-overlay"></div>
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jsrender/1.0.0-rc.70/jsrender.min.js" integrity="sha256-3UBtL0tzgKVuJU8ZZiWLXEWGEjXEr6Z023rpauMnBUE=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="~/res/ts/bfs.js" async="async"></script>
-    @*@if (((Theme)ViewBag.Theme).Value == SiteTheme.Winter)
-        {
-            <script type="text/javascript" src="~/res/ts/christmas.js" async="async"></script>
-        }*@
+    <script type="text/javascript" src="~/res/js/bfs.js" async="async"></script>
+    @if (theme.Value == SiteTheme.Winter)
+    {
+        <script type="text/javascript" src="~/res/js/christmas.js" async="async"></script>
+    }
     @RenderSection("scripts", false)
     <script id="result-template" type="text/x-jsrender">
         <a href="{{:Url}}" class="search-result-item" title="{{:Title}}">

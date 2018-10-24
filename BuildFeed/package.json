@@ -4,17 +4,17 @@
   "private": true,
   "devDependencies": {
     "@types/google.analytics": "0.0.39",
-    "@types/jquery": "3.3.11",
+    "@types/jquery": "3.3.21",
     "@types/jsrender": "0.0.29",
     "gulp": "4.0.0",
     "gulp-autoprefixer": "6.0.0",
     "gulp-clean-css": "3.10.0",
-    "gulp-sass": "4.0.1",
+    "gulp-sass": "4.0.2",
     "gulp-sourcemaps": "2.6.4",
     "gulp-typescript": "4.0.2",
     "gulp-uglify-es": "1.0.4",
     "multipipe": "2.0.3",
-    "node-sass": "4.9.3",
-    "typescript": "3.1.1"
+    "node-sass": "4.9.4",
+    "typescript": "3.1.3"
   }
 }

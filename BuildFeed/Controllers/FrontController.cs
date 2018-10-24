@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
@@ -8,10 +7,8 @@ using System.Drawing.Text;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Security.Policy;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using BuildFeed.Code;
 using BuildFeed.Model;
 using BuildFeed.Model.View;
 using Microsoft.AspNetCore.Authorization;
@@ -19,14 +16,13 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
-using Microsoft.IdentityModel.Protocols;
 using OneSignal.RestAPIv3.Client;
 
 namespace BuildFeed.Controllers
 {
     public class FrontController : Controller
     {
-        public const int PAGE_SIZE = 72;
+        private const int PAGE_SIZE = 72;
 
         private readonly BuildRepository _bModel;
         private readonly MetaItem _mModel;
@@ -42,10 +38,6 @@ namespace BuildFeed.Controllers
         }
 
         [Route("", Order = 1)]
-        #if !DEBUG
-        [OutputCache(Duration = 600, VaryByParam = "none", VaryByCustom = "userName;lang;theme")]
-        [OutputCachePush(Order = 2)]
-        #endif
         public async Task<ActionResult> Index()
         {
             ViewBag.Versions = await _bModel.SelectAllFamilies();
@@ -57,10 +49,6 @@ namespace BuildFeed.Controllers
         }
 
         [Route("page-{page:int:min(1)}/", Order = 0)]
-        #if !DEBUG
-        [OutputCache(Duration = 600, VaryByParam = "page", VaryByCustom = "userName;lang;theme")]
-        [OutputCachePush(Order = 2)]
-        #endif
         public async Task<ActionResult> IndexPage(int page)
         {
             var buildGroups = await _bModel.SelectAllGroups(PAGE_SIZE, (page - 1) * PAGE_SIZE);
@@ -79,11 +67,6 @@ namespace BuildFeed.Controllers
 
         [Route("group/{major}.{minor}.{number}.{revision}/", Order = 1)]
         [Route("group/{major}.{minor}.{number}/", Order = 5)]
-        // for when there is no revision
-        #if !DEBUG
-        [OutputCache(Duration = 600, VaryByParam = "none", VaryByCustom = "userName;lang;theme")]
-        [OutputCachePush(Order = 2)]
-        #endif
         public async Task<ActionResult> ViewGroup(uint major, uint minor, uint number, uint? revision = null)
         {
             var bg = new BuildGroup
@@ -106,10 +89,6 @@ namespace BuildFeed.Controllers
         }
 
         [Route("build/{id:guid}/", Name = "Build")]
-        #if !DEBUG
-        [OutputCache(Duration = 600, VaryByParam = "none", VaryByCustom = "userName;lang;theme")]
-        [OutputCachePush(Order = 2)]
-        #endif
         public async Task<ActionResult> ViewBuild(Guid id)
         {
             Build b = await _bModel.SelectById(id);
@@ -138,10 +117,6 @@ namespace BuildFeed.Controllers
         }
 
         [Route("twitter/{id:guid}/", Name = "Twitter")]
-        #if !DEBUG
-        [OutputCache(Duration = 600, VaryByParam = "none", VaryByCustom = "userName;lang;theme")]
-        [CustomContentType(ContentType = "image/png", Order = 2)]
-        #endif
         public async Task<ActionResult> TwitterCard(Guid id)
         {
             Build b = await _bModel.SelectById(id);
@@ -286,20 +261,12 @@ namespace BuildFeed.Controllers
         }
 
         [Route("family/{family}/", Order = 1, Name = "Family Root")]
-        #if !DEBUG
-        [OutputCache(Duration = 600, VaryByParam = "none", VaryByCustom = "userName;lang;theme")]
-        [OutputCachePush(Order = 2)]
-        #endif
         public async Task<ActionResult> ViewFamily(ProjectFamily family)
         {
             return await ViewFamilyPage(family, 1);
         }
 
         [Route("family/{family}/page-{page:int:min(2)}/", Order = 0)]
-        #if !DEBUG
-        [OutputCache(Duration = 600, VaryByParam = "page", VaryByCustom = "userName;lang;theme")]
-        [OutputCachePush(Order = 2)]
-        #endif
         public async Task<ActionResult> ViewFamilyPage(ProjectFamily family, int page)
         {
             ViewBag.MetaItem = await _mModel.SelectById(new MetaItemKey
@@ -325,20 +292,12 @@ namespace BuildFeed.Controllers
         }
 
         [Route("lab/{lab}/", Order = 1, Name = "Lab Root")]
-        #if !DEBUG
-        [OutputCache(Duration = 600, VaryByParam = "none", VaryByCustom = "userName;lang;theme")]
-        [OutputCachePush(Order = 2)]
-        #endif
         public async Task<ActionResult> ViewLab(string lab)
         {
             return await ViewLabPage(lab, 1);
         }
 
         [Route("lab/{lab}/page-{page:int:min(2)}/", Order = 0)]
-        #if !DEBUG
-        [OutputCache(Duration = 600, VaryByParam = "page", VaryByCustom = "userName;lang;theme")]
-        [OutputCachePush(Order = 2)]
-        #endif
         public async Task<ActionResult> ViewLabPage(string lab, int page)
         {
             ViewBag.MetaItem = await _mModel.SelectById(new MetaItemKey
@@ -364,20 +323,12 @@ namespace BuildFeed.Controllers
         }
 
         [Route("source/{source}/", Order = 1, Name = "Source Root")]
-        #if !DEBUG
-        [OutputCache(Duration = 600, VaryByParam = "none", VaryByCustom = "userName;lang;theme")]
-        [OutputCachePush(Order = 2)]
-        #endif
         public async Task<ActionResult> ViewSource(TypeOfSource source)
         {
             return await ViewSourcePage(source, 1);
         }
 
         [Route("source/{source}/page-{page:int:min(2)}/", Order = 0)]
-        #if !DEBUG
-        [OutputCache(Duration = 600, VaryByParam = "page", VaryByCustom = "userName;lang;theme")]
-        [OutputCachePush(Order = 2)]
-        #endif
         public async Task<ActionResult> ViewSourcePage(TypeOfSource source, int page)
         {
             ViewBag.MetaItem = await _mModel.SelectById(new MetaItemKey
@@ -403,20 +354,12 @@ namespace BuildFeed.Controllers
         }
 
         [Route("year/{year}/", Order = 1, Name = "Year Root")]
-        #if !DEBUG
-        [OutputCache(Duration = 600, VaryByParam = "none", VaryByCustom = "userName;lang;theme")]
-        [OutputCachePush(Order = 2)]
-        #endif
         public async Task<ActionResult> ViewYear(int year)
         {
             return await ViewYearPage(year, 1);
         }
 
         [Route("year/{year}/page-{page:int:min(2)}/", Order = 0)]
-        #if !DEBUG
-        [OutputCache(Duration = 600, VaryByParam = "page", VaryByCustom = "userName;lang;theme")]
-        [OutputCachePush(Order = 2)]
-        #endif
         public async Task<ActionResult> ViewYearPage(int year, int page)
         {
             ViewBag.MetaItem = await _mModel.SelectById(new MetaItemKey
@@ -441,20 +384,12 @@ namespace BuildFeed.Controllers
         }
 
         [Route("version/{major}.{minor}/", Order = 1, Name = "Version Root")]
-        #if !DEBUG
-        [OutputCache(Duration = 600, VaryByParam = "none", VaryByCustom = "userName;lang;theme")]
-        [OutputCachePush(Order = 2)]
-        #endif
         public async Task<ActionResult> ViewVersion(uint major, uint minor)
         {
             return await ViewVersionPage(major, minor, 1);
         }
 
         [Route("version/{major}.{minor}/page-{page:int:min(2)}/", Order = 0)]
-        #if !DEBUG
-        [OutputCache(Duration = 600, VaryByParam = "none", VaryByCustom = "userName;lang;theme")]
-        [OutputCachePush(Order = 2)]
-        #endif
         public async Task<ActionResult> ViewVersionPage(uint major, uint minor, int page)
         {
             string valueString = $"{major}.{minor}";
