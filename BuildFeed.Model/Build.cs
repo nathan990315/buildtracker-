@@ -133,8 +133,7 @@ namespace BuildFeed.Model
 
                 if (BuildTime.HasValue)
                 {
-                    sb.Append(
-                        $".{BuildTime.Value.ToString("yyMMdd-HHmm", CultureInfo.InvariantCulture.DateTimeFormat)}");
+                    sb.Append($".{BuildTime.Value.ToString("yyMMdd-HHmm", CultureInfo.InvariantCulture.DateTimeFormat)}");
                 }
 
                 sb.Append(")");
@@ -159,8 +158,7 @@ namespace BuildFeed.Model
             {
                 Family = ProjectFamily.Redstone5;
             }
-            else
-            if (Lab?.StartsWith("rs4", StringComparison.InvariantCultureIgnoreCase) ?? false)
+            else if (Lab?.StartsWith("rs4", StringComparison.InvariantCultureIgnoreCase) ?? false)
             {
                 Family = ProjectFamily.Redstone4;
             }

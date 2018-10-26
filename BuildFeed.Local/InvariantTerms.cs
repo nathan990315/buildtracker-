@@ -2,7 +2,7 @@
 
 namespace BuildFeed.Local
 {
-    public class InvariantTerms
+    public static class InvariantTerms
     {
         public const string DeveloperName = "The BuildFeed Team";
         public const string ProductName = "Windows NT";

@@ -57,8 +57,8 @@ namespace BuildFeed.Model
             if (indexes.All(i => i["name"] != "_idx_group"))
             {
                 await
-                    _buildCollection.Indexes.CreateOneAsync(new CreateIndexModel<Build>(
-                        Builders<Build>.IndexKeys.Combine(Builders<Build>.IndexKeys.Descending(b => b.MajorVersion),
+                    _buildCollection.Indexes.CreateOneAsync(new CreateIndexModel<Build>(Builders<Build>.IndexKeys.Combine(
+                            Builders<Build>.IndexKeys.Descending(b => b.MajorVersion),
                             Builders<Build>.IndexKeys.Descending(b => b.MinorVersion),
                             Builders<Build>.IndexKeys.Descending(b => b.Number),
                             Builders<Build>.IndexKeys.Descending(b => b.Revision)),
@@ -70,8 +70,7 @@ namespace BuildFeed.Model
 
             if (indexes.All(i => i["name"] != "_idx_legacy"))
             {
-                await _buildCollection.Indexes.CreateOneAsync(new CreateIndexModel<Build>(
-                    Builders<Build>.IndexKeys.Ascending(b => b.LegacyId),
+                await _buildCollection.Indexes.CreateOneAsync(new CreateIndexModel<Build>(Builders<Build>.IndexKeys.Ascending(b => b.LegacyId),
                     new CreateIndexOptions
                     {
                         Name = "_idx_legacy"
@@ -80,8 +79,7 @@ namespace BuildFeed.Model
 
             if (indexes.All(i => i["name"] != "_idx_lab"))
             {
-                await _buildCollection.Indexes.CreateOneAsync(new CreateIndexModel<Build>(
-                    Builders<Build>.IndexKeys.Ascending(b => b.Lab),
+                await _buildCollection.Indexes.CreateOneAsync(new CreateIndexModel<Build>(Builders<Build>.IndexKeys.Ascending(b => b.Lab),
                     new CreateIndexOptions
                     {
                         Name = "_idx_lab"
@@ -90,8 +88,7 @@ namespace BuildFeed.Model
 
             if (indexes.All(i => i["name"] != "_idx_date"))
             {
-                await _buildCollection.Indexes.CreateOneAsync(new CreateIndexModel<Build>(
-                    Builders<Build>.IndexKeys.Descending(b => b.BuildTime),
+                await _buildCollection.Indexes.CreateOneAsync(new CreateIndexModel<Build>(Builders<Build>.IndexKeys.Descending(b => b.BuildTime),
                     new CreateIndexOptions
                     {
                         Name = "_idx_date"
@@ -100,8 +97,7 @@ namespace BuildFeed.Model
 
             if (indexes.All(i => i["name"] != "_idx_bstr"))
             {
-                await _buildCollection.Indexes.CreateOneAsync(new CreateIndexModel<Build>(
-                    Builders<Build>.IndexKeys.Ascending(b => b.FullBuildString),
+                await _buildCollection.Indexes.CreateOneAsync(new CreateIndexModel<Build>(Builders<Build>.IndexKeys.Ascending(b => b.FullBuildString),
                     new CreateIndexOptions
                     {
                         Name = "_idx_bstr"
@@ -120,8 +116,7 @@ namespace BuildFeed.Model
 
             if (indexes.All(i => i["name"] != "_idx_source"))
             {
-                await _buildCollection.Indexes.CreateOneAsync(new CreateIndexModel<Build>(
-                    Builders<Build>.IndexKeys.Ascending(b => b.SourceType),
+                await _buildCollection.Indexes.CreateOneAsync(new CreateIndexModel<Build>(Builders<Build>.IndexKeys.Ascending(b => b.SourceType),
                     new CreateIndexOptions
                     {
                         Name = "_idx_source"
@@ -130,8 +125,7 @@ namespace BuildFeed.Model
 
             if (indexes.All(i => i["name"] != "_idx_family"))
             {
-                await _buildCollection.Indexes.CreateOneAsync(new CreateIndexModel<Build>(
-                    Builders<Build>.IndexKeys.Ascending(b => b.Family),
+                await _buildCollection.Indexes.CreateOneAsync(new CreateIndexModel<Build>(Builders<Build>.IndexKeys.Ascending(b => b.Family),
                     new CreateIndexOptions
                     {
                         Name = "_idx_family"
@@ -189,9 +183,7 @@ namespace BuildFeed.Model
                             },
                             new BsonDocument
                             {
-                                {
-                                    nameof(Build.Family), CURRENT_LONG_TERM
-                                }
+                                { nameof(Build.Family), CURRENT_LONG_TERM }
                             }
                         }
                     }
@@ -257,45 +249,45 @@ namespace BuildFeed.Model
             {
                 var fp = new FrontPage
                 {
-                    CurrentCanary = results.Where(g => (g.Key.Family == family)
+                    CurrentCanary = results.Where(g => g.Key.Family == family
                             && !g.Key.LabUrl.Contains("xbox")
                             && !g.Key.LabUrl.Contains("analog"))
                         .SelectMany(g => g.Items)
                         .OrderByDescending(b => b.BuildTime)
                         .FirstOrDefault(),
                     CurrentInsider = results
-                        .Where(g => (g.Key.Family == family)
+                        .Where(g => g.Key.Family == family
                             && !g.Key.LabUrl.Contains("xbox")
                             && !g.Key.LabUrl.Contains("analog")
-                            && ((g.Key.SourceType == TypeOfSource.PublicRelease)
-                                || (g.Key.SourceType == TypeOfSource.UpdateGDR)))
+                            && (g.Key.SourceType == TypeOfSource.PublicRelease
+                                || g.Key.SourceType == TypeOfSource.UpdateGDR))
                         .SelectMany(g => g.Items)
                         .OrderByDescending(b => b.BuildTime)
                         .FirstOrDefault(),
                     CurrentRelease = results
-                        .Where(g => ((int)g.Key.Family <= CURRENT_RELEASE)
-                            && (g.Key.Family == family)
+                        .Where(g => (int)g.Key.Family <= CURRENT_RELEASE
+                            && g.Key.Family == family
                             && g.Key.LabUrl.Contains("_release")
                             && !g.Key.LabUrl.Contains("xbox")
                             && !g.Key.LabUrl.Contains("analog")
-                            && ((g.Key.SourceType == TypeOfSource.PublicRelease)
-                                || (g.Key.SourceType == TypeOfSource.UpdateGDR)))
+                            && (g.Key.SourceType == TypeOfSource.PublicRelease
+                                || g.Key.SourceType == TypeOfSource.UpdateGDR))
                         .SelectMany(g => g.Items)
                         .OrderByDescending(b => b.BuildTime)
                         .FirstOrDefault(),
                     CurrentXbox =
                         results.Where(g
-                                => ((int)g.Key.Family >= CURRENT_XBOX)
-                                    && (g.Key.Family == family)
-                                    && g.Key.LabUrl.Contains("xbox"))
+                                => (int)g.Key.Family >= CURRENT_XBOX
+                                && g.Key.Family == family
+                                && g.Key.LabUrl.Contains("xbox"))
                             .SelectMany(g => g.Items)
                             .OrderByDescending(b => b.BuildTime)
                             .FirstOrDefault(),
                     CurrentAnalog =
                         results.Where(g
-                                => ((int)g.Key.Family >= CURRENT_RELEASE)
-                                    && (g.Key.Family == family)
-                                    && g.Key.LabUrl.Contains("analog"))
+                                => (int)g.Key.Family >= CURRENT_RELEASE
+                                && g.Key.Family == family
+                                && g.Key.LabUrl.Contains("analog"))
                             .SelectMany(g => g.Items)
                             .OrderByDescending(b => b.BuildTime)
                             .FirstOrDefault()

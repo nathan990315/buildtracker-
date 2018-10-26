@@ -45,7 +45,9 @@ namespace BuildFeed
                     { LanguageCodes.Lithuanian, GetNewBuildTitleForLanguage("lt") },
                     { LanguageCodes.Dutch, GetNewBuildTitleForLanguage("nl") },
                     { LanguageCodes.Polish, GetNewBuildTitleForLanguage("pl") },
-                    { LanguageCodes.Portuguese, GetNewBuildTitleForLanguage("pt") }, // Portuguese translation has notification translation ready, Brazil is used more, but not available right now.
+                    {
+                        LanguageCodes.Portuguese, GetNewBuildTitleForLanguage("pt")
+                    }, // Portuguese translation has notification translation ready, Brazil is used more, but not available right now.
                     { LanguageCodes.Romanian, GetNewBuildTitleForLanguage("ro") },
                     { LanguageCodes.Russian, GetNewBuildTitleForLanguage("ru") },
                     { LanguageCodes.Slovak, GetNewBuildTitleForLanguage("sk") },

@@ -43,11 +43,22 @@ namespace BuildFeed.Model
         public async Task<List<Build>> SelectYear(int year, int limit = -1, int skip = 0)
         {
             var query =
-                _buildCollection.Find(Builders<Build>.Filter.And(
-                        Builders<Build>.Filter.Gte(b => b.BuildTime,
-                            new DateTime(year, 1, 1, 0, 0, 0, DateTimeKind.Utc)),
+                _buildCollection.Find(Builders<Build>.Filter.And(Builders<Build>.Filter.Gte(b => b.BuildTime,
+                            new DateTime(year,
+                                1,
+                                1,
+                                0,
+                                0,
+                                0,
+                                DateTimeKind.Utc)),
                         Builders<Build>.Filter.Lte(b => b.BuildTime,
-                            new DateTime(year, 12, 31, 23, 59, 59, DateTimeKind.Utc))))
+                            new DateTime(year,
+                                12,
+                                31,
+                                23,
+                                59,
+                                59,
+                                DateTimeKind.Utc))))
                     .Sort(sortByCompileDate)
                     .Skip(skip);
 
@@ -60,9 +71,21 @@ namespace BuildFeed.Model
         }
 
         public async Task<long> SelectYearCount(int year) => await
-            _buildCollection.CountDocumentsAsync(Builders<Build>.Filter.And(
-                Builders<Build>.Filter.Gte(b => b.BuildTime, new DateTime(year, 1, 1, 0, 0, 0, DateTimeKind.Utc)),
+            _buildCollection.CountDocumentsAsync(Builders<Build>.Filter.And(Builders<Build>.Filter.Gte(b => b.BuildTime,
+                    new DateTime(year,
+                        1,
+                        1,
+                        0,
+                        0,
+                        0,
+                        DateTimeKind.Utc)),
                 Builders<Build>.Filter.Lte(b => b.BuildTime,
-                    new DateTime(year, 12, 31, 23, 59, 59, DateTimeKind.Utc))));
+                    new DateTime(year,
+                        12,
+                        31,
+                        23,
+                        59,
+                        59,
+                        DateTimeKind.Utc))));
     }
 }

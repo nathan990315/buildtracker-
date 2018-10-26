@@ -25,9 +25,9 @@ namespace BuildFeed.Controllers
         private const int PAGE_SIZE = 72;
 
         private readonly BuildRepository _bModel;
-        private readonly MetaItem _mModel;
-        private readonly IHostingEnvironment _env;
         private readonly IConfiguration _config;
+        private readonly IHostingEnvironment _env;
+        private readonly MetaItem _mModel;
 
         public FrontController(IHostingEnvironment env, IConfiguration config, BuildRepository bModel, MetaItem mModel)
         {
@@ -195,8 +195,7 @@ namespace BuildFeed.Controllers
 
                     using (var gp = new GraphicsPath())
                     {
-                        gp.AddString(
-                            $"{MvcExtensions.GetDisplayTextForEnum(b.Family)} (NT {b.MajorVersion}.{b.MinorVersion})",
+                        gp.AddString($"{MvcExtensions.GetDisplayTextForEnum(b.Family)} (NT {b.MajorVersion}.{b.MinorVersion})",
                             new FontFamily("Segoe UI Light"),
                             0,
                             48,
@@ -224,8 +223,7 @@ namespace BuildFeed.Controllers
                                 28,
                                 new Point(40, 538),
                                 StringFormat.GenericTypographic);
-                            gp.AddString(
-                                $"{b.BuildTime.Value.ToShortTimeString()} on {b.BuildTime.Value.ToLongDateString()}",
+                            gp.AddString($"{b.BuildTime.Value.ToShortTimeString()} on {b.BuildTime.Value.ToLongDateString()}",
                                 new FontFamily("Segoe UI Light"),
                                 0,
                                 40,
@@ -261,10 +259,7 @@ namespace BuildFeed.Controllers
         }
 
         [Route("family/{family}/", Order = 1, Name = "Family Root")]
-        public async Task<ActionResult> ViewFamily(ProjectFamily family)
-        {
-            return await ViewFamilyPage(family, 1);
-        }
+        public async Task<ActionResult> ViewFamily(ProjectFamily family) => await ViewFamilyPage(family, 1);
 
         [Route("family/{family}/page-{page:int:min(2)}/", Order = 0)]
         public async Task<ActionResult> ViewFamilyPage(ProjectFamily family, int page)
@@ -292,10 +287,7 @@ namespace BuildFeed.Controllers
         }
 
         [Route("lab/{lab}/", Order = 1, Name = "Lab Root")]
-        public async Task<ActionResult> ViewLab(string lab)
-        {
-            return await ViewLabPage(lab, 1);
-        }
+        public async Task<ActionResult> ViewLab(string lab) => await ViewLabPage(lab, 1);
 
         [Route("lab/{lab}/page-{page:int:min(2)}/", Order = 0)]
         public async Task<ActionResult> ViewLabPage(string lab, int page)
@@ -323,10 +315,7 @@ namespace BuildFeed.Controllers
         }
 
         [Route("source/{source}/", Order = 1, Name = "Source Root")]
-        public async Task<ActionResult> ViewSource(TypeOfSource source)
-        {
-            return await ViewSourcePage(source, 1);
-        }
+        public async Task<ActionResult> ViewSource(TypeOfSource source) => await ViewSourcePage(source, 1);
 
         [Route("source/{source}/page-{page:int:min(2)}/", Order = 0)]
         public async Task<ActionResult> ViewSourcePage(TypeOfSource source, int page)
@@ -354,10 +343,7 @@ namespace BuildFeed.Controllers
         }
 
         [Route("year/{year}/", Order = 1, Name = "Year Root")]
-        public async Task<ActionResult> ViewYear(int year)
-        {
-            return await ViewYearPage(year, 1);
-        }
+        public async Task<ActionResult> ViewYear(int year) => await ViewYearPage(year, 1);
 
         [Route("year/{year}/page-{page:int:min(2)}/", Order = 0)]
         public async Task<ActionResult> ViewYearPage(int year, int page)
@@ -384,10 +370,7 @@ namespace BuildFeed.Controllers
         }
 
         [Route("version/{major}.{minor}/", Order = 1, Name = "Version Root")]
-        public async Task<ActionResult> ViewVersion(uint major, uint minor)
-        {
-            return await ViewVersionPage(major, minor, 1);
-        }
+        public async Task<ActionResult> ViewVersion(uint major, uint minor) => await ViewVersionPage(major, minor, 1);
 
         [Route("version/{major}.{minor}/page-{page:int:min(2)}/", Order = 0)]
         public async Task<ActionResult> ViewVersionPage(uint major, uint minor, int page)
@@ -485,8 +468,7 @@ namespace BuildFeed.Controllers
 
 
                 var osc = new OneSignalClient(_config.GetValue<string>("push:OneSignalApiKey"));
-                osc.PushNewBuild(
-                    _config.GetValue<Guid>("push:AppId"),
+                osc.PushNewBuild(_config.GetValue<Guid>("push:AppId"),
                     build,
                     $"https://buildfeed.net{Url.Action(nameof(ViewBuild), new { id = build.Id })}?utm_source=notification&utm_campaign=new_build");
 
@@ -516,11 +498,7 @@ namespace BuildFeed.Controllers
             bool notify = bool.Parse(values[nameof(BulkAddition.SendNotifications)][0]);
 
             foreach (string line in values[nameof(BulkAddition.Builds)][0]
-                .Split(new[]
-                    {
-                        '\r',
-                        '\n'
-                    },
+                .Split(new[] { '\r', '\n' },
                     StringSplitOptions.RemoveEmptyEntries))
             {
                 Match m = Regex.Match(line,
@@ -584,8 +562,7 @@ namespace BuildFeed.Controllers
 
                             if (notify)
                             {
-                                osc.PushNewBuild(
-                                    _config.GetValue<Guid>("push:AppId"),
+                                osc.PushNewBuild(_config.GetValue<Guid>("push:AppId"),
                                     b,
                                     $"https://buildfeed.net{Url.Action(nameof(ViewBuild), new { id = b.Id })}?utm_source=notification&utm_campaign=new_build");
                             }

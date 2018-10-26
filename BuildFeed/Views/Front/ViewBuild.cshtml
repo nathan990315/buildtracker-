@@ -9,9 +9,9 @@
 {
     <meta property="og:title" content="@Model.FullBuildString" />
     <meta property="og:image" content="@Url.Action("twitterCard", new
-                                        {
-                                            id = Model.Id
-                                        })">
+                                       {
+                                           id = Model.Id
+                                       })">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="@Model.FullBuildString | @InvariantTerms.SiteName">
@@ -38,18 +38,18 @@
     </li>
     <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
         <a itemprop="item" href="@Url.Action(nameof(FrontController.ViewFamily), "Front", new
-                                                                              {
-                                                                                  family = Model.Family
-                                                                              })">
+                                 {
+                                     family = Model.Family
+                                 })">
             <span itemprop="name">@MvcExtensions.GetDisplayDescriptionForEnum(Model.Family)</span>
         </a>
         <meta itemprop="position" content="2" />
     </li>
     <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
         <a itemprop="item" href="@Url.Action(nameof(FrontController.ViewBuild), "Front", new
-                                                                              {
-                                                                                  id = Model.Id
-                                                                              })">
+                                 {
+                                     id = Model.Id
+                                 })">
             <span itemprop="name">@Model.AlternateBuildString</span>
         </a>
         <meta itemprop="position" content="3" />

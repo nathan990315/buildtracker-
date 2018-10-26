@@ -1,5 +1,3 @@
-using System;
-
 namespace BuildFeed.Models
 {
     public class ErrorViewModel

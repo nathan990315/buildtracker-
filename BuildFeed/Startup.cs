@@ -24,13 +24,11 @@ namespace BuildFeed
 
             services.AddSingleton(provider => Configuration);
 
-            var config = new MongoConfig(
-                Configuration.GetValue<string>("data:MongoHost"),
+            var config = new MongoConfig(Configuration.GetValue<string>("data:MongoHost"),
                 Configuration.GetValue<int?>("data:MongoPort"),
                 Configuration.GetValue<string>("data:MongoDB"),
                 Configuration.GetValue<string>("data:MongoUser"),
-                Configuration.GetValue<string>("data:MongoPass")
-                );
+                Configuration.GetValue<string>("data:MongoPass"));
 
             services.AddTransient(provider => new BuildRepository(config));
             services.AddTransient(provider => new MetaItem(config));

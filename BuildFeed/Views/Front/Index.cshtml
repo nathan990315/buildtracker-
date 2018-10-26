@@ -17,7 +17,7 @@
 }
 
 @section Head
-    {
+{
     <meta name="description" content="Learn what Dona Sarkar won&apos;t tell you. Keep up to date with the latest Microsoft Windows developments with BuildFeed, the comprehensive build tracker." />
     @*<link rel="alternate" type="application/rss+xml" title="Latest additions - RSS" href="@Url.Action(nameof(RssController.Added), "Rss")" />*@
 }
@@ -26,9 +26,9 @@
 
 <h3>@VariantTerms.Front_LatestBuilds</h3>
 <a href="@Url.Action("IndexPage", new
-                 {
-                     Page = 1
-                 })" class="latest-full">
+         {
+             Page = 1
+         })" class="latest-full">
     @VariantTerms.Front_FullBuildListing
 </a>
 <div class="trim-wrapper">
@@ -43,45 +43,45 @@
                     @if (family.CurrentCanary != null && family.CurrentCanary.Id != family.CurrentInsider?.Id)
                     {
                         <a href="@Url.Action(nameof(FrontController.ViewBuild), new
-                                         {
-                                             family.CurrentCanary.Id
-                                         })" class="latest-flex-item latest-flex-red">
+                                 {
+                                     family.CurrentCanary.Id
+                                 })" class="latest-flex-item latest-flex-red">
                             @LatestBuild(VariantTerms.Front_CurrentCanary, family.CurrentCanary)
                         </a>
                     }
                     @if (family.CurrentInsider != null && family.CurrentInsider.Id != family.CurrentRelease?.Id)
                     {
                         <a href="@Url.Action(nameof(FrontController.ViewBuild), new
-                                         {
-                                             family.CurrentInsider.Id
-                                         })" class="latest-flex-item latest-flex-yellow">
+                                 {
+                                     family.CurrentInsider.Id
+                                 })" class="latest-flex-item latest-flex-yellow">
                             @LatestBuild(VariantTerms.Front_CurrentInsider, family.CurrentInsider)
                         </a>
                     }
                     @if (family.CurrentRelease != null)
                     {
                         <a href="@Url.Action(nameof(FrontController.ViewBuild), new
-                                         {
-                                             family.CurrentRelease.Id
-                                         })" class="latest-flex-item latest-flex-blue">
+                                 {
+                                     family.CurrentRelease.Id
+                                 })" class="latest-flex-item latest-flex-blue">
                             @LatestBuild(VariantTerms.Front_CurrentRelease, family.CurrentRelease)
                         </a>
                     }
                     @if (family.CurrentAnalog != null)
                     {
                         <a href="@Url.Action(nameof(FrontController.ViewBuild), new
-                                         {
-                                             family.CurrentAnalog.Id
-                                         })" class="latest-flex-item latest-flex-purple">
+                                 {
+                                     family.CurrentAnalog.Id
+                                 })" class="latest-flex-item latest-flex-purple">
                             @LatestBuild(VariantTerms.Front_CurrentAnalog, family.CurrentAnalog)
                         </a>
                     }
                     @if (family.CurrentXbox != null)
                     {
                         <a href="@Url.Action(nameof(FrontController.ViewBuild), new
-                                         {
-                                             family.CurrentXbox.Id
-                                         })" class="latest-flex-item latest-flex-green">
+                                 {
+                                     family.CurrentXbox.Id
+                                 })" class="latest-flex-item latest-flex-green">
                             @LatestBuild(VariantTerms.Front_CurrentXbox, family.CurrentXbox)
                         </a>
                     }
@@ -104,9 +104,9 @@
                         foreach (ProjectFamily version in versions)
                         {
                             <option value="@Url.Action(nameof(FrontController.ViewFamily), "Front", new
-                                                   {
-                                                       family = version
-                                                   })">
+                                           {
+                                               family = version
+                                           })">
                                 @MvcExtensions.GetDisplayDescriptionForEnum(version)
                             </option>
                         }
@@ -130,9 +130,9 @@
                         foreach (int year in years)
                         {
                             <option value="@Url.Action(nameof(FrontController.ViewYear), "Front", new
-                                                   {
-                                                       year
-                                                   })">
+                                           {
+                                               year
+                                           })">
                                 @year
                             </option>
                         }
@@ -156,9 +156,9 @@
                         foreach (TypeOfSource source in sources)
                         {
                             <option value="@Url.Action(nameof(FrontController.ViewSource), "Front", new
-                                                   {
-                                                       source
-                                                   })">
+                                           {
+                                               source
+                                           })">
                                 @MvcExtensions.GetDisplayTextForEnum(source)
                             </option>
                         }
@@ -183,7 +183,7 @@
 <p>@VariantTerms.About_A3</p>
 
 @section Scripts
-    {
+{
     <script type="application/ld+json">
         {
         "@("@")context": "http://schema.org",

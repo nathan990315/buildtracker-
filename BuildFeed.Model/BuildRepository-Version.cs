@@ -70,11 +70,10 @@ namespace BuildFeed.Model
             return await query.ToListAsync();
         }
 
-        public async Task<long> SelectVersionCount(uint major, uint minor) => await _buildCollection.CountDocumentsAsync(
-            new BsonDocument
-            {
-                new BsonElement(nameof(Build.MajorVersion), major),
-                new BsonElement(nameof(Build.MinorVersion), minor)
-            });
+        public async Task<long> SelectVersionCount(uint major, uint minor) => await _buildCollection.CountDocumentsAsync(new BsonDocument
+        {
+            new BsonElement(nameof(Build.MajorVersion), major),
+            new BsonElement(nameof(Build.MinorVersion), minor)
+        });
     }
 }

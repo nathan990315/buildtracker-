@@ -1,10 +1,11 @@
-﻿@using BuildFeed.Options
-@using System.Globalization
+﻿@using System.Globalization
+@using BuildFeed.Options
 @{
     bool isRtl = CultureInfo.CurrentUICulture.TextInfo.IsRightToLeft;
     var theme = Context.Features.Get<Theme>();
     string version = Context.Items["Version"] as string;
-}<!DOCTYPE html>
+}
+<!DOCTYPE html>
 <html dir="@(isRtl
                  ? "rtl"
                  : "ltr")" lang="@CultureInfo.CurrentUICulture.IetfLanguageTag">
@@ -67,42 +68,50 @@
     </script>
 </head>
 <body>
-    <script>
-        (function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+<script>
+    (function(i, s, o, g, r, a, m)
+    {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] ||
+            function()
+            {
                 (i[r].q = i[r].q || []).push(arguments);
-            }, i[r].l = 1 * new Date(); a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
-        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+            }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m);
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-        ga('create', 'UA-55417692-1', 'auto');
-        ga('require', 'displayfeatures');
-        ga('require', 'linkid', 'linkid.js');
-        ga('send', 'pageview');
-    </script>
-    <header id="page-header">
-        <div class="container">
-            <h1>
-                @Html.ActionLink(InvariantTerms.SiteName, nameof(FrontController.Index), new
-                {
-                    controller = "Front",
-                    area = ""
-                })
-            </h1>
-        </div>
-    </header>
-    <nav id="page-navigation" role="navigation">
-        <div class="container">
-            <button id="page-navigation-toggle">
-                <i class="fa fa-bars"></i>&ensp;@VariantTerms.Common_ToggleNavigation
-            </button>
-            <ul id="page-navigation-links">
-                <li>
-                    <a href="#" id="page-navigation-search" title="@VariantTerms.Search_Title">
-                        <i class="fa fa-fw fa-search"></i> @VariantTerms.Search_Title
-                    </a>
-                </li>
-                @*<li>
+    ga('create', 'UA-55417692-1', 'auto');
+    ga('require', 'displayfeatures');
+    ga('require', 'linkid', 'linkid.js');
+    ga('send', 'pageview');
+</script>
+<header id="page-header">
+    <div class="container">
+        <h1>
+            @Html.ActionLink(InvariantTerms.SiteName, nameof(FrontController.Index), new
+            {
+                controller = "Front",
+                area = ""
+            })
+        </h1>
+    </div>
+</header>
+<nav id="page-navigation" role="navigation">
+    <div class="container">
+        <button id="page-navigation-toggle">
+            <i class="fa fa-bars"></i>&ensp;@VariantTerms.Common_ToggleNavigation
+        </button>
+        <ul id="page-navigation-links">
+            <li>
+                <a href="#" id="page-navigation-search" title="@VariantTerms.Search_Title">
+                    <i class="fa fa-fw fa-search"></i> @VariantTerms.Search_Title
+                </a>
+            </li>
+            @*<li>
                     <a href="@Url.Action(nameof(SupportController.Rss), new
                              {
                                  controller = "Support",
@@ -111,21 +120,21 @@
                         <i class="fa fa-fw fa-rss"></i> @VariantTerms.Common_RssFeeds
                     </a>
                     </li>*@
-                <li>
-                    <a href="https://blog.buildfeed.net/" title="@VariantTerms.Common_Blog" target="_blank" rel="noopener">
-                        <i class="fa fa-fw fa-book"></i> @VariantTerms.Common_Blog
-                    </a>
-                </li>
-                <li>
-                    <a href="https://twitter.com/buildfeed" title="@VariantTerms.Common_Twitter" target="_blank" rel="noopener">
-                        <i class="fa fa-fw fa-twitter"></i> @VariantTerms.Common_Twitter
-                    </a>
-                </li>
-                <li class="dropdown-parent">
-                    <a href="#">
-                        <i class="fa fa-fw fa-user"></i>
-                    </a>
-                    @*<ul class="dropdown-menu">
+            <li>
+                <a href="https://blog.buildfeed.net/" title="@VariantTerms.Common_Blog" target="_blank" rel="noopener">
+                    <i class="fa fa-fw fa-book"></i> @VariantTerms.Common_Blog
+                </a>
+            </li>
+            <li>
+                <a href="https://twitter.com/buildfeed" title="@VariantTerms.Common_Twitter" target="_blank" rel="noopener">
+                    <i class="fa fa-fw fa-twitter"></i> @VariantTerms.Common_Twitter
+                </a>
+            </li>
+            <li class="dropdown-parent">
+                <a href="#">
+                    <i class="fa fa-fw fa-user"></i>
+                </a>
+                @*<ul class="dropdown-menu">
                                             <li id="user-action-menu" class="dropdown-menu-block">
                                                 <ul>
                                                     @if (!User.Identity.IsAuthenticated)
@@ -200,59 +209,59 @@
                                     </ul>
                             </li>
                         </ul>*@
-                </li>
-                <li class="dropdown-parent">
-                    <a href="#">
-                        <i class="fa fa-gear fa-fw"></i>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li id="settings-theme-menu" class="dropdown-menu-block">
-                            <h4>@VariantTerms.Common_NavigationTheme</h4>
-                            <ul>
-                                @foreach (Theme item in Theme.AvailableThemes)
-                                {
-                                    <li>
-                                        <a href="#" data-theme="@item.CookieValue">@item.DisplayName</a>
-                                    </li>
-                                }
-                            </ul>
-                        </li>
-                        <li id="settings-lang-menu" class="dropdown-menu-block">
-                            <h4>@VariantTerms.Common_NavigationLanguage</h4>
-                            <ul>
-                                @foreach (Locale locale in Locale.AvailableLocales)
-                                {
-                                    <li>
-                                        <a href="#" data-lang="@locale.LocaleId" dir="@(locale.Info.TextInfo.IsRightToLeft
-                                                                                            ? "rtl"
-                                                                                            : "ltr")">
-                                            @locale.DisplayName
-                                        </a>
-                                    </li>
-                                }
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </nav>
-    <article id="page-content">
-        <div class="container">
-            @RenderBody()
-        </div>
-    </article>
-    <footer id="page-footer">
-        <div class="container">
-            <div class="footer-flex">
-                <div class="footer-flex-item">
-                    @*<p>
+            </li>
+            <li class="dropdown-parent">
+                <a href="#">
+                    <i class="fa fa-gear fa-fw"></i>
+                </a>
+                <ul class="dropdown-menu">
+                    <li id="settings-theme-menu" class="dropdown-menu-block">
+                        <h4>@VariantTerms.Common_NavigationTheme</h4>
+                        <ul>
+                            @foreach (Theme item in Theme.AvailableThemes)
+                            {
+                                <li>
+                                    <a href="#" data-theme="@item.CookieValue">@item.DisplayName</a>
+                                </li>
+                            }
+                        </ul>
+                    </li>
+                    <li id="settings-lang-menu" class="dropdown-menu-block">
+                        <h4>@VariantTerms.Common_NavigationLanguage</h4>
+                        <ul>
+                            @foreach (Locale locale in Locale.AvailableLocales)
+                            {
+                                <li>
+                                    <a href="#" data-lang="@locale.LocaleId" dir="@(locale.Info.TextInfo.IsRightToLeft
+                                                                                        ? "rtl"
+                                                                                        : "ltr")">
+                                        @locale.DisplayName
+                                    </a>
+                                </li>
+                            }
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
+<article id="page-content">
+    <div class="container">
+        @RenderBody()
+    </div>
+</article>
+<footer id="page-footer">
+    <div class="container">
+        <div class="footer-flex">
+            <div class="footer-flex-item">
+                @*<p>
                             <a href="@Url.Action(nameof(SupportController.Sitemap), new
                                      {
                                          controller = "Support",
@@ -270,53 +279,53 @@
                                 @VariantTerms.Common_Credits
                             </a>
                         </p>*@
-                    <p>
-                        <i class="fa fa-language"></i>&ensp;
-                        @CultureInfo.CurrentUICulture.NativeName
-                    </p>
-                </div>
-                <div class="footer-flex-item">
-                    <p>
-                        <span dir="ltr">@InvariantTerms.SiteName @($"v{version}")</span>
-                    </p>
-                    <p>
-                        &copy; 2013 - @DateTime.Now.Year.ToString(), @Html.Raw(string.Format(VariantTerms.Common_DevelopedBy, $"<a href=\"https://twitter.com/buildfeed\" target=\"_blank\" dir=\"ltr\" rel=\"noopener\">{InvariantTerms.DeveloperName}</a>"))
-                    </p>
-                    <p>
-                        @Html.Raw(string.Format(VariantTerms.Common_ContributeOn, "<a href=\"https://gitlab.com/buildfeed/BuildFeed\" target=\"_blank\" dir=\"ltr\" rel=\"noopener\"><i class=\"fa fa-gitlab\"></i>&ensp;GitLab</a>"))
-                    </p>
-                </div>
+                <p>
+                    <i class="fa fa-language"></i>&ensp;
+                    @CultureInfo.CurrentUICulture.NativeName
+                </p>
             </div>
-        </div>
-    </footer>
-
-    <div id="modal-search-overlay">
-        <div id="modal-search">
-            <h3>@VariantTerms.Search_BuildFeed</h3>
-            <div id="modal-search-box">
-                <input id="modal-search-input" type="text" placeholder="@VariantTerms.Search_TypePlaceholder" />
-                <button id="modal-search-button">
-                    <i class="fa fa-search"></i>
-                </button>
+            <div class="footer-flex-item">
+                <p>
+                    <span dir="ltr">@InvariantTerms.SiteName @($"v{version}")</span>
+                </p>
+                <p>
+                    &copy; 2013 - @DateTime.Now.Year.ToString(), @Html.Raw(string.Format(VariantTerms.Common_DevelopedBy, $"<a href=\"https://twitter.com/buildfeed\" target=\"_blank\" dir=\"ltr\" rel=\"noopener\">{InvariantTerms.DeveloperName}</a>"))
+                </p>
+                <p>
+                    @Html.Raw(string.Format(VariantTerms.Common_ContributeOn, "<a href=\"https://gitlab.com/buildfeed/BuildFeed\" target=\"_blank\" dir=\"ltr\" rel=\"noopener\"><i class=\"fa fa-gitlab\"></i>&ensp;GitLab</a>"))
+                </p>
             </div>
-            <div id="modal-search-result"></div>
         </div>
     </div>
-    <div id="menu-open-overlay"></div>
+</footer>
 
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jsrender/1.0.0-rc.70/jsrender.min.js" integrity="sha256-3UBtL0tzgKVuJU8ZZiWLXEWGEjXEr6Z023rpauMnBUE=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="~/res/js/bfs.js" async="async"></script>
-    @if (theme.Value == SiteTheme.Winter)
-    {
-        <script type="text/javascript" src="~/res/js/christmas.js" async="async"></script>
-    }
-    @RenderSection("scripts", false)
-    <script id="result-template" type="text/x-jsrender">
+<div id="modal-search-overlay">
+    <div id="modal-search">
+        <h3>@VariantTerms.Search_BuildFeed</h3>
+        <div id="modal-search-box">
+            <input id="modal-search-input" type="text" placeholder="@VariantTerms.Search_TypePlaceholder" />
+            <button id="modal-search-button">
+                <i class="fa fa-search"></i>
+            </button>
+        </div>
+        <div id="modal-search-result"></div>
+    </div>
+</div>
+<div id="menu-open-overlay"></div>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jsrender/1.0.0-rc.70/jsrender.min.js" integrity="sha256-3UBtL0tzgKVuJU8ZZiWLXEWGEjXEr6Z023rpauMnBUE=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="~/res/js/bfs.js" async="async"></script>
+@if (theme.Value == SiteTheme.Winter)
+{
+    <script type="text/javascript" src="~/res/js/christmas.js" async="async"></script>
+}
+@RenderSection("scripts", false)
+<script id="result-template" type="text/x-jsrender">
         <a href="{{:Url}}" class="search-result-item" title="{{:Title}}">
             <h4 class="search-result-heading no-wrapping">{{:Label}}</h4>
             <p class="search-result-text">{{:Group}}</p>
         </a>
     </script>
-    <script type="text/javascript" src="https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5431719a661cbfd0" async="async"></script>
+<script type="text/javascript" src="https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5431719a661cbfd0" async="async"></script>
 </body>
 </html>
