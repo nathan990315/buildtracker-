@@ -6,15 +6,15 @@ namespace BuildFeed.Model.View
 {
     public class SitemapData
     {
-        public Dictionary<string, SitemapPagedAction[]> Actions { get; set; }
-        public SitemapDataBuildGroup[] Builds { get; set; }
+        public IReadOnlyDictionary<string, IReadOnlyCollection<SitemapPagedAction>> Actions { get; set; }
+        public IReadOnlyCollection<SitemapDataBuildGroup> Builds { get; set; }
 
-        public string[] Labs { get; set; }
+        public IReadOnlyCollection<string> Labs { get; set; }
     }
 
     public class SitemapDataBuildGroup
     {
-        public SitemapDataBuild[] Builds { get; set; }
+        public IReadOnlyCollection<SitemapDataBuild> Builds { get; set; }
         public BuildGroup Id { get; set; }
     }
 

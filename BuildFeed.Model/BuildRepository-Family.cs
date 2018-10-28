@@ -11,12 +11,12 @@ namespace BuildFeed.Model
 {
     public partial class BuildRepository
     {
-        public Task<ProjectFamily[]> SelectAllFamilies(int limit = -1, int skip = 0) => Task.Run(() =>
+        public Task<IReadOnlyCollection<ProjectFamily>> SelectAllFamilies(int limit = -1, int skip = 0) => Task.Run(() =>
         {
             Array values = Enum.GetValues(typeof(ProjectFamily));
             if (values.Length == 0)
             {
-                return Array.Empty<ProjectFamily>();
+                return (IReadOnlyCollection<ProjectFamily>)Array.Empty<ProjectFamily>();
             }
 
             var valuesWithoutNone = new ProjectFamily[values.Length - 1];
@@ -28,12 +28,12 @@ namespace BuildFeed.Model
                 valuesWithoutNone[i] = (ProjectFamily)values.GetValue(j);
             }
 
-            return valuesWithoutNone;
+            return (IReadOnlyCollection<ProjectFamily>)valuesWithoutNone;
         });
 
         public Task<long> SelectAllFamiliesCount() => Task.Run(() => Enum.GetValues(typeof(ProjectFamily)).LongLength);
 
-        public async Task<List<Build>> SelectFamily(ProjectFamily family, int limit = -1, int skip = 0)
+        public async Task<IReadOnlyCollection<Build>> SelectFamily(ProjectFamily family, int limit = -1, int skip = 0)
         {
             var query = _buildCollection.Find(new BsonDocument(nameof(Build.Family), family))
                 .Sort(sortByOrder)
@@ -50,7 +50,7 @@ namespace BuildFeed.Model
         public async Task<long> SelectFamilyCount(ProjectFamily family)
             => await _buildCollection.CountDocumentsAsync(new BsonDocument(nameof(Build.Family), family));
 
-        public async Task<List<FamilyOverview>> SelectFamilyOverviews()
+        public async Task<IReadOnlyCollection<FamilyOverview>> SelectFamilyOverviews()
         {
             var families = _buildCollection.Aggregate()
                 .Sort(sortByOrder)

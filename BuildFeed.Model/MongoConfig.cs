@@ -32,9 +32,7 @@
         public void SetupIndexes()
         {
             var b = new BuildRepository(this);
-            #pragma warning disable 4014
             b.SetupIndexes();
-            #pragma warning restore 4014
         }
     }
 }

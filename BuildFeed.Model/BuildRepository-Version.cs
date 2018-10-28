@@ -8,7 +8,7 @@ namespace BuildFeed.Model
 {
     public partial class BuildRepository
     {
-        public async Task<BuildVersion[]> SelectAllVersions(int limit = -1, int skip = 0)
+        public async Task<IReadOnlyCollection<BuildVersion>> SelectAllVersions(int limit = -1, int skip = 0)
         {
             var query = _buildCollection.Aggregate()
                 .Group(new BsonDocument("_id",
@@ -52,7 +52,7 @@ namespace BuildFeed.Model
             return query.Count;
         }
 
-        public async Task<List<Build>> SelectVersion(uint major, uint minor, int limit = -1, int skip = 0)
+        public async Task<IReadOnlyCollection<Build>> SelectVersion(uint major, uint minor, int limit = -1, int skip = 0)
         {
             var query = _buildCollection.Find(new BsonDocument
                 {

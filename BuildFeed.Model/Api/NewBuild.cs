@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace BuildFeed.Model.Api
 {
     public class NewBuildPost
     {
-        public NewBuild[] NewBuilds { get; set; }
+        public IReadOnlyCollection<NewBuild> NewBuilds { get; set; }
         public string Password { get; set; }
         public string Username { get; set; }
     }

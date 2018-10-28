@@ -9,7 +9,7 @@ namespace BuildFeed.Model
 {
     public partial class BuildRepository
     {
-        public async Task<string[]> SelectAllLabs(int limit = -1, int skip = 0)
+        public async Task<IReadOnlyCollection<string>> SelectAllLabs(int limit = -1, int skip = 0)
         {
             var query = _buildCollection.Aggregate()
                 .Group(new BsonDocument("_id", $"${nameof(Build.Lab)}"))
@@ -28,7 +28,7 @@ namespace BuildFeed.Model
                 select g["_id"].AsString).ToArray();
         }
 
-        public async Task<string[]> SelectLabsForVersion(int major, int minor)
+        public async Task<IReadOnlyCollection<string>> SelectLabsForVersion(int major, int minor)
         {
             var query = _buildCollection.Aggregate()
                 .Match(new BsonDocument
@@ -46,7 +46,7 @@ namespace BuildFeed.Model
                 select g["_id"].AsString).ToArray();
         }
 
-        public async Task<List<string>> SearchLabs(string search)
+        public async Task<IReadOnlyCollection<string>> SearchLabs(string search)
         {
             var result = await _buildCollection.Aggregate()
                 .Match(b => b.Lab != null)
@@ -72,7 +72,7 @@ namespace BuildFeed.Model
             return grouping.Count;
         }
 
-        public async Task<List<Build>> SelectLab(string lab, int limit = -1, int skip = 0)
+        public async Task<IReadOnlyCollection<Build>> SelectLab(string lab, int limit = -1, int skip = 0)
         {
             var query = _buildCollection.Find(new BsonDocument(nameof(Build.LabUrl), lab))
                 .Sort(sortByCompileDate)

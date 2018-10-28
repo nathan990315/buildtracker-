@@ -9,7 +9,7 @@ namespace BuildFeed.Model
 {
     public partial class BuildRepository
     {
-        public async Task<FrontBuildGroup[]> SelectAllGroups(int limit = -1, int skip = 0)
+        public async Task<IReadOnlyCollection<FrontBuildGroup>> SelectAllGroups(int limit = -1, int skip = 0)
         {
             var query = _buildCollection.Aggregate()
                 .Group(new BsonDocument
@@ -74,7 +74,7 @@ namespace BuildFeed.Model
             return grouping.Count;
         }
 
-        public async Task<List<Build>> SelectGroup(BuildGroup group, int limit = -1, int skip = 0)
+        public async Task<IReadOnlyCollection<Build>> SelectGroup(BuildGroup group, int limit = -1, int skip = 0)
         {
             var query = _buildCollection.Find(new BsonDocument
                 {

@@ -8,12 +8,12 @@ namespace BuildFeed.Model
 {
     public partial class BuildRepository
     {
-        public Task<TypeOfSource[]> SelectAllSources(int limit = -1, int skip = 0)
-            => Task.Run(() => Enum.GetValues(typeof(TypeOfSource)) as TypeOfSource[]);
+        public Task<IReadOnlyCollection<TypeOfSource>> SelectAllSources(int limit = -1, int skip = 0)
+            => Task.Run(() => Enum.GetValues(typeof(TypeOfSource)) as IReadOnlyCollection<TypeOfSource>);
 
         public Task<long> SelectAllSourcesCount() => Task.Run(() => Enum.GetValues(typeof(TypeOfSource)).LongLength);
 
-        public async Task<List<Build>> SelectSource(TypeOfSource source, int limit = -1, int skip = 0)
+        public async Task<IReadOnlyCollection<Build>> SelectSource(TypeOfSource source, int limit = -1, int skip = 0)
         {
             var query = _buildCollection.Find(new BsonDocument(nameof(Build.SourceType), source))
                 .Sort(sortByOrder)

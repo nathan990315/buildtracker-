@@ -11,7 +11,7 @@ namespace BuildFeed.Model
 {
     public partial class BuildRepository
     {
-        public const int CURRENT_LONG_TERM = (int)ProjectFamily.Redstone;
+        public const int CURRENT_LONG_TERM = (int)ProjectFamily.Redstone5;
         public const int CURRENT_RELEASE = (int)ProjectFamily.Redstone5;
         public const int CURRENT_XBOX = (int)ProjectFamily.Redstone5;
 
@@ -50,7 +50,9 @@ namespace BuildFeed.Model
             _buildCollection = buildDatabase.GetCollection<Build>(BUILD_COLLECTION_NAME);
         }
 
-        public async Task SetupIndexes()
+        public async void SetupIndexes() => await SetupIndexesAsync();
+
+        private async Task SetupIndexesAsync()
         {
             var indexes = await (await _buildCollection.Indexes.ListAsync()).ToListAsync();
 
@@ -133,20 +135,16 @@ namespace BuildFeed.Model
             }
         }
 
-        [DataObjectMethod(DataObjectMethodType.Select, true)]
-        public async Task<List<Build>> Select() => await _buildCollection.Find(new BsonDocument()).ToListAsync();
+        public async Task<IReadOnlyCollection<Build>> Select() => await _buildCollection.Find(new BsonDocument()).ToListAsync();
 
-        [DataObjectMethod(DataObjectMethodType.Select, false)]
         public async Task<Build> SelectById(Guid id)
             => await _buildCollection.Find(Builders<Build>.Filter.Eq(b => b.Id, id)).SingleOrDefaultAsync();
 
-        [DataObjectMethod(DataObjectMethodType.Select, false)]
         public async Task<Build> SelectByLegacyId(long id) => await _buildCollection
             .Find(Builders<Build>.Filter.Eq(b => b.LegacyId, id))
             .SingleOrDefaultAsync();
 
-        [DataObjectMethod(DataObjectMethodType.Select, false)]
-        public async Task<List<Build>> SelectBuildsByOrder(int limit = -1, int skip = 0)
+        public async Task<IReadOnlyCollection<Build>> SelectBuildsByOrder(int limit = -1, int skip = 0)
         {
             var query = _buildCollection.Find(new BsonDocument()).Sort(sortByOrder).Skip(skip);
 
@@ -158,8 +156,7 @@ namespace BuildFeed.Model
             return await query.ToListAsync();
         }
 
-        [DataObjectMethod(DataObjectMethodType.Select, false)]
-        public async Task<Dictionary<ProjectFamily, FrontPage>> SelectFrontPage()
+        public async Task<IReadOnlyDictionary<ProjectFamily, FrontPage>> SelectFrontPage()
         {
             var families = new Dictionary<ProjectFamily, FrontPage>();
 
@@ -299,8 +296,7 @@ namespace BuildFeed.Model
             return families;
         }
 
-        [DataObjectMethod(DataObjectMethodType.Select, false)]
-        public async Task<List<Build>> SelectBuildsByStringSearch(string term, int limit = -1)
+        public async Task<IReadOnlyCollection<Build>> SelectBuildsByStringSearch(string term, int limit = -1)
         {
             var query = _buildCollection.Aggregate()
                 .Match(b => b.FullBuildString != null)
@@ -315,15 +311,13 @@ namespace BuildFeed.Model
             return await query.ToListAsync();
         }
 
-        [DataObjectMethod(DataObjectMethodType.Select, false)]
         public async Task<Build> SelectBuildByFullBuildString(string build) => await _buildCollection
             .Find(Builders<Build>.Filter.Eq(b => b.FullBuildString, build))
             .SingleOrDefaultAsync();
 
-        [DataObjectMethod(DataObjectMethodType.Select, false)]
-        public async Task<List<Build>> SelectBuildsByCompileDate(int limit = -1, int skip = 0)
+        private async Task<IReadOnlyCollection<Build>> SelectBuildsBySortOption(BsonDocument sort, int limit, int skip)
         {
-            var query = _buildCollection.Find(new BsonDocument()).Sort(sortByCompileDate).Skip(skip);
+            var query = _buildCollection.Find(new BsonDocument()).Sort(sort).Skip(skip);
 
             if (limit > 0)
             {
@@ -333,33 +327,15 @@ namespace BuildFeed.Model
             return await query.ToListAsync();
         }
 
-        [DataObjectMethod(DataObjectMethodType.Select, false)]
-        public async Task<List<Build>> SelectBuildsByAddedDate(int limit = -1, int skip = 0)
-        {
-            var query = _buildCollection.Find(new BsonDocument()).Sort(sortByAddedDate).Skip(skip);
+        public Task<IReadOnlyCollection<Build>> SelectBuildsByCompileDate(int limit = -1, int skip = 0)
+            => SelectBuildsBySortOption(sortByCompileDate, limit, skip);
 
-            if (limit > 0)
-            {
-                query = query.Limit(limit);
-            }
+        public Task<IReadOnlyCollection<Build>> SelectBuildsByAddedDate(int limit = -1, int skip = 0)
+            => SelectBuildsBySortOption(sortByAddedDate, limit, skip);
 
-            return await query.ToListAsync();
-        }
+        public Task<IReadOnlyCollection<Build>> SelectBuildsByLeakedDate(int limit = -1, int skip = 0)
+            => SelectBuildsBySortOption(sortByLeakedDate, limit, skip);
 
-        [DataObjectMethod(DataObjectMethodType.Select, false)]
-        public async Task<List<Build>> SelectBuildsByLeakedDate(int limit = -1, int skip = 0)
-        {
-            var query = _buildCollection.Find(new BsonDocument()).Sort(sortByLeakedDate).Skip(skip);
-
-            if (limit > 0)
-            {
-                query = query.Limit(limit);
-            }
-
-            return await query.ToListAsync();
-        }
-
-        [DataObjectMethod(DataObjectMethodType.Insert, true)]
         public async Task Insert(Build item)
         {
             item.Id = Guid.NewGuid();
@@ -368,7 +344,6 @@ namespace BuildFeed.Model
             await _buildCollection.InsertOneAsync(item);
         }
 
-        [DataObjectMethod(DataObjectMethodType.Insert, false)]
         public async Task InsertAll(IEnumerable<Build> items)
         {
             var generatedItems = new List<Build>();
@@ -383,7 +358,6 @@ namespace BuildFeed.Model
             await _buildCollection.InsertManyAsync(generatedItems);
         }
 
-        [DataObjectMethod(DataObjectMethodType.Update, true)]
         public async Task Update(Build item)
         {
             Build old = await SelectById(item.Id);
@@ -404,7 +378,6 @@ namespace BuildFeed.Model
             }
         }
 
-        [DataObjectMethod(DataObjectMethodType.Delete, true)]
         public async Task DeleteById(Guid id)
         {
             await _buildCollection.DeleteOneAsync(Builders<Build>.Filter.Eq(b => b.Id, id));

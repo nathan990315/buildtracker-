@@ -9,7 +9,7 @@ namespace BuildFeed.Model
 {
     public partial class BuildRepository
     {
-        public async Task<int[]> SelectAllYears(int limit = -1, int skip = 0)
+        public async Task<IReadOnlyCollection<int>> SelectAllYears(int limit = -1, int skip = 0)
         {
             var query =
                 _buildCollection.Aggregate()
@@ -40,7 +40,7 @@ namespace BuildFeed.Model
             return query.Count;
         }
 
-        public async Task<List<Build>> SelectYear(int year, int limit = -1, int skip = 0)
+        public async Task<IReadOnlyCollection<Build>> SelectYear(int year, int limit = -1, int skip = 0)
         {
             var query =
                 _buildCollection.Find(Builders<Build>.Filter.And(Builders<Build>.Filter.Gte(b => b.BuildTime,

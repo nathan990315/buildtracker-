@@ -1,5 +1,5 @@
 ﻿@using Humanizer
-@model Tuple<BuildGroup, List<Build>>
+@model Tuple<BuildGroup, IReadOnlyCollection<Build>>
 @{
     ViewBag.Title = $"{Model.Item1} | {InvariantTerms.SiteName}";
 }

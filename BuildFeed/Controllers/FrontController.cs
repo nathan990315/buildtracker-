@@ -53,11 +53,14 @@ namespace BuildFeed.Controllers
         {
             var buildGroups = await _bModel.SelectAllGroups(PAGE_SIZE, (page - 1) * PAGE_SIZE);
 
-            ViewBag.PageNumber = page;
-            ViewBag.PageCount =
-                Math.Ceiling(Convert.ToDouble(await _bModel.SelectAllGroupsCount()) / Convert.ToDouble(PAGE_SIZE));
+            var pages = new Pagination
+            {
+                PageNumber = page,
+                PageCount = Convert.ToInt32(Math.Ceiling(Convert.ToDouble(await _bModel.SelectAllGroupsCount()) / Convert.ToDouble(PAGE_SIZE)))
+            };
+            HttpContext.Features.Set(pages);
 
-            if (ViewBag.PageNumber > ViewBag.PageCount)
+            if (pages.PageNumber > pages.PageCount)
             {
                 return NotFound();
             }
@@ -85,7 +88,7 @@ namespace BuildFeed.Controllers
                     {
                         id = builds.Single().Id
                     }) as ActionResult
-                : View(new Tuple<BuildGroup, List<Build>>(bg, builds));
+                : View(new Tuple<BuildGroup, IReadOnlyCollection<Build>>(bg, builds));
         }
 
         [Route("build/{id:guid}/", Name = "Build")]
