@@ -44,14 +44,14 @@
             <link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,400,700" rel="stylesheet" type="text/css" />
             break;
     }
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link href="~/res/ext/css/font-awesome.min.css" rel="stylesheet" type="text/css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
     <link rel="manifest" href="~/manifest.json" />
     <link rel="shortcut icon" href="~/favicon.ico" />
     <link rel="icon" href="~/favicon.ico" />
-    <link rel="canonical" href="@Url.Action()" />
+    <link rel="canonical" href="@ViewBag.CanonicalBase@Url.Action()" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="@InvariantTerms.SiteName" />
-    <meta property="og:url" content="@Url.Action()" />
+    <meta property="og:url" content="@ViewBag.CanonicalBase@Url.Action()" />
     <meta name="theme-color" content="#3B4252" />
     <meta name="application-name" content="@InvariantTerms.SiteName" />
     <meta name="twitter:site" content="@("@")buildfeed" />
@@ -76,17 +76,17 @@
 </head>
 <body>
 <script>
-      (function (i, s, o, g, r, a, m) {
-         i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
             (i[r].q = i[r].q || []).push(arguments);
-         }, i[r].l = 1 * new Date(); a = s.createElement(o),
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
             m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
-      })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-      ga('create', 'UA-55417692-1', 'auto');
-      ga('require', 'displayfeatures');
-      ga('require', 'linkid', 'linkid.js');
-      ga('send', 'pageview');
+    ga('create', 'UA-55417692-1', 'auto');
+    ga('require', 'displayfeatures');
+    ga('require', 'linkid', 'linkid.js');
+    ga('send', 'pageview');
 </script>
 <header id="page-header">
     <div class="container">
@@ -130,7 +130,7 @@
                 </a>
             </li>
             <li class="dropdown-parent">
-                <a href="#">
+                <a href="#" title="@VariantTerms.Support_Login">
                     <i class="fa fa-fw fa-user"></i>
                 </a>
                 <ul class="dropdown-menu">
@@ -210,7 +210,7 @@
                 </ul>
             </li>
             <li class="dropdown-parent">
-                <a href="#">
+                <a href="#" title="@VariantTerms.Common_NavigationTheme / @VariantTerms.Common_NavigationLanguage">
                     <i class="fa fa-gear fa-fw"></i>
                 </a>
                 <ul class="dropdown-menu">
@@ -312,7 +312,7 @@
 </div>
 <div id="menu-open-overlay"></div>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jsrender/1.0.0-rc.70/jsrender.min.js" integrity="sha256-3UBtL0tzgKVuJU8ZZiWLXEWGEjXEr6Z023rpauMnBUE=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="~/res/ext/jsrender.min.js" integrity="sha256-21dXJfiOXB1D/8kEXbDI0NB5qcUVUnkS3qgyOya/M6k=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="~/res/ts/bfs.js" async="async"></script>
 @if (((Theme)ViewBag.Theme).Value == SiteTheme.Winter)
 {
@@ -326,5 +326,22 @@
     </a>
 </script>
 <script type="text/javascript" src="https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5431719a661cbfd0" async="async"></script>
+<script type="text/javascript">
+    if (navigator.serviceWorker.controller)
+    {
+        console.log('[PWA Builder] active service worker found, no need to register');
+    }
+    else
+    {
+        navigator.serviceWorker.register('pwabuilder-sw.js',
+                {
+                    scope: "/"
+                })
+            .then(function(reg)
+            {
+                console.log("Service worker has been registered for scope: " + reg.scope);
+            });
+    }
+</script>
 </body>
 </html>

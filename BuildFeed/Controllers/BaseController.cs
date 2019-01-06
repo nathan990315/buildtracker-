@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System.Configuration;
+using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Web.Mvc;
@@ -24,6 +25,8 @@ namespace BuildFeed.Controllers
 
             ViewBag.Theme = new Theme(Theme.DetectTheme(requestContext.HttpContext));
             ViewBag.Version = VersionString;
+
+            ViewBag.CanonicalBase = ConfigurationManager.AppSettings["web:CanonicalBase"] ?? "";
 
             base.Initialize(requestContext);
         }
