@@ -576,7 +576,7 @@ namespace BuildFeed.Controllers
                     StringSplitOptions.RemoveEmptyEntries))
             {
                 Match m = Regex.Match(line,
-                    @"(([\d]{1,2})\.([\d]{1,2})\.)?([\d]{4,5})(\.([\d]{1,5}))?(\.| \()([a-zA-Z][a-zA-Z0-9._\(\)-]+?)\.(\d\d\d\d\d\d-\d\d\d\d)\)?");
+                    @"(([\d]{1,2})\.([\d]{1,2})\.)?([\d]{4,5})(\.([\d]{1,5}))?(\.| \()([a-zA-Z0-9][a-zA-Z0-9_\(\)]+?)\.(\d\d\d\d\d\d-\d\d\d\d)\)?");
                 if (m.Success)
                 {
                     try

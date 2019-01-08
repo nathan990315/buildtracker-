@@ -155,12 +155,15 @@ namespace BuildFeed.Model
         private void GenerateFamily()
         {
             // start with lab-based overrides
-            if (Lab?.StartsWith("rs5", StringComparison.InvariantCultureIgnoreCase) ?? false)
+            if (Lab?.StartsWith("19h1", StringComparison.InvariantCultureIgnoreCase) ?? false)
+            {
+                Family = ProjectFamily.SAR_19H1;
+            }
+            else if (Lab?.StartsWith("rs5", StringComparison.InvariantCultureIgnoreCase) ?? false)
             {
                 Family = ProjectFamily.Redstone5;
             }
-            else
-            if (Lab?.StartsWith("rs4", StringComparison.InvariantCultureIgnoreCase) ?? false)
+            else if (Lab?.StartsWith("rs4", StringComparison.InvariantCultureIgnoreCase) ?? false)
             {
                 Family = ProjectFamily.Redstone4;
             }
