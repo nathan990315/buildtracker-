@@ -553,12 +553,12 @@ namespace BuildFeed.Controllers
         }
 
         [Route("bulk/")]
-        [Authorize(Roles = "Administrators")]
+        [Authorize(Roles = "Administrators,Editors")]
         public ActionResult AddBulk() => View();
 
         [Route("bulk/")]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Administrators")]
+        [Authorize(Roles = "Administrators,Editors")]
         [HttpPost]
         public async Task<ActionResult> AddBulk(FormCollection values)
         {
